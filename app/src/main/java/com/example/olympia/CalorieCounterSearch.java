@@ -59,7 +59,7 @@ public class CalorieCounterSearch extends AppCompatActivity {
                         int status = connection.getResponseCode();
                         Log.d("message", "" + status);
 
-                        if(status >= 200){
+                        if(status > 299){
                             reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
                                 while((line = reader.readLine()) != null){
                                     responseContent.append(line);
@@ -82,6 +82,8 @@ public class CalorieCounterSearch extends AppCompatActivity {
                     } catch (
                             IOException e) {
                         e.printStackTrace();
+                    } finally {
+                        connection.disconnect();
                     }
 
                 }

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
-            android:name=".CalorieCounterSearch"
+            android:name=".CalorieCounter.CalorieCounterSearch"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

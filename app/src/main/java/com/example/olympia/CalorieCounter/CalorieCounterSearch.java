@@ -1,21 +1,19 @@
-package com.example.olympia;
+package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 
+import com.example.olympia.R;
+
+import org.apache.http.HttpRequest;
+import org.apache.http.client.HttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,7 +59,6 @@ public class CalorieCounterSearch extends AppCompatActivity {
                     connection.setReadTimeout(5000);
 
                     int status = connection.getResponseCode();
-                    Log.d("message", "" + status);
 
                     if (status > 299) {
                         reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
@@ -76,7 +73,7 @@ public class CalorieCounterSearch extends AppCompatActivity {
                         }
                     }
                     parse(responseContent.toString());
-                    Log.d("food", "are you here");
+
 
 
                 } catch (
@@ -95,13 +92,17 @@ public class CalorieCounterSearch extends AppCompatActivity {
             }
         }).start();
     }
+
+
+
      public static String parse(String responseBody){
         try {
         JSONObject responseObject = new JSONObject(responseBody);
         String searchtext = responseObject.getString("text");
         JSONArray foodlist = responseObject.getJSONArray("hints");
         for(int i = 0; i < foodlist.length(); i++) {
-            JSONObject foodobject = foodlist.getJSONObject(i);
+            JSONObject listobject = foodlist.getJSONObject(i);
+            JSONObject foodobject = listobject.getJSONObject("food");
             String label = foodobject.getString("label");
             JSONObject nutrients = foodobject.getJSONObject("nutrients");
             int calories = nutrients.getInt("ENERC_KCAL");
@@ -109,7 +110,7 @@ public class CalorieCounterSearch extends AppCompatActivity {
             int fat = nutrients.getInt("FAT");
             int cholesterol = nutrients.getInt("CHOCDF");
             int fiber = nutrients.getInt("FIBTG");
-            Log.d("food", label + "calories: " + calories + "protien: " + protein);
+            Log.d("foodlist", "food: "+ label + " Nutrients: calories = " + calories + " protien = " + protein+ " fat = " + fat + " cholesterol = " + cholesterol + " fiber = " + fiber);
         }
             } catch (JSONException e) {
                 e.printStackTrace();

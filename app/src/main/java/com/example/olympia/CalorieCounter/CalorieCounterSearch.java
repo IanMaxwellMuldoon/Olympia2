@@ -75,7 +75,6 @@ public class CalorieCounterSearch extends AppCompatActivity {
                     parse(responseContent.toString());
 
 
-
                 } catch (
                         MalformedURLException e) {
                     e.printStackTrace();
@@ -94,30 +93,44 @@ public class CalorieCounterSearch extends AppCompatActivity {
     }
 
 
-
-     public static String parse(String responseBody){
+    public static String parse(String responseBody) {
         try {
-        JSONObject responseObject = new JSONObject(responseBody);
-        String searchtext = responseObject.getString("text");
-        JSONArray foodlist = responseObject.getJSONArray("hints");
-        for(int i = 0; i < foodlist.length(); i++) {
-            JSONObject listobject = foodlist.getJSONObject(i);
-            JSONObject foodobject = listobject.getJSONObject("food");
-            String label = foodobject.getString("label");
-            JSONObject nutrients = foodobject.getJSONObject("nutrients");
-            int calories = nutrients.getInt("ENERC_KCAL");
-            int protein = nutrients.getInt("PROCNT");
-            int fat = nutrients.getInt("FAT");
-            int cholesterol = nutrients.getInt("CHOCDF");
-            int fiber = nutrients.getInt("FIBTG");
-            Log.d("foodlist", "food: "+ label + " Nutrients: calories = " + calories + " protien = " + protein+ " fat = " + fat + " cholesterol = " + cholesterol + " fiber = " + fiber);
-        }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            JSONObject responseObject = new JSONObject(responseBody);
+            String searchtext = responseObject.getString("text");
+            JSONArray foodlist = responseObject.getJSONArray("hints");
+            for (int i = 15; i < foodlist.length(); i++) {
+                int calories = 0;
+                int protein = 0;
+                int fat = 0;
+                int fiber = 0;
+                int cholesterol = 0;
+                JSONObject listobject = foodlist.getJSONObject(i);
+                JSONObject foodobject = listobject.getJSONObject("food");
+                String label = foodobject.getString("label");
+                JSONObject nutrients = foodobject.getJSONObject("nutrients");
+                if (nutrients.has("ENERC_KCAL")) {
+                    calories = nutrients.getInt("ENERC_KCAL");
+                }
+                if (nutrients.has("PROCNT")) {
+                    protein = nutrients.getInt("PROCNT");
+                }
+                if (nutrients.has("FAT")) {
+                    fat = nutrients.getInt("FAT");
+                }
+                if (nutrients.has("CHOCDF")) {
+                    cholesterol = nutrients.getInt("CHOCDF");
+                }
+                if (nutrients.has("FIBTG")) {
+                    fiber = nutrients.getInt("FIBTG");
+                }
+                Log.d("foodlist", "food: " + label + " Nutrients: calories = " + calories + " protien = " + protein + " fat = " + fat + " cholesterol = " + cholesterol + " fiber = " + fiber);
             }
-        return null;
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        return null;
     }
+}
 
 
 

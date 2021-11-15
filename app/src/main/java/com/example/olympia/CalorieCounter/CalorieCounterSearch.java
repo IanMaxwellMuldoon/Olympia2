@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-
+//This is a test for pawlo
 public class CalorieCounterSearch extends AppCompatActivity {
     private static HttpURLConnection connection;
 

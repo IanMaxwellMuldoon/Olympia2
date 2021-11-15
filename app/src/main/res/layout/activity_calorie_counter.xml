@@ -6,6 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".CalorieCounterSearch">
 
-    
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="349dp"
+        android:layout_height="46dp"
+        android:text="Calories Remaining"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="26dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Meal"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="667dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        tools:layout_editor_absoluteX="301dp"
+        tools:layout_editor_absoluteY="667dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

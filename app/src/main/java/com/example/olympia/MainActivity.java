@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         CalorieCounterSearch calorie = new CalorieCounterSearch();
         calorie.Connect("Hamburger");
+        calorie.connectSearch("ch");
 
 
     }

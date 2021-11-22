@@ -20,3 +20,7 @@ This app will include:
   * Workout Tutorials
   * Data Visualization
   * User database login system
+
+This is a test for Jira integration with Github
+
+Colin's test issue for Jira integration with GitHub

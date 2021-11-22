@@ -4,12 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 
 
 import com.example.olympia.R;
 
-import org.apache.http.HttpRequest;
-import org.apache.http.client.HttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,7 +32,78 @@ public class CalorieCounterSearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calorie_counter);
-        //RequestQueue queue = Volley.newRequestQueue(this)
+
+        //Meal Type Text
+        TextView mealType = (TextView) findViewById(R.id.mealType);
+        mealType.setText("<Testing>");
+
+        //Search Bar
+        AutoCompleteTextView searchBar = (AutoCompleteTextView) findViewById(R.id.autoComplete);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, autoList);
+    }
+
+    public void connectSearch(String input) {
+        Log.d("message","are you here?");
+        new Thread(new Runnable() {
+            public void run() {
+                BufferedReader reader;
+                String line;
+                StringBuffer responseContent = new StringBuffer();
+                try {
+                    final String URL_PREFIX = "https://api.edamam.com/auto-complete";
+                    final String API_ID = "?app_id=1ac33da3";
+                    final String API_KEY = "&app_key=8a5ff0e08e487166b798e56f3ab64627";
+                    final String INGR = "&q=";
+
+                    String urlstring = URL_PREFIX + API_ID + API_KEY + INGR + input;
+
+                    URL url = new URL(urlstring);
+                    connection = (HttpURLConnection) url.openConnection();
+
+                    connection.setRequestMethod("GET");
+                    connection.setConnectTimeout(5000);
+                    connection.setReadTimeout(5000);
+
+                    int status = connection.getResponseCode();
+
+                    if (status > 299) {
+                        reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+                        while ((line = reader.readLine()) != null) {
+                            responseContent.append(line);
+                        }
+                        reader.close();
+                    } else {
+                        reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                        while ((line = reader.readLine()) != null) {
+                            responseContent.append(line);
+                        }
+                    }
+                    parseAuto(responseContent.toString());
+                } catch (
+                        ProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                } finally {
+                    connection.disconnect();
+                }
+            }
+        }).start();
+
+    }
+
+    public void parseAuto(String responseBody) {
+        try {
+            JSONArray responseArray = new JSONArray(responseBody);
+            for (int i = 0; i < responseArray.length(); i++) {
+                String recommendation = responseArray.getString(i);
+                Log.d("recommend", recommendation);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -130,6 +202,7 @@ public class CalorieCounterSearch extends AppCompatActivity {
         }
         return null;
     }
+
 }
 
 

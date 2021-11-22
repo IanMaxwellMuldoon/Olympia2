@@ -23,5 +23,20 @@ This app will include:
 
 This is a test for Jira integration with Github
 
+<<<<<<< Updated upstream
 
 Colin's test issue for Jira integration with GitHub 
+=======
+<<<<<<< HEAD
+Colin's test issue for Jira integration with GitHub
+
+
+=======
+
+Colin's test issue for Jira integration with GitHub 
+>>>>>>> 25ad42eddb9667859a3d6c666e812a158111bdbc
+>>>>>>> Stashed changes
+
+
+
+Chad's test issue for Jira integration with GitHub

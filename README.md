@@ -40,3 +40,6 @@ Colin's test issue for Jira integration with GitHub
 >>>>>>> 25ad42eddb9667859a3d6c666e812a158111bdbc
 >>>>>>> Stashed changes
 
+=======
+THIS IS A TEST FOR PAWLO 
+

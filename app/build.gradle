@@ -39,8 +39,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 
 
-    // https://mvnrepository.com/artifact/org.json/json
-    implementation group: 'org.json', name: 'json', version: '20210307'
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     testImplementation 'junit:junit:4.+'

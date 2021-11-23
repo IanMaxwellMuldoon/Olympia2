@@ -7,7 +7,7 @@
     tools:context=".Exercises.PullExercises">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/Exercises"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/Exercises" />
 
     <Button
         android:id="@+id/button8"
@@ -62,13 +62,13 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         android:text="Dead lifts"
-        app:layout_constraintBottom_toTopOf="@+id/button11"
+        app:layout_constraintBottom_toTopOf="@+id/AddExerciseButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/AddExerciseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

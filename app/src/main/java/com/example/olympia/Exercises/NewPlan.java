@@ -26,7 +26,7 @@ public class NewPlan extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NewPlan.this, PullExercises.class);
+                Intent intent = new Intent(NewPlan .this, PullExercises.class);
                 startActivity(intent);
             }
         });

@@ -2,6 +2,7 @@ package com.example.olympia.CalorieCounter;
 
 import android.os.Bundle;
 
+import androidx.core.app.ComponentActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.example.olympia.R;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +27,9 @@ public class FragmentList extends Fragment {
     SearchView searchView;
     ArrayAdapter<Object> adapter;
 
-    //object array goes here
+    CalorieCounterSearch search = new CalorieCounterSearch();
+    List<foodItem> = search.
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

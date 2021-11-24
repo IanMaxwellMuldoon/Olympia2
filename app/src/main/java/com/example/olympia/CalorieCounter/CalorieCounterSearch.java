@@ -2,7 +2,6 @@ package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,9 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
@@ -32,7 +29,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.nio.channels.AsynchronousChannelGroup;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +46,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calorie_counter);
 
-       // new foodSearchNetworkCall().execute();
+
 
         //Meal Type Text
         TextView mealType = (TextView) findViewById(R.id.mealType);
@@ -84,6 +80,9 @@ public class CalorieCounterSearch extends AppCompatActivity{
                     nameSearch = searchBar.getText().toString();
                     new foodSearchNetworkCall().execute();
 
+                    Bundle bundle = new Bundle();
+                    //FINISH BUNDLE AND MAKE FOOD ITEM Parcelable
+
                     Intent intent = new Intent(CalorieCounterSearch.this, AddFood.class);
                     startActivity(intent);
                 }
@@ -94,9 +93,10 @@ public class CalorieCounterSearch extends AppCompatActivity{
         //searchBar.getOnItemClickListener(new AdapterView.OnItemClickListener())
 
 
-
     }
-
+    public List<foodItem> getfoodItems(){
+        return foodItems;
+    }
 
 
 
@@ -262,6 +262,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
         }
 
     }
+
 
 }
 

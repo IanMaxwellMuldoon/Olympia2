@@ -3,6 +3,7 @@ package com.example.olympia.CalorieCounter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,6 +11,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
@@ -30,6 +33,8 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.channels.AsynchronousChannelGroup;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CalorieCounterSearch extends AppCompatActivity{
@@ -37,6 +42,8 @@ public class CalorieCounterSearch extends AppCompatActivity{
     private String nameSearch;
     private String input;
     private String[] autoList = new String[]{"Chicken", "Sandwich", "Burger"};
+
+    public List<foodItem> foodItems = new ArrayList<foodItem>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,13 +75,28 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
+        searchBar.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_DONE) {
+                    nameSearch = searchBar.getText().toString();
+                    new foodSearchNetworkCall().execute();
+
+                    Intent intent = new Intent(CalorieCounterSearch.this, AddFood.class);
+                    startActivity(intent);
+                }
+                return false;
+            }
+        });
+
+        //searchBar.getOnItemClickListener(new AdapterView.OnItemClickListener())
 
 
 
     }
+
 
 
 
@@ -187,7 +209,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
     }
 
 
-    public void parseAuto(String responseBody) {
+    private void parseAuto(String responseBody) {
         try {
             JSONArray responseArray = new JSONArray(responseBody);
             autoList = new String[responseArray.length()];
@@ -203,7 +225,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
     }
 
 
-    public static String parse(String responseBody) {
+    private void parse(String responseBody) {
         try {
             JSONObject responseObject = new JSONObject(responseBody);
             String searchtext = responseObject.getString("text");
@@ -212,7 +234,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 int calories = 0;
                 int protein = 0;
                 int fat = 0;
-                int fiber = 0;
+                double fiber = 0;
                 int cholesterol = 0;
                 JSONObject listobject = foodlist.getJSONObject(i);
                 JSONObject foodobject = listobject.getJSONObject("food");
@@ -231,14 +253,14 @@ public class CalorieCounterSearch extends AppCompatActivity{
                     cholesterol = nutrients.getInt("CHOCDF");
                 }
                 if (nutrients.has("FIBTG")) {
-                    fiber = nutrients.getInt("FIBTG");
+                    fiber = nutrients.getDouble("FIBTG");
                 }
-                Log.d("foodlist", "food: " + label + " Nutrients: calories = " + calories + " protien = " + protein + " fat = " + fat + " cholesterol = " + cholesterol + " fiber = " + fiber);
+                foodItems.add(new foodItem(label, calories, protein, fat, fiber, cholesterol));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return null;
+
     }
 
 }

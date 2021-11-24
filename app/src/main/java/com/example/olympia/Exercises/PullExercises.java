@@ -10,27 +10,24 @@ import android.widget.TextView;
 
 import com.example.olympia.R;
 
-public class Exercises extends AppCompatActivity {
+public class PullExercises extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exercises);
+        setContentView(R.layout.activity_pull_exercises);
 
-        TextView exercises = (TextView) findViewById(R.id.exercises);
-        exercises.setText(" Exercises");
+        TextView Exercises = (TextView) findViewById(R.id.Exercises);
+        Exercises.setText("Exercises");
 
-        Button newPlanButton = (Button) findViewById(R.id.newPlanButton);
+        Button AddExerciseButton = (Button) findViewById(R.id.AddExerciseButton);
 
-        newPlanButton.setOnClickListener(new View.OnClickListener(){
-
+        AddExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Exercises.this, NewPlan.class);
+                Intent intent = new Intent(PullExercises.this, AddExercises.class);
                 startActivity(intent);
             }
         });
-
-
     }
 }

@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
-            android:name="WorkoutRoutines.LegWorkout"
+            android:name="com.example.olympia.WorkoutRoutines.WorkoutRoutines.LegWorkout"
             android:exported="false" />
         <activity
-            android:name="WorkoutRoutines.ChestWorkout"
+            android:name="com.example.olympia.WorkoutRoutines.WorkoutRoutines.ChestWorkout"
             android:exported="true" />
         <activity
-            android:name="WorkoutRoutines.MainActivityWorkoutsSelect"
+            android:name="com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"
             android:exported="true" />
         <activity
             android:name=".CalorieCounter.FoodList"

@@ -18,7 +18,7 @@ public class Exercises extends AppCompatActivity {
         setContentView(R.layout.activity_exercises);
 
         TextView exercises = (TextView) findViewById(R.id.exercises);
-        exercises.setText(" Exercises");
+        exercises.setText("Exercises");
 
         Button newPlanButton = (Button) findViewById(R.id.newPlanButton);
 

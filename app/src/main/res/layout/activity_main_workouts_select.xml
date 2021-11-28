@@ -5,7 +5,7 @@
     android:id="@+id/button1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="WorkoutRoutines.MainActivityWorkoutsSelect">
+    tools:context="com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect">
 
 
     <Button

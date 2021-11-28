@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/button1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="WorkoutRoutines.MainActivityWorkoutsSelect">
+
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Chest" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_below="@id/button10"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Shoulders" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_below="@id/button12"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_below="@id/button13"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Biceps" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_below="@id/button14"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Legs" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_below="@id/button15"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Triceps" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_below="@id/button16"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Abs" />
+</RelativeLayout>

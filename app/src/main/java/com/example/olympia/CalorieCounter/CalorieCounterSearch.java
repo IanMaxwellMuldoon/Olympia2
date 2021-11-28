@@ -25,6 +25,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -38,7 +39,6 @@ public class CalorieCounterSearch extends AppCompatActivity{
     private String nameSearch;
     private String input;
     private String[] autoList = new String[]{"Chicken", "Sandwich", "Burger"};
-
     public List<foodItem> foodItems = new ArrayList<foodItem>();
 
     @Override
@@ -81,7 +81,13 @@ public class CalorieCounterSearch extends AppCompatActivity{
                     new foodSearchNetworkCall().execute();
 
                     Bundle bundle = new Bundle();
-                    //FINISH BUNDLE AND MAKE FOOD ITEM Parcelable
+                    bundle.putSerializable("foodItems", (Serializable) foodItems);
+
+                    FragmentList fragmentList = new FragmentList();
+                    fragmentList.setArguments(bundle);
+                    //fragmentTransaction
+
+
 
                     Intent intent = new Intent(CalorieCounterSearch.this, AddFood.class);
                     startActivity(intent);

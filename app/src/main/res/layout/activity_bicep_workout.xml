@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="WorkoutRoutines.BicepWorkout"
+    tools:context=".WorkoutRoutines.WorkoutRoutines.BicepWorkout"
     tools:ignore="SpeakableTextPresentCheck">
 
     <LinearLayout
@@ -14,7 +14,7 @@
 
 
         <CheckedTextView
-            android:id="@+id/checkedTextView2"
+            android:id="@+id/checkedTextView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checkMark="?android:attr/listChoiceIndicatorMultiple"
@@ -38,10 +38,11 @@
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView6"
+            android:id="@+id/checkedTextView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:checked="false"
             android:text="Alternating Dumbell Curls" />
 
         <ImageView
@@ -61,10 +62,10 @@
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView7"
+            android:id="@+id/checkedTextView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
             android:checked="false"
             android:text="Rope/Straight Bar Cable Curl" />
 
@@ -86,10 +87,11 @@
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView8"
+            android:id="@+id/checkedTextView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:checked="false"
             android:text="Ez Bar Curl" />
 
         <ImageView
@@ -109,10 +111,10 @@
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView9"
+            android:id="@+id/checkedTextView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
             android:checked="false"
             android:text="EzBar or Dumbell Preacher Curl" />
 
@@ -133,10 +135,10 @@
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView10"
+            android:id="@+id/checkedTextView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
             android:checked="false"
             android:text="Hammer Curl" />
 
@@ -157,10 +159,10 @@
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView11"
+            android:id="@+id/checkedTextView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
             android:checked="false"
             android:text="Incline Dumbell Curl" />
 
@@ -181,10 +183,10 @@
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView12"
+            android:id="@+id/checkedTextView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
             android:checked="false"
             android:text="Single Arm Low Pulley Cable Curl" />
 

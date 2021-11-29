@@ -1,4 +1,4 @@
-package WorkoutRoutines;
+package com.example.olympia.WorkoutRoutines.WorkoutRoutines;
 
 import androidx.appcompat.app.AppCompatActivity;
 

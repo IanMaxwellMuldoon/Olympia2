@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.olympia.CalorieCounter.CalorieCounterSearch;
+import com.example.olympia.CalorieCounter.CalorieMenu;
+import com.example.olympia.Menus.MainMenu;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -30,6 +33,9 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 if
                 (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+
+                    Intent intent = new Intent(MainActivity2.this, MainMenu.class);
+                    startActivity(intent);
                     Toast.makeText(MainActivity2.this, "LOGIN SUCCESSFULL", Toast.LENGTH_SHORT).show();
 
                 } else
@@ -39,5 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
         });
+
+
     }
 }

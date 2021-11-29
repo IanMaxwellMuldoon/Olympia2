@@ -41,5 +41,43 @@ public class CalorieMenu extends AppCompatActivity {
             }
         });
 
+        Button lunchButton = (Button)findViewById(R.id.lunchButton);
+        lunchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalorieMenu.this, CalorieCounterSearch.class);
+                startActivity(intent);
+            }
+        });
+
+        Button dinnerButton = (Button)findViewById(R.id.dinnerButton);
+        dinnerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalorieMenu.this, CalorieCounterSearch.class);
+                startActivity(intent);
+            }
+        });
+
+        Button snacksButton = (Button)findViewById(R.id.snacksButton);
+        snacksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalorieMenu.this, CalorieCounterSearch.class);
+                startActivity(intent);
+            }
+        });
+
+        Button drinksButton = (Button)findViewById(R.id.drinksButton);
+        drinksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalorieMenu.this, CalorieCounterSearch.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 }

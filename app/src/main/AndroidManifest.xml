@@ -11,14 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
-
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true" />
         <activity
             android:name=".CalorieCounter.FoodList"
             android:exported="false" />
         <activity
             android:name=".CalorieCounter.AddFood"
             android:exported="false" />
-
         <activity
             android:name=".Exercises.AddExercises"
             android:exported="false" />

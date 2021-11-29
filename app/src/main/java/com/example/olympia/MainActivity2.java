@@ -29,17 +29,15 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if
-                (username.getText(). toString().equals("admin") && password.getText().toString().equals("admin"))
-                {
-                    Toast.makeText(MainActivity2.this,"LOGIN SUCCESSFULL", Toast.LENGTH_SHORT).show();
+                (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+                    Toast.makeText(MainActivity2.this, "LOGIN SUCCESSFULL", Toast.LENGTH_SHORT).show();
 
-                }
-                else
-                    Toast.makeText(MainActivity2.this,"LOGIN Failed, Try Again", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(MainActivity2.this, "LOGIN Failed, Try Again", Toast.LENGTH_SHORT).show();
 
-        })
+            }
 
 
-
+        });
     }
 }

@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
+            android:name="WorkoutRoutines.AbWorkout"
+            android:exported="false" />
+        <activity
+            android:name="WorkoutRoutines.TricepWorkout"
+            android:exported="false" />
+        <activity
+            android:name="WorkoutRoutines.BicepWorkout"
+            android:exported="false" />
+        <activity
+            android:name="WorkoutRoutines.BackWorkout"
+            android:exported="false" />
+        <activity
+            android:name="WorkoutRoutines.ShoulderWorkout"
+            android:exported="false" />
+        <activity
             android:name="WorkoutRoutines.LegWorkout"
             android:exported="false" />
         <activity

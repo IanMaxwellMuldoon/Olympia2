@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="WorkoutRoutines.LegWorkout"
+    tools:context="WorkoutRoutines.BackWorkout"
     tools:ignore="SpeakableTextPresentCheck">
 
     <LinearLayout
@@ -19,19 +19,19 @@
             android:layout_height="wrap_content"
             android:checkMark="@android:drawable/checkbox_off_background"
             android:checked="false"
-            android:text="Barbell Squat" />
+            android:text="Lat Pull Down" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/barbellsquats" />
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/latpulldown" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4 sets, 8-10 reps (rest 2 min in between sets)" />
+            android:text="4 sets, 8-10 reps (rest 90 sec in between sets)" />
 
         <Space
             android:layout_width="match_parent"
@@ -42,19 +42,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checkMark="@android:drawable/checkbox_off_background"
-            android:text="Front Squat" />
+            android:text="Seated Dumbell Single Arm Bent Over Row" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            app:srcCompat="@drawable/frontsquat" />
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/dumbellbentover" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4 sets, 8-10 reps (rest 2 min in between sets) " />
+            android:text="4 sets, 8-10 reps (rest 90 sec in between sets) " />
 
         <Space
             android:layout_width="match_parent"
@@ -66,19 +66,20 @@
             android:layout_height="wrap_content"
             android:checkMark="@android:drawable/checkbox_off_background"
             android:checked="false"
-            android:text="Hack Squat" />
+            android:text="Seated Cable Row" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
-            android:layout_height="258dp"
-            app:srcCompat="@drawable/hack" />
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/seatedcablerow" />
+
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4 sets, 8-10 reps (rest 2 min in between sets) " />
+            android:text="4 sets, 8-10 reps (rest 90 sec in between sets) " />
 
         <Space
             android:layout_width="match_parent"
@@ -89,19 +90,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checkMark="@android:drawable/checkbox_off_background"
-            android:text="Leg Press" />
+            android:text="Close Grip Pulldown" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/legpress" />
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/closegrippull" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4 sets, 8-10 reps (rest 2 min sec in between sets)" />
+            android:text="4 sets, 8-10 reps (rest 90 sec in between sets)" />
 
         <Space
             android:layout_width="match_parent"
@@ -113,19 +114,19 @@
             android:layout_height="wrap_content"
             android:checkMark="@android:drawable/checkbox_off_background"
             android:checked="false"
-            android:text="Leg Extension" />
+            android:text="Barbell Row" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/legcurl" />
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/barbellrow" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4 sets, 8-10 reps (rest 1 min in between sets)" />
+            android:text="4 sets, 8-10 reps (rest 90 sec in between sets)" />
 
         <Space
             android:layout_width="match_parent"
@@ -137,13 +138,13 @@
             android:layout_height="wrap_content"
             android:checkMark="@android:drawable/checkbox_off_background"
             android:checked="false"
-            android:text="Leg Curl" />
+            android:text="Reverse Grip Pulldown" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/legcurll" />
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/reversegrippull" />
 
         <TextView
             android:id="@+id/textView8"
@@ -156,46 +157,121 @@
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView"
+            android:id="@+id/checkedTextView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lying Leg Curl"
             android:checkMark="@android:drawable/checkbox_off_background"
-            android:checked="false" />
+            android:checked="false"
+            android:text="Rope/Bar Pulldown" />
 
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:srcCompat="@drawable/lyinglegcurl" />
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/ropepulldown" />
+
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="4 sets, 8-10 reps (rest 90 sec in between sets)" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="100dp"></Space>
 
         <CheckedTextView
-            android:id="@+id/checkedTextView1"
+            android:id="@+id/checkedTextView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calf Raises Standing/Seated"
             android:checkMark="@android:drawable/checkbox_off_background"
-            android:checked="false" />
+            android:checked="false"
+            android:text="Machine/Barbell Tbar Row" />
 
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:srcCompat="@drawable/calfraises" />
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/tbarrow" />
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="4 sets, 8-10 reps (rest 60 sec in between sets)" />
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 90 sec in between sets)" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checked="false"
+            android:text="Pull Up" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/pullup" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 90 sec in between sets)" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checked="false"
+            android:text="Barbell Deadlift" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/deadlift" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 2 min in between sets)" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checked="false"
+            android:text="Barbell/Dumbell Shrug" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/shrugs" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 90 sec in between sets)" />
+
 
     </LinearLayout>
 

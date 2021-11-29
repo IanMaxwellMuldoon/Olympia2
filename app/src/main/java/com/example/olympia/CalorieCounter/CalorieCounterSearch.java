@@ -2,7 +2,6 @@ package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,9 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
@@ -28,11 +25,11 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.nio.channels.AsynchronousChannelGroup;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +39,6 @@ public class CalorieCounterSearch extends AppCompatActivity{
     private String nameSearch;
     private String input;
     private String[] autoList = new String[]{"Chicken", "Sandwich", "Burger"};
-
     public List<foodItem> foodItems = new ArrayList<foodItem>();
 
     @Override
@@ -50,11 +46,11 @@ public class CalorieCounterSearch extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calorie_counter);
 
-       // new foodSearchNetworkCall().execute();
+
 
         //Meal Type Text
         TextView mealType = (TextView) findViewById(R.id.mealType);
-        mealType.setText("<Testing>");
+        mealType.setText("<Food Type>");
 
         //Search Bar
         AutoCompleteTextView searchBar = (AutoCompleteTextView) findViewById(R.id.autoComplete);
@@ -84,6 +80,15 @@ public class CalorieCounterSearch extends AppCompatActivity{
                     nameSearch = searchBar.getText().toString();
                     new foodSearchNetworkCall().execute();
 
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("foodItems", (Serializable) foodItems);
+
+                    FragmentList fragmentList = new FragmentList();
+                    fragmentList.setArguments(bundle);
+                    //fragmentTransaction
+
+
+
                     Intent intent = new Intent(CalorieCounterSearch.this, AddFood.class);
                     startActivity(intent);
                 }
@@ -94,9 +99,10 @@ public class CalorieCounterSearch extends AppCompatActivity{
         //searchBar.getOnItemClickListener(new AdapterView.OnItemClickListener())
 
 
-
     }
-
+    public List<foodItem> getfoodItems(){
+        return foodItems;
+    }
 
 
 
@@ -262,6 +268,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
         }
 
     }
+
 
 }
 

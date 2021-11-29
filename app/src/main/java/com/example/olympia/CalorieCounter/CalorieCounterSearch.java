@@ -50,7 +50,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
         //Meal Type Text
         TextView mealType = (TextView) findViewById(R.id.mealType);
-        mealType.setText("<Testing>");
+        mealType.setText("<Food Type>");
 
         //Search Bar
         AutoCompleteTextView searchBar = (AutoCompleteTextView) findViewById(R.id.autoComplete);

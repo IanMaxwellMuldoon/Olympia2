@@ -13,6 +13,14 @@
         android:theme="@style/Theme.Olympia">
         <activity
             android:name=".CalorieCounter.CalorieMenu"
+            android:exported="false"
+
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+
             android:exported="true" />
         <activity
             android:name=".CalorieCounter.FoodList"

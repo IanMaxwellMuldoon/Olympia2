@@ -2,8 +2,10 @@ package com.example.olympia.CalorieCounter;
 
 import android.os.Bundle;
 
+import androidx.core.app.ComponentActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,10 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.example.olympia.R;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +30,24 @@ public class FragmentList extends Fragment {
     SearchView searchView;
     ArrayAdapter<Object> adapter;
 
-    //object array goes here
+    ArrayAdapter<String> testAdapter;
+    String[] stringData;
+    String[] testData = {"Hamburger", "Chicken", "Toast", "Fries", "Salad", "Pizza", "Cheese"};
+    ArrayList<foodItem> foodList = CalorieCounterSearch.foodItems;
+
+   // List<foodItem> = search.
+
+
+
+ @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,19 +80,20 @@ public class FragmentList extends Fragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        List<foodItem> foodlist = CalorieCounterSearch.foodItems;
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        listView = (ListView) view.findViewById(R.id.idListView);
+        testAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, testData);
+        listView.setAdapter(testAdapter);
+        return view;
     }
 }

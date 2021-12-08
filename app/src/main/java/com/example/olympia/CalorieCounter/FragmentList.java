@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.core.app.ComponentActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.widget.SearchView;
 
 import com.example.olympia.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -27,6 +30,10 @@ public class FragmentList extends Fragment {
     SearchView searchView;
     ArrayAdapter<Object> adapter;
 
+    ArrayAdapter<String> testAdapter;
+    String[] stringData;
+    String[] testData = {"Hamburger", "Chicken", "Toast", "Fries", "Salad", "Pizza", "Cheese"};
+    ArrayList<foodItem> foodList = CalorieCounterSearch.foodItems;
 
    // List<foodItem> = search.
 
@@ -77,7 +84,16 @@ public class FragmentList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        List<foodItem> foodlist = CalorieCounterSearch.foodItems;
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        listView = (ListView) view.findViewById(R.id.idListView);
+        testAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, testData);
+        listView.setAdapter(testAdapter);
+        return view;
     }
 }

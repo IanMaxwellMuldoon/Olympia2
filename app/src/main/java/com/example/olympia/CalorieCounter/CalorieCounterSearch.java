@@ -1,6 +1,7 @@
 package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -39,7 +40,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
     private String nameSearch;
     private String input;
     private String[] autoList = new String[]{"Chicken", "Sandwich", "Burger"};
-    public List<foodItem> foodItems = new ArrayList<foodItem>();
+    public static ArrayList<foodItem> foodItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,16 +82,16 @@ public class CalorieCounterSearch extends AppCompatActivity{
                     new foodSearchNetworkCall().execute();
 
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("foodItems", (Serializable) foodItems);
+                    bundle.putParcelableArrayList("foodItems", foodItems);
 
                     FragmentList fragmentList = new FragmentList();
                     fragmentList.setArguments(bundle);
+
                     //fragmentTransaction
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.placeholder, new FragmentList());
+                    ft.commit();
 
-
-
-                    Intent intent = new Intent(CalorieCounterSearch.this, AddFood.class);
-                    startActivity(intent);
                 }
                 return false;
             }
@@ -233,10 +234,11 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
     private void parse(String responseBody) {
         try {
+            foodItems = new ArrayList<foodItem>();
             JSONObject responseObject = new JSONObject(responseBody);
             String searchtext = responseObject.getString("text");
             JSONArray foodlist = responseObject.getJSONArray("hints");
-            for (int i = 15; i < foodlist.length(); i++) {
+            for (int i = 0; i < foodlist.length(); i++) {
                 int calories = 0;
                 int protein = 0;
                 int fat = 0;

@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
-
             android:name=".WorkoutRoutines.WorkoutRoutines.BicepSelectedPlan"
             android:exported="false" />
         <activity
@@ -38,6 +37,8 @@
             android:exported="true" />
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"
+            android:exported="false" />
+        <activity
             android:name=".Menus.MainMenu"
             android:exported="false" />
         <activity

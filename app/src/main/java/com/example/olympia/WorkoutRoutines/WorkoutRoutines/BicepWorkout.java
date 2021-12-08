@@ -2,6 +2,7 @@ package com.example.olympia.WorkoutRoutines.WorkoutRoutines;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.olympia.R;
@@ -36,6 +37,7 @@ public class BicepWorkout extends AppCompatActivity {
         checkbox6 = (CheckedTextView) findViewById(R.id.checkedTextView6);
         checkbox7 = (CheckedTextView) findViewById(R.id.checkedTextView7);
         checkbox8 = (CheckedTextView) findViewById(R.id.checkedTextView8);
+        add = (Button) findViewById(R.id.button10);
 
         checkbox1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,5 +126,17 @@ public class BicepWorkout extends AppCompatActivity {
                     checkbox8.setChecked(true);
             }
         });
+
+        add.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                openBicepSelectedPlan();
+            }
+        });
+
+
+    }
+    public void openBicepSelectedPlan(){
+        Intent intent = new Intent (this, BicepSelectedPlan.class);
+        startActivity(intent);
     }
 }

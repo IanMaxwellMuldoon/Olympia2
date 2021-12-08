@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
-            android:name="com.example.olympia.WorkoutRoutines.WorkoutRoutines.AbWorkout"
+            android:name=".WorkoutRoutines.WorkoutRoutines.BicepSelectedPlan"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.AbWorkout"
             android:exported="false" />
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.TricepWorkout"
@@ -27,15 +30,13 @@
             android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderWorkout"
             android:exported="false" />
         <activity
-
-            android:name="com.example.olympia.WorkoutRoutines.WorkoutRoutines.LegWorkout"
-
+            android:name=".WorkoutRoutines.WorkoutRoutines.LegWorkout"
             android:exported="false" />
         <activity
-            android:name="com.example.olympia.WorkoutRoutines.WorkoutRoutines.ChestWorkout"
+            android:name=".WorkoutRoutines.WorkoutRoutines.ChestWorkout"
             android:exported="true" />
         <activity
-            android:name="com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"
+            android:name=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"
             android:exported="true" />
         <activity
             android:name=".CalorieCounter.FoodList"

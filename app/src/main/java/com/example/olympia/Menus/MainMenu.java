@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import com.example.olympia.CalorieCounter.CalorieMenu;
 import com.example.olympia.Exercises.Exercises;
-import com.example.olympia.MainActivity2;
 import com.example.olympia.R;
 
 public class MainMenu extends AppCompatActivity {

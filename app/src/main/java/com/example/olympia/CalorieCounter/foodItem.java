@@ -90,6 +90,10 @@ public class foodItem implements Parcelable {
         this.cholesterol = cholesterol;
     }
 
+    public String toString(){
+        return label;
+    }
+
     @Override
     public int describeContents() {
         return 0;

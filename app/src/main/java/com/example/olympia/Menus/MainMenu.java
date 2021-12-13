@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.example.olympia.CalorieCounter.CalorieMenu;
 import com.example.olympia.Exercises.Exercises;
 import com.example.olympia.R;
+import com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -36,6 +37,13 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-
+        Button tutorialWorkouts = (Button)findViewById(R.id.tutorialWorkouts);
+        tutorialWorkouts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenu.this, MainActivityWorkoutsSelect.class);
+                startActivity(intent);
+            }
+        });
     }
 }

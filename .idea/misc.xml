@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
+        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_calorie_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_ab_workout.xml" value="0.335" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_back_workout.xml" value="0.10176236498010233" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_bicep_seclected_plan.xml" value="0.16712962962962963" />
@@ -13,15 +15,13 @@
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_exercises.xml" value="0.221875" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_leg_workout.xml" value="0.335" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main.xml" value="0.2640625" />
+        <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main_menu.xml" value="0.335" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main_workouts_select.xml" value="0.25" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_shoulder_workout.xml" value="0.375" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_tricep_workout.xml" value="0.375" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/content_exercise.xml" value="0.221875" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_first.xml" value="0.221875" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_second.xml" value="0.221875" />
-        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_calorie_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia/app/src/main/res/layout/activity_calorie_counter.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_add_food.xml" value="0.18541666666666667" />

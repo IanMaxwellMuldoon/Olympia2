@@ -127,16 +127,16 @@ public class BicepWorkout extends AppCompatActivity {
             }
         });
 
-        add.setOnClickListener(new View.OnClickListener() {
+     /*   add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 openBicepSelectedPlan();
             }
-        });
+        }); */
 
 
     }
-    public void openBicepSelectedPlan(){
+   /* public void openBicepSelectedPlan(){
         Intent intent = new Intent (this, BicepSelectedPlan.class);
         startActivity(intent);
-    }
+    } */
 }

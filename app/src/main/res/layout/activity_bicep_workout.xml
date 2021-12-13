@@ -202,14 +202,14 @@
             android:layout_height="wrap_content"
             android:text="4 sets, 8-10 reps (rest 60 sec in between sets)" />
 
-        <Button
+      <!--  <Button
             android:id="@+id/button10"
             android:layout_width="218dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Create Workout" />
+            android:text="Create Workout" /> -->
 
     </LinearLayout>
 

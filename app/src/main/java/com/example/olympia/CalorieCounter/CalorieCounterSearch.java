@@ -61,7 +61,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
+            //When the user is typing
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 input = searchBar.getText().toString();
@@ -74,23 +74,15 @@ public class CalorieCounterSearch extends AppCompatActivity{
             public void afterTextChanged(Editable s) {
             }
         });
+        // When the user hits "enter"
         searchBar.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId == EditorInfo.IME_ACTION_DONE) {
                     nameSearch = searchBar.getText().toString();
                     new foodSearchNetworkCall().execute();
+                    Log.d("message","food network call");
 
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelableArrayList("foodItems", foodItems);
-
-                    FragmentList fragmentList = new FragmentList();
-                    fragmentList.setArguments(bundle);
-
-                    //fragmentTransaction
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.placeholder, new FragmentList());
-                    ft.commit();
 
                 }
                 return false;
@@ -159,6 +151,12 @@ public class CalorieCounterSearch extends AppCompatActivity{
             } finally {
                 connection.disconnect();
             }
+            Log.d("message", "" + foodItems);
+            //fragmentTransaction - Start Result List
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.placeholder, new FragmentList());
+            ft.commit();
+
             return null;
         }
 
@@ -215,7 +213,6 @@ public class CalorieCounterSearch extends AppCompatActivity{
         }
     }
 
-
     private void parseAuto(String responseBody) {
         try {
             JSONArray responseArray = new JSONArray(responseBody);
@@ -263,6 +260,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 if (nutrients.has("FIBTG")) {
                     fiber = nutrients.getDouble("FIBTG");
                 }
+                Log.d("message", "Added a new Item to List!!!!!!!!");
                 foodItems.add(new foodItem(label, calories, protein, fat, fiber, cholesterol));
             }
         } catch (JSONException e) {

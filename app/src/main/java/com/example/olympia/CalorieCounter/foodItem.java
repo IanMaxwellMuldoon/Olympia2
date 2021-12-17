@@ -3,7 +3,7 @@ package com.example.olympia.CalorieCounter;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class foodItem implements Parcelable {
+public class foodItem  {
     private  String label = null;
     private int calories;
     private int protien;
@@ -19,28 +19,6 @@ public class foodItem implements Parcelable {
         fiber = fib;
         cholesterol = cho;
     }
-
-
-    protected foodItem(Parcel in) {
-        label = in.readString();
-        calories = in.readInt();
-        protien = in.readInt();
-        fat = in.readInt();
-        fiber = in.readDouble();
-        cholesterol = in.readInt();
-    }
-
-    public static final Creator<foodItem> CREATOR = new Creator<foodItem>() {
-        @Override
-        public foodItem createFromParcel(Parcel in) {
-            return new foodItem(in);
-        }
-
-        @Override
-        public foodItem[] newArray(int size) {
-            return new foodItem[size];
-        }
-    };
 
     public String getLabel() {
         return label;
@@ -94,18 +72,8 @@ public class foodItem implements Parcelable {
         return label;
     }
 
-    @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(label);
-        dest.writeInt(calories);
-        dest.writeInt(protien);
-        dest.writeInt(fat);
-        dest.writeDouble(fiber);
-        dest.writeInt(cholesterol);
-    }
 }

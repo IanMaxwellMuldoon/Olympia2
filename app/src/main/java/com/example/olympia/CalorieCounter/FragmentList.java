@@ -85,15 +85,25 @@ public class FragmentList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        List<foodItem> foodlist = CalorieCounterSearch.foodItems;
-
-
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         listView = (ListView) view.findViewById(R.id.idListView);
-        testAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, testData);
+        testAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getStringList());
         listView.setAdapter(testAdapter);
         return view;
+    }
+    private String[] getStringList(){
+        List<String> list = new ArrayList<String>();
+        for(int i = 0; i < foodList.size(); i++){
+            String test = foodList.get(i).getLabel();
+            String test2 = foodList.get(i+1).getLabel();
+            if(foodList.get(i).getLabel().equals(foodList.get(i+1).getLabel())){
+                list.add(foodList.get(i).getLabel());
+                break;
+            }
+            list.add(foodList.get(i).getLabel());
+        }
+        return list.toArray(new String[list.size()]);
     }
 }

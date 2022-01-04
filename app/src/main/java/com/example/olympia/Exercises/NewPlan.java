@@ -1,34 +1,31 @@
 package com.example.olympia.Exercises;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+
 
 import com.example.olympia.R;
 
-public class NewPlan extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class NewPlan extends AppCompatActivity {
+    Plan pullExercises = new Plan("Pull Exercises", null);
+    Plan pushExercises = new Plan("Push Exercises", null);
+    Plan Legs = new Plan("Legs", null);
+    Plan Abs = new Plan("Abs", null);
+    Plan Cardio = new Plan("Cardio", null);
+    ArrayList<Plan> initialPList = new ArrayList<Plan>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_plan);
 
-        TextView newPlanText = (TextView) findViewById(R.id.newPlanText);
-        newPlanText.setText("New Plan");
+        initialPList.add(pullExercises);
+        initialPList.add(pushExercises);
+        initialPList.add(Legs);
+        initialPList.add(Abs);
+        initialPList.add(Cardio);
 
-        Button PullExercisesButton = (Button) findViewById(R.id.PullExercisesButton);
 
-        PullExercisesButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(NewPlan .this, PullExercises.class);
-                startActivity(intent);
-            }
-        });
     }
 }

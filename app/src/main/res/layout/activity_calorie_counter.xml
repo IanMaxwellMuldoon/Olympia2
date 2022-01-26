@@ -17,6 +17,8 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="107dp"
         android:layout_marginBottom="13dp"
+        android:text="Meal Type"
+        android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/autoComplete"
         app:layout_constraintEnd_toEndOf="parent"

@@ -113,7 +113,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 final String API_ID = "?app_id=1ac33da3";
                 final String API_KEY = "&app_key=8a5ff0e08e487166b798e56f3ab64627";
                 final String INGR = "&ingr=";
-                final String URL_SUFFIX = "&nutrition-type=logging";
+                final String URL_SUFFIX = "&nutrition-type=cooking";
 
                 String urlstring = URL_PREFIX + API_ID + API_KEY + INGR + nameSearch + URL_SUFFIX;
 
@@ -219,7 +219,6 @@ public class CalorieCounterSearch extends AppCompatActivity{
             autoList = new String[responseArray.length()];
             for (int i = 0; i < responseArray.length(); i++) {
                 String recommendation = responseArray.getString(i);
-                Log.d("recommend", recommendation);
                 autoList[i] = recommendation;
             }
 
@@ -231,7 +230,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
     private void parse(String responseBody) {
         try {
-            foodItems = new ArrayList<foodItem>();
+            foodItems = new ArrayList<>();
             JSONObject responseObject = new JSONObject(responseBody);
             String searchtext = responseObject.getString("text");
             JSONArray foodlist = responseObject.getJSONArray("hints");
@@ -241,6 +240,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 int fat = 0;
                 double fiber = 0;
                 int cholesterol = 0;
+                String brand = null;
                 JSONObject listobject = foodlist.getJSONObject(i);
                 JSONObject foodobject = listobject.getJSONObject("food");
                 String label = foodobject.getString("label");
@@ -260,8 +260,12 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 if (nutrients.has("FIBTG")) {
                     fiber = nutrients.getDouble("FIBTG");
                 }
-                Log.d("message", "Added a new Item to List!!!!!!!!");
-                foodItems.add(new foodItem(label, calories, protein, fat, fiber, cholesterol));
+                if(foodobject.has("brand")) {
+                    brand = foodobject.getString("brand");
+                }
+
+
+                foodItems.add(new foodItem(label, brand, calories, protein, fat, fiber, cholesterol));
             }
         } catch (JSONException e) {
             e.printStackTrace();

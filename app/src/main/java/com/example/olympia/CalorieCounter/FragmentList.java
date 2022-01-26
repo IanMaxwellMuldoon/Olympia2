@@ -86,11 +86,13 @@ public class FragmentList extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-
         View view = inflater.inflate(R.layout.fragment_list, container, false);
+
+        //setting listview and adapter for search results
         listView = (ListView) view.findViewById(R.id.idListView);
-        testAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getStringList());
-        listView.setAdapter(testAdapter);
+        FoodAdapter foodAdapter = new FoodAdapter(getActivity().getApplicationContext(), R.layout.fooditem, foodList);
+       // ArrayAdapter test = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, testData);
+        listView.setAdapter(foodAdapter);
         return view;
     }
     private String[] getStringList(){

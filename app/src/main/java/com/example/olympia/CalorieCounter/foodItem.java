@@ -6,15 +6,17 @@ import android.os.Parcelable;
 public class foodItem  {
     private  String label = null;
     private int calories;
-    private int protien;
+    private int protein;
     private int fat;
     private double fiber;
     private int cholesterol;
+    private String brand;
 
-    public foodItem(String label, int cal, int ptn, int fat, double fib, int cho){
+    public foodItem(String label, String brand, int cal, int ptn, int fat, double fib, int cho){
         this.label = label;
+        this.brand = brand;
         calories = cal;
-        protien = ptn;
+        protein = ptn;
         this.fat = fat;
         fiber = fib;
         cholesterol = cho;
@@ -36,12 +38,12 @@ public class foodItem  {
         this.calories = calories;
     }
 
-    public int getProtien() {
-        return protien;
+    public int getProtein() {
+        return protein;
     }
 
-    public void setProtien(int protien) {
-        this.protien = protien;
+    public void setProtein(int protein) {
+        this.protein = protein;
     }
 
     public int getFat() {
@@ -68,12 +70,28 @@ public class foodItem  {
         this.cholesterol = cholesterol;
     }
 
+    @Override
     public String toString(){
         return label;
+    }
+
+    public String getSubTitle(){
+        if(brand != null) {
+            return "Brand: " + getBrand() + ", Calories: " + getCalories();
+        }else{
+            return "Calories: " + getCalories();
+        }
     }
 
     public int describeContents() {
         return 0;
     }
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 }

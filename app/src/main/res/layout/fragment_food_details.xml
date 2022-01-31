@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".CalorieCounter.FragmentList">
+    tools:context=".CalorieCounter.FoodDetails.FoodDetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ListView
-        android:id="@+id/idListView"
+        android:id="@+id/detaillistid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
          />

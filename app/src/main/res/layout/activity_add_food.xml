@@ -8,19 +8,95 @@
 
     <TextView
         android:id="@+id/addFoodTitle"
-        android:layout_width="146dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="177dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="636dp"
-        android:text="TextView"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="36dp"
+        android:text="Add Food"
+        android:textColor="@color/black"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Labelid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:text="Food"
+        android:textSize="40dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addFoodTitle" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+
+        android:text="Number of Servings"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Labelid" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="37dp"
+        android:text="Serving Size"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="500dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="52dp"
+        android:background="#E91E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageButton
+        android:id="@+id/doneButtonid"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="38dp"
+        android:src="@drawable/baseline_done_black_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:text="Calories"
+
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/CalorieID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="38dp"
+        android:text="30"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

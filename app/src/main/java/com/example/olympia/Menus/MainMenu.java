@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.olympia.CalorieCounter.CalorieMenu;
-import com.example.olympia.Exercises.Exercises;
 import com.example.olympia.R;
 import com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect;
 

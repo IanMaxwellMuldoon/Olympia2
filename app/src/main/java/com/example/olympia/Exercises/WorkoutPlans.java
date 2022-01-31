@@ -8,7 +8,7 @@ import com.example.olympia.R;
 
 import java.util.ArrayList;
 
-public class NewPlan extends AppCompatActivity {
+public class WorkoutPlans extends AppCompatActivity {
     Plan pullExercises = new Plan("Pull Exercises", null);
     Plan pushExercises = new Plan("Push Exercises", null);
     Plan Legs = new Plan("Legs", null);

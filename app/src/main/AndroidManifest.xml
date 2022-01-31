@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
+            android:name=".Exercises.PlanMenu"
+            android:exported="false" />
+        <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.BicepSelectedPlan"
             android:exported="false" />
         <activity
@@ -43,7 +46,6 @@
             android:exported="false" />
         <activity
             android:name=".CalorieCounter.CalorieMenu"
-
             android:exported="true" />
         <activity
             android:name=".CalorieCounter.FoodList"
@@ -63,9 +65,6 @@
         <activity
             android:name=".Exercises.ChoosePlan"
             android:exported="false" />
-        <activity
-            android:name=".Exercises.Exercises"
-            android:exported="true" />
         <activity
             android:name=".CalorieCounter.CalorieCounterSearch"
             android:exported="true" />

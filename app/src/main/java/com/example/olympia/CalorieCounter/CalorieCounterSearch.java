@@ -3,7 +3,6 @@ package com.example.olympia.CalorieCounter;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,7 +25,6 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -40,7 +38,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
     private String nameSearch;
     private String input;
     private String[] autoList = new String[]{"Chicken", "Sandwich", "Burger"};
-    public static ArrayList<foodItem> foodItems;
+    public static ArrayList<FoodItem> FoodItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,8 +91,8 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
 
     }
-    public List<foodItem> getfoodItems(){
-        return foodItems;
+    public List<FoodItem> getfoodItems(){
+        return FoodItems;
     }
 
 
@@ -151,10 +149,10 @@ public class CalorieCounterSearch extends AppCompatActivity{
             } finally {
                 connection.disconnect();
             }
-            Log.d("message", "" + foodItems);
+
             //fragmentTransaction - Start Result List
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.placeholder, new FragmentList());
+            ft.replace(R.id.placeholder, new ResultList());
             ft.commit();
 
             return null;
@@ -230,7 +228,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
     private void parse(String responseBody) {
         try {
-            foodItems = new ArrayList<>();
+            FoodItems = new ArrayList<>();
             JSONObject responseObject = new JSONObject(responseBody);
             String searchtext = responseObject.getString("text");
             JSONArray foodlist = responseObject.getJSONArray("hints");
@@ -265,7 +263,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 }
 
 
-                foodItems.add(new foodItem(label, brand, calories, protein, fat, fiber, cholesterol));
+                FoodItems.add(new FoodItem(label, brand, calories, protein, fat, fiber, cholesterol));
             }
         } catch (JSONException e) {
             e.printStackTrace();

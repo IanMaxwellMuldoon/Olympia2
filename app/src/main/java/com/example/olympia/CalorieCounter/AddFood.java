@@ -14,7 +14,13 @@ public class AddFood extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
 
-        TextView addFood = (TextView) findViewById(R.id.addFoodTitle);
-        addFood.setText("Add Food");
+        TextView FoodTitle = (TextView) findViewById(R.id.addFoodTitle);
+        TextView Calories = (TextView) findViewById(R.id.CalorieID);
+
+        FoodItem selectedFood = new FoodItem();
+        selectedFood = ResultList.selectedFood;
+
+        int cal = selectedFood.getCalories();
+        Calories.setText(""+cal);
     }
 }

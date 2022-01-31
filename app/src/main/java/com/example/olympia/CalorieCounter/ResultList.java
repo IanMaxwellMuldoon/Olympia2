@@ -1,14 +1,14 @@
 package com.example.olympia.CalorieCounter;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.core.app.ComponentActivity;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -16,25 +16,23 @@ import android.widget.SearchView;
 import com.example.olympia.R;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentList#newInstance} factory method to
+ * Use the {@link ResultList#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentList extends Fragment {
-    ListView listView;
+public class ResultList extends Fragment {
+    private ListView listView;
 
-    SearchView searchView;
-    ArrayAdapter<Object> adapter;
+    private SearchView searchView;
+    private ArrayAdapter<Object> adapter;
 
     ArrayAdapter<String> testAdapter;
-    String[] stringData;
-    String[] testData = {"Hamburger", "Chicken", "Toast", "Fries", "Salad", "Pizza", "Cheese"};
-    ArrayList<foodItem> foodList = CalorieCounterSearch.foodItems;
 
+    private ArrayList<FoodItem> foodList = CalorieCounterSearch.FoodItems;
+
+    public static FoodItem selectedFood;
    // List<foodItem> = search.
 
 
@@ -58,7 +56,7 @@ public class FragmentList extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentList() {
+    public ResultList() {
         // Required empty public constructor
     }
 
@@ -71,8 +69,8 @@ public class FragmentList extends Fragment {
      * @return A new instance of fragment FragmentList.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentList newInstance(String param1, String param2) {
-        FragmentList fragment = new FragmentList();
+    public static ResultList newInstance(String param1, String param2) {
+        ResultList fragment = new ResultList();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -86,26 +84,24 @@ public class FragmentList extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        View view = inflater.inflate(R.layout.result_list, container, false);
 
         //setting listview and adapter for search results
         listView = (ListView) view.findViewById(R.id.idListView);
-        FoodAdapter foodAdapter = new FoodAdapter(getActivity().getApplicationContext(), R.layout.fooditem, foodList);
-       // ArrayAdapter test = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, testData);
+        FoodAdapter foodAdapter = new FoodAdapter(getActivity().getApplicationContext(), R.layout.resultlist_item, foodList);
         listView.setAdapter(foodAdapter);
-        return view;
-    }
-    private String[] getStringList(){
-        List<String> list = new ArrayList<String>();
-        for(int i = 0; i < foodList.size(); i++){
-            String test = foodList.get(i).getLabel();
-            String test2 = foodList.get(i+1).getLabel();
-            if(foodList.get(i).getLabel().equals(foodList.get(i+1).getLabel())){
-                list.add(foodList.get(i).getLabel());
-                break;
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedFood = (FoodItem)parent.getAdapter().getItem(position);
+
+                Intent intent = new Intent(getActivity(), AddFood.class);
+                startActivity(intent);
             }
-            list.add(foodList.get(i).getLabel());
-        }
-        return list.toArray(new String[list.size()]);
+        });
+
+
+        return view;
     }
 }

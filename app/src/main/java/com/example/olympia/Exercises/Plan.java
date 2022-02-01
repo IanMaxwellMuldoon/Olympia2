@@ -10,6 +10,10 @@ public class Plan {
         title = null;
         exerciseArrayList = null;
     }
+    public Plan(String title){
+        this.title = title;
+        exerciseArrayList = null;
+    }
     public Plan(String title, ArrayList<Exercise> exerciseArrayList){
         this.title = title;
         this.exerciseArrayList = exerciseArrayList;

@@ -75,16 +75,6 @@ public class MainActivity extends AppCompatActivity {
                                 // ...
                             }
                         });
-
-
-//                if
-//                (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-//                    Toast.makeText(MainActivity2.this, "LOGIN SUCCESSFULL", Toast.LENGTH_SHORT).show();
-//
-//                } else
-//                    Toast.makeText(MainActivity2.this, "LOGIN Failed, Try Again", Toast.LENGTH_SHORT).show();
-
-
             }
 
 

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WorkoutRoutines.WorkoutRoutines.AbWorkout"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checked="false"
+            android:text="Crunch" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/crunch" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 60 sec in between sets)" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:text="Crunch Machine" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/crunchmachine" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 60 sec in between sets) " />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checked="false"
+            android:text="Rope Ab Pulldown" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/ropeab" />
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 60 sec in between sets) " />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:text="Plank" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/plank" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, hold until failure (rest 60 sec in between sets)" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checked="false"
+            android:text="Hanging Leg Raise" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/hanginglegraise" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 60 sec in between sets)" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checked="false"
+            android:text="Bent Knee Reverse Crunch" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/bentknee" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 60 sec in between sets)" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></Space>
+
+        <CheckedTextView
+            android:id="@+id/checkedTextView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkMark="@android:drawable/checkbox_off_background"
+            android:checked="false"
+            android:text="Ab Roller" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/abroller" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 sets, 8-10 reps (rest 60 sec in between sets)" />
+
+    </LinearLayout>
+
+</ScrollView>
+

@@ -2,7 +2,7 @@ package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -50,6 +50,10 @@ public class CalorieCounterSearch extends AppCompatActivity{
         //Meal Type Text
         TextView mealType = (TextView) findViewById(R.id.mealType);
         mealType.setText("<Food Type>");
+
+        Intent intent = getIntent();
+        String string = intent.getStringExtra("message_key");
+        mealType.setText(string);
 
         //Search Bar
         AutoCompleteTextView searchBar = (AutoCompleteTextView) findViewById(R.id.autoComplete);

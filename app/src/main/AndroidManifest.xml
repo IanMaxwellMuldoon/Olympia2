@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.olympia">
+    package="com.example.olympia" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,7 +10,40 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Olympia">
+        android:theme="@style/Theme.Olympia" >
+        <activity
+            android:name=".Exercises.NewPlan"
+            android:exported="false" />
+        <activity
+            android:name=".Exercises.PlanMenu"
+            android:exported="true" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.BicepSelectedPlan"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.AbWorkout"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.TricepWorkout"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.BicepWorkout"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.BackWorkout"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderWorkout"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.LegWorkout"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.ChestWorkout"
+            android:exported="true" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"
+            android:exported="false" />
         <activity
             android:name=".Menus.MainMenu"
             android:exported="false" />
@@ -30,20 +63,11 @@
             android:name=".Exercises.PullExercises"
             android:exported="false" />
         <activity
-            android:name=".Exercises.NewPlan"
-            android:exported="false" />
-        <activity
-            android:name=".Exercises.ChoosePlan"
-            android:exported="false" />
-        <activity
-            android:name=".Exercises.Exercises"
-            android:exported="true" />
-        <activity
             android:name=".CalorieCounter.CalorieCounterSearch"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

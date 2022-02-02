@@ -1,16 +1,15 @@
-package com.example.olympia.Exercises;
+package com.example.olympia.WorkoutRoutines.WorkoutRoutines;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
 import com.example.olympia.R;
 
-public class ChoosePlan extends AppCompatActivity {
+public class ChestWorkout extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_plan);
+        setContentView(R.layout.activity_chest_workout);
     }
 }

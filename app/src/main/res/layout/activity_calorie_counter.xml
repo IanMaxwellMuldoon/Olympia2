@@ -5,6 +5,7 @@
     android:id="@+id/foodSearch"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".CalorieCounter.CalorieCounterSearch">
 
 
@@ -16,6 +17,8 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="107dp"
         android:layout_marginBottom="13dp"
+        android:text="Meal Type"
+        android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/autoComplete"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,4 +43,29 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mealType" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="360dp"
+        android:layout_height="520dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        app:cardBackgroundColor="@color/cardview_dark_background"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoComplete"
+        app:layout_constraintVertical_bias="0.165">
+
+
+        <FrameLayout
+            android:id="@+id/placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/autoComplete"
+            tools:layout_editor_absoluteX="0dp" />
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/button1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Menus.MainMenu">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="366dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="622dp"
+        android:text="Main Menu"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/startWorkout"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Start Workout" />
+
+    <Button
+        android:id="@+id/logFood"
+        android:layout_below="@id/startWorkout"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Log Food" />
+
+    <Button
+        android:id="@+id/tutorialWorkouts"
+        android:layout_below="@id/logFood"
+        android:layout_width="218dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Tutorial Workouts"
+        />
+
+
+</RelativeLayout>

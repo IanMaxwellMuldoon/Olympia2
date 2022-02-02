@@ -14,7 +14,26 @@ public class AddFood extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
 
-        TextView addFood = (TextView) findViewById(R.id.addFoodTitle);
-        addFood.setText("Add Food");
+        TextView FoodLabel = (TextView) findViewById(R.id.FoodLabel);
+        TextView Calories = (TextView) findViewById(R.id.CalorieNumID);
+        TextView Protein = (TextView) findViewById(R.id.ProteinNumID);
+        TextView Cholesterol = (TextView) findViewById(R.id.ChoNumID);
+        TextView Fiber = (TextView) findViewById(R.id.FibNumID);
+
+
+
+        FoodItem selectedFood = new FoodItem();
+        selectedFood = ResultList.selectedFood;
+
+        String label = selectedFood.getLabel();
+        FoodLabel.setText(""+label);
+        int cal = selectedFood.getCalories();
+        Calories.setText(""+cal);
+        int pro = selectedFood.getProtein();
+        Protein.setText(""+pro);
+        int cho = selectedFood.getCholesterol();
+        Cholesterol.setText(""+cho);
+        int fib = (int)selectedFood.getFiber();
+        Fiber.setText(""+fib);
     }
 }

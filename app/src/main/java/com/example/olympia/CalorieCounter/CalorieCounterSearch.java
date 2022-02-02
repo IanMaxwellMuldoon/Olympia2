@@ -1,8 +1,7 @@
 package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
+import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,9 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
@@ -32,7 +29,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.nio.channels.AsynchronousChannelGroup;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,19 +38,22 @@ public class CalorieCounterSearch extends AppCompatActivity{
     private String nameSearch;
     private String input;
     private String[] autoList = new String[]{"Chicken", "Sandwich", "Burger"};
-
-    public List<foodItem> foodItems = new ArrayList<foodItem>();
+    public static ArrayList<FoodItem> FoodItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calorie_counter);
 
-       // new foodSearchNetworkCall().execute();
+
 
         //Meal Type Text
         TextView mealType = (TextView) findViewById(R.id.mealType);
-        mealType.setText("<Testing>");
+        mealType.setText("<Food Type>");
+
+        Intent intent = getIntent();
+        String string = intent.getStringExtra("message_key");
+        mealType.setText(string);
 
         //Search Bar
         AutoCompleteTextView searchBar = (AutoCompleteTextView) findViewById(R.id.autoComplete);
@@ -64,7 +63,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
+            //When the user is typing
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 input = searchBar.getText().toString();
@@ -77,15 +76,16 @@ public class CalorieCounterSearch extends AppCompatActivity{
             public void afterTextChanged(Editable s) {
             }
         });
+        // When the user hits "enter"
         searchBar.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId == EditorInfo.IME_ACTION_DONE) {
                     nameSearch = searchBar.getText().toString();
                     new foodSearchNetworkCall().execute();
+                    Log.d("message","food network call");
 
-                    Intent intent = new Intent(CalorieCounterSearch.this, AddFood.class);
-                    startActivity(intent);
+
                 }
                 return false;
             }
@@ -94,9 +94,10 @@ public class CalorieCounterSearch extends AppCompatActivity{
         //searchBar.getOnItemClickListener(new AdapterView.OnItemClickListener())
 
 
-
     }
-
+    public List<FoodItem> getfoodItems(){
+        return FoodItems;
+    }
 
 
 
@@ -114,7 +115,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 final String API_ID = "?app_id=1ac33da3";
                 final String API_KEY = "&app_key=8a5ff0e08e487166b798e56f3ab64627";
                 final String INGR = "&ingr=";
-                final String URL_SUFFIX = "&nutrition-type=logging";
+                final String URL_SUFFIX = "&nutrition-type=cooking";
 
                 String urlstring = URL_PREFIX + API_ID + API_KEY + INGR + nameSearch + URL_SUFFIX;
 
@@ -152,6 +153,12 @@ public class CalorieCounterSearch extends AppCompatActivity{
             } finally {
                 connection.disconnect();
             }
+
+            //fragmentTransaction - Start Result List
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.placeholder, new ResultList());
+            ft.commit();
+
             return null;
         }
 
@@ -208,14 +215,12 @@ public class CalorieCounterSearch extends AppCompatActivity{
         }
     }
 
-
     private void parseAuto(String responseBody) {
         try {
             JSONArray responseArray = new JSONArray(responseBody);
             autoList = new String[responseArray.length()];
             for (int i = 0; i < responseArray.length(); i++) {
                 String recommendation = responseArray.getString(i);
-                Log.d("recommend", recommendation);
                 autoList[i] = recommendation;
             }
 
@@ -227,15 +232,17 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
     private void parse(String responseBody) {
         try {
+            FoodItems = new ArrayList<>();
             JSONObject responseObject = new JSONObject(responseBody);
             String searchtext = responseObject.getString("text");
             JSONArray foodlist = responseObject.getJSONArray("hints");
-            for (int i = 15; i < foodlist.length(); i++) {
+            for (int i = 0; i < foodlist.length(); i++) {
                 int calories = 0;
                 int protein = 0;
                 int fat = 0;
                 double fiber = 0;
                 int cholesterol = 0;
+                String brand = null;
                 JSONObject listobject = foodlist.getJSONObject(i);
                 JSONObject foodobject = listobject.getJSONObject("food");
                 String label = foodobject.getString("label");
@@ -255,13 +262,19 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 if (nutrients.has("FIBTG")) {
                     fiber = nutrients.getDouble("FIBTG");
                 }
-                foodItems.add(new foodItem(label, calories, protein, fat, fiber, cholesterol));
+                if(foodobject.has("brand")) {
+                    brand = foodobject.getString("brand");
+                }
+
+
+                FoodItems.add(new FoodItem(label, brand, calories, protein, fat, fiber, cholesterol));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
+
 
 }
 

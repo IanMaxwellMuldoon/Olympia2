@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.olympia.CalorieCounter.CalorieMenu;
+import com.example.olympia.Exercises.PlanMenu;
 import com.example.olympia.R;
 import com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect;
 
@@ -22,7 +23,7 @@ public class MainMenu extends AppCompatActivity {
         startWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, Exercises.class);
+                Intent intent = new Intent(MainMenu.this, PlanMenu.class);
                 startActivity(intent);
             }
         });

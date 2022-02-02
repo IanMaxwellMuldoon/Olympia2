@@ -2,7 +2,6 @@ package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;

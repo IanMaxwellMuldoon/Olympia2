@@ -15,7 +15,7 @@
         android:layout_marginTop="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Chest" />
+        android:text="Bench Press" />
 
     <Button
         android:id="@+id/button12"
@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Shoulders" />
+        android:text="Squat" />
 
     <Button
         android:id="@+id/button13"
@@ -33,7 +33,7 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Back" />
+        android:text="Deadlift" />
 
     <Button
         android:id="@+id/button14"
@@ -42,40 +42,7 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Biceps" />
+        android:text="Shoulder Press" />
 
-    <Button
-        android:id="@+id/button15"
-        android:layout_below="@id/button14"
-        android:layout_width="218dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Legs" />
 
-    <Button
-        android:id="@+id/button16"
-        android:layout_below="@id/button15"
-        android:layout_width="218dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Triceps" />
-
-    <Button
-        android:id="@+id/button17"
-        android:layout_below="@id/button16"
-        android:layout_width="218dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Abs" />
-    <Button
-        android:id="@+id/button18"
-        android:layout_below="@id/button17"
-        android:layout_width="218dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="YouTube Tutorials" />
 </RelativeLayout>

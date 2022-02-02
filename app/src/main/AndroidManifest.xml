@@ -19,6 +19,21 @@
 
             android:exported="true" />
         <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderPress_tutorial"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.Deadlift_tutorial"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.Squat_tutorial"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.Select_tutorial"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutRoutines.WorkoutRoutines.YouTubeLinks"
+            android:exported="false" />
+        <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.BicepSelectedPlan"
             android:exported="false" />
         <activity

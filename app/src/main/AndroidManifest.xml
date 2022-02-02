@@ -12,10 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
-            android:name=".MainActivity3"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".CalorieCounter.FoodList"
@@ -41,15 +38,6 @@
         <activity
             android:name=".CalorieCounter.CalorieCounterSearch"
             android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

@@ -3,7 +3,6 @@ package com.example.olympia;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
 
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
 
         TextView username = (TextView) findViewById(R.id. username);

@@ -2,7 +2,6 @@ package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,7 +25,6 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -40,7 +38,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
     private String nameSearch;
     private String input;
     private String[] autoList = new String[]{"Chicken", "Sandwich", "Burger"};
-    public static ArrayList<foodItem> foodItems;
+    public static ArrayList<FoodItem> FoodItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +51,10 @@ public class CalorieCounterSearch extends AppCompatActivity{
         TextView mealType = (TextView) findViewById(R.id.mealType);
         mealType.setText("<Food Type>");
 
+        Intent intent = getIntent();
+        String string = intent.getStringExtra("message_key");
+        mealType.setText(string);
+
         //Search Bar
         AutoCompleteTextView searchBar = (AutoCompleteTextView) findViewById(R.id.autoComplete);
 
@@ -61,7 +63,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
+            //When the user is typing
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 input = searchBar.getText().toString();
@@ -74,23 +76,15 @@ public class CalorieCounterSearch extends AppCompatActivity{
             public void afterTextChanged(Editable s) {
             }
         });
+        // When the user hits "enter"
         searchBar.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId == EditorInfo.IME_ACTION_DONE) {
                     nameSearch = searchBar.getText().toString();
                     new foodSearchNetworkCall().execute();
+                    Log.d("message","food network call");
 
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelableArrayList("foodItems", foodItems);
-
-                    FragmentList fragmentList = new FragmentList();
-                    fragmentList.setArguments(bundle);
-
-                    //fragmentTransaction
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.placeholder, new FragmentList());
-                    ft.commit();
 
                 }
                 return false;
@@ -101,8 +95,8 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
 
     }
-    public List<foodItem> getfoodItems(){
-        return foodItems;
+    public List<FoodItem> getfoodItems(){
+        return FoodItems;
     }
 
 
@@ -121,7 +115,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 final String API_ID = "?app_id=1ac33da3";
                 final String API_KEY = "&app_key=8a5ff0e08e487166b798e56f3ab64627";
                 final String INGR = "&ingr=";
-                final String URL_SUFFIX = "&nutrition-type=logging";
+                final String URL_SUFFIX = "&nutrition-type=cooking";
 
                 String urlstring = URL_PREFIX + API_ID + API_KEY + INGR + nameSearch + URL_SUFFIX;
 
@@ -159,6 +153,12 @@ public class CalorieCounterSearch extends AppCompatActivity{
             } finally {
                 connection.disconnect();
             }
+
+            //fragmentTransaction - Start Result List
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.placeholder, new ResultList());
+            ft.commit();
+
             return null;
         }
 
@@ -215,14 +215,12 @@ public class CalorieCounterSearch extends AppCompatActivity{
         }
     }
 
-
     private void parseAuto(String responseBody) {
         try {
             JSONArray responseArray = new JSONArray(responseBody);
             autoList = new String[responseArray.length()];
             for (int i = 0; i < responseArray.length(); i++) {
                 String recommendation = responseArray.getString(i);
-                Log.d("recommend", recommendation);
                 autoList[i] = recommendation;
             }
 
@@ -234,7 +232,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
 
     private void parse(String responseBody) {
         try {
-            foodItems = new ArrayList<foodItem>();
+            FoodItems = new ArrayList<>();
             JSONObject responseObject = new JSONObject(responseBody);
             String searchtext = responseObject.getString("text");
             JSONArray foodlist = responseObject.getJSONArray("hints");
@@ -244,6 +242,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 int fat = 0;
                 double fiber = 0;
                 int cholesterol = 0;
+                String brand = null;
                 JSONObject listobject = foodlist.getJSONObject(i);
                 JSONObject foodobject = listobject.getJSONObject("food");
                 String label = foodobject.getString("label");
@@ -263,7 +262,12 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 if (nutrients.has("FIBTG")) {
                     fiber = nutrients.getDouble("FIBTG");
                 }
-                foodItems.add(new foodItem(label, calories, protein, fat, fiber, cholesterol));
+                if(foodobject.has("brand")) {
+                    brand = foodobject.getString("brand");
+                }
+
+
+                FoodItems.add(new FoodItem(label, brand, calories, protein, fat, fiber, cholesterol));
             }
         } catch (JSONException e) {
             e.printStackTrace();

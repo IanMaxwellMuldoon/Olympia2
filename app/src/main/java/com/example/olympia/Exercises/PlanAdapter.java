@@ -22,26 +22,16 @@ public class PlanAdapter extends ArrayAdapter {
         this.plans = plans;
     }
 
-        public class FoodDetailAdapter extends ArrayAdapter {
-            private String[] foodDesc;
-            private com.example.olympia.CalorieCounter.FoodItem foodItem;
-
-            public FoodDetailAdapter(@NonNull Context context, int resource, String[] foodDesc) {
-                super(context, resource, foodDesc);
-                this.foodDesc = foodDesc;
-            }
-
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                int phraseIndex = position;
-                if (convertView == null) {
-                    convertView = LayoutInflater.from(getContext()).inflate(R.layout.plan_item, parent, false);
-                }
-                TextView titleTextView = convertView.findViewById(R.id.Planbuttonid);
-                titleTextView.setText(plans.get(position).getTitle());
-
-                return convertView;
-            }
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        int phraseIndex = position;
+        if(convertView == null){
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.plan_item, parent, false);
         }
+        TextView titleTextView = convertView.findViewById(R.id.Planbuttonid);
+        titleTextView.setText(plans.get(position).getTitle());
+
+        return convertView;
     }
+}

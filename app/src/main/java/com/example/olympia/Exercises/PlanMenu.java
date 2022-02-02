@@ -21,7 +21,7 @@ public class PlanMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_menu);
-        
+
         Button newPlanBtn = (Button)findViewById(R.id.idNewPlanBtn);
         newPlanBtn.setOnClickListener(new View.OnClickListener() {
             @Override

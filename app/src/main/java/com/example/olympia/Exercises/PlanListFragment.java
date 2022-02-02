@@ -42,9 +42,19 @@ public class PlanListFragment extends Fragment {
         plans.add(new Plan("Back and Bi"));
         plans.add(new Plan("Shoulders"));
         plans.add(new Plan("Legs"));
+        plans.add(new Plan("Legs"));
         plans.add(new Plan("Chest"));
         plans.add(new Plan("Back and Bi"));
         plans.add(new Plan("Shoulders"));
+        plans.add(new Plan("Legs"));
+        plans.add(new Plan("Legs"));
+        plans.add(new Plan("Chest"));
+        plans.add(new Plan("Back and Bi"));
+        plans.add(new Plan("Shoulders"));
+        plans.add(new Plan("Legs"));
+        
+
+
 
 
         //setting listview and adapter for search results

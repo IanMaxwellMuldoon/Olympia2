@@ -267,6 +267,7 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 }
 
 
+
                 FoodItems.add(new FoodItem(label, brand, calories, protein, fat, fiber, cholesterol));
             }
         } catch (JSONException e) {

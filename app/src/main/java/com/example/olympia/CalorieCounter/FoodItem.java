@@ -32,6 +32,15 @@ public class FoodItem {
         fiber = fib;
         cholesterol = cho;
     }
+    public FoodItem(FoodItem food, int serving){
+        this.label = food.label;
+        this.brand = food.brand;
+        calories = food.getCalories() * serving;
+        protein = food.getProtein() * serving;
+        this.fat = food.getFat() * serving;
+        fiber = food.getFiber() * serving;
+        cholesterol = food.getCholesterol() * serving;
+    }
 
 
 

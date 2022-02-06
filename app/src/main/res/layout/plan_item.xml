@@ -10,7 +10,6 @@
         android:layout_width="175dp"
         android:layout_height="76dp"
         android:layout_marginStart="118dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="118dp"
         android:backgroundTint="@color/design_default_color_primary"
         android:text="Button"

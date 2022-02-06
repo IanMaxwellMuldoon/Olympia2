@@ -43,10 +43,10 @@ public class AddFood extends AppCompatActivity {
                 String servingNum = dropdown.getSelectedItem().toString();
                 num = Integer.parseInt(servingNum);
                 selectedFood = new FoodItem(selectedFood,num);
-                Calories.setText(""+selectedFood.getCalories());
-                Protein.setText(""+selectedFood.getProtein());
-                Cholesterol.setText(""+selectedFood.getCholesterol());
-                Fiber.setText(""+selectedFood.getFiber());
+                Calories.setText(""+selectedFood.getCalories() + " kcal");
+                Protein.setText(""+selectedFood.getProtein() + " g");
+                Cholesterol.setText(""+selectedFood.getCholesterol()+" g");
+                Fiber.setText(""+selectedFood.getFiber()+" g");
                 dropdownNum.setText(""+num);
             }
 

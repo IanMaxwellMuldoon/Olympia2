@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageButton
-        android:id="@+id/doneButtonid"
+        android:id="@+id/idDoneButton"
         android:layout_width="62dp"
         android:layout_height="57dp"
         android:layout_marginTop="33dp"

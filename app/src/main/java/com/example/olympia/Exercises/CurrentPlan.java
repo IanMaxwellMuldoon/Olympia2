@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.olympia.R;
 
@@ -24,11 +25,21 @@ public class CurrentPlan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_plan);
 
+        TextView currentPlan = (TextView) findViewById(R.id.idCurrentPlan);
+
+
         Intent intent = getIntent();
         Plan plan = intent.getParcelableExtra("Example");
 
 
+
+
+
+
+
+
         String title = plan.getTitle();
+        currentPlan.setText(title);
         Log.d("title", title);
     }
 

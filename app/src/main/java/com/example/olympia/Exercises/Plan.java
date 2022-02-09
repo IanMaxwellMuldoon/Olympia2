@@ -9,22 +9,30 @@ public class Plan implements Parcelable {
     private String title;
     private int numSets;
     private int numReps;
-    private int weight;
+    private double weight;
     private ArrayList<Exercise> exerciseArrayList = new ArrayList<Exercise>();
 
-    public Plan(String legs){
-        title = null;
-        numSets = 0;
-        numReps = 0;
-        weight = 0;
-        exerciseArrayList = null;
+    public Plan (String title) {
+       this.title = title;
+       numReps = 0;
+       numSets = 0;
+       weight = 0;
+       exerciseArrayList = null;
+    }
+
+    public Plan(String title, int numSets, int numReps, double weight, ArrayList<Exercise> arrayList){
+        this.title = title;
+        this.numSets = numSets;
+        this.numReps = numReps;
+        this.weight = weight;
+        this.exerciseArrayList = null;
     }
 
     protected Plan(Parcel in) {
         title = in.readString();
         numSets = in.readInt();
         numReps = in.readInt();
-        weight = in.readInt();
+        weight = in.readDouble();
         exerciseArrayList = in.createTypedArrayList(Exercise.CREATOR);
     }
 
@@ -40,8 +48,8 @@ public class Plan implements Parcelable {
         }
     };
 
-    public static String getTitle() {
-        return "yuh";
+    public String getTitle() {
+        return title;
     }
 
     public int getNumSets(){
@@ -82,7 +90,7 @@ public class Plan implements Parcelable {
         dest.writeString(title);
         dest.writeInt(numSets);
         dest.writeInt(numReps);
-        dest.writeInt(weight);
+        dest.writeDouble(weight);
         dest.writeTypedList(exerciseArrayList);
     }
 }

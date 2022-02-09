@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.olympia.R;
 
@@ -26,8 +27,9 @@ public class CurrentPlan extends AppCompatActivity {
         Intent intent = getIntent();
         Plan plan = intent.getParcelableExtra("Example");
 
-        String title = Plan.getTitle();
 
+        String title = plan.getTitle();
+        Log.d("title", title);
     }
 
     private void createExampleList() {

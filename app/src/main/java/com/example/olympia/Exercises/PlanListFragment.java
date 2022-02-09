@@ -36,7 +36,7 @@ public class PlanListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_plan_list, container, false);
         //
         plans = new ArrayList<Plan>();
-        plans.add(new Plan("Legs"));
+        plans.add(new Plan("5 x 5"));
         plans.add(new Plan("Chest"));
         plans.add(new Plan("Back and Bi"));
         plans.add(new Plan("Shoulders"));
@@ -64,9 +64,9 @@ public class PlanListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-           /* Intent intent = new Intent(PlanListFragment.this, CurrentPlan.class);
+            Intent intent = new Intent(getActivity(), CurrentPlan.class);
                 intent.putExtra("Example", plans.get(position));
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
 

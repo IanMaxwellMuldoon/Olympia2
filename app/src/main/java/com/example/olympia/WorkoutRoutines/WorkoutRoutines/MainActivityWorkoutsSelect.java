@@ -18,6 +18,7 @@ public class MainActivityWorkoutsSelect extends AppCompatActivity {
     private Button button5;
     private Button button6;
     private Button button7;
+    private Button button8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class MainActivityWorkoutsSelect extends AppCompatActivity {
         button5 = (Button) findViewById(R.id.button14);
         button6 = (Button) findViewById(R.id.button16);
         button7 = (Button) findViewById(R.id.button17);
+        button8 = (Button) findViewById(R.id.button18);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +83,13 @@ public class MainActivityWorkoutsSelect extends AppCompatActivity {
             }
         });
 
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSelectTutorial();
+            }
+        });
+
     }
     public void openChestActivity() {
         Intent intent = new Intent(this, ChestWorkout.class);
@@ -112,6 +121,11 @@ public class MainActivityWorkoutsSelect extends AppCompatActivity {
     }
     public void openAbActivity(){
         Intent intent = new Intent (this, AbWorkout.class);
+        startActivity(intent);
+    }
+
+    public void openSelectTutorial(){
+        Intent intent = new Intent(this, Select_tutorial.class);
         startActivity(intent);
     }
 }

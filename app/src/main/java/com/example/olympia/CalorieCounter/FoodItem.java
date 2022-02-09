@@ -97,7 +97,7 @@ public class FoodItem {
         }
     }
     public String getCalString(){
-      return "Calories " + getCalories();
+        return "Calories " + getCalories();
     }
     public String getProString(){
         return "Protein " + getProtein();

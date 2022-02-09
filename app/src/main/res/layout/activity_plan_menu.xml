@@ -15,7 +15,6 @@
         android:layout_marginEnd="156dp"
         android:layout_marginBottom="20dp"
         android:text="Plans"
-        android:textColor="@color/black"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/PlanListid"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,8 +25,10 @@
         android:id="@+id/PlanListid"
         android:name="com.example.olympia.Exercises.PlanListFragment"
         android:layout_width="411dp"
-        android:layout_height="497dp"
+        android:layout_height="515dp"
         android:layout_marginTop="41dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/idNewPlanBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />'
@@ -37,11 +38,10 @@
         android:layout_width="165dp"
         android:layout_height="63dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:text="New Plan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PlanListid"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/PlanListid" />
 </androidx.constraintlayout.widget.ConstraintLayout>

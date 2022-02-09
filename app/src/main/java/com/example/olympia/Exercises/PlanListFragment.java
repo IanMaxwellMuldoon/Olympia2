@@ -12,15 +12,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.olympia.CalorieCounter.AddFood;
-import com.example.olympia.CalorieCounter.FoodAdapter;
-import com.example.olympia.CalorieCounter.FoodItem;
+
 import com.example.olympia.R;
 
 import java.util.ArrayList;
 
 
 public class PlanListFragment extends Fragment {
+
     ListView listView;
 
     ArrayList<Plan> plans;
@@ -65,7 +64,9 @@ public class PlanListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            //This will take us to an overview of the plan
+           /* Intent intent = new Intent(PlanListFragment.this, CurrentPlan.class);
+                intent.putExtra("Example", plans.get(position));
+                startActivity(intent);*/
             }
         });
 

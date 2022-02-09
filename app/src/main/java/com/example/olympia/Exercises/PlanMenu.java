@@ -35,15 +35,15 @@ public class PlanMenu extends AppCompatActivity {
 
         Button planButton = (Button)findViewById(R.id.idPlanButton);
 
-      /*
-        planButton.setOnClickListener(new View.OnClickListener() {
+
+       /* planButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PlanMenu.this, CurrentPlan.class);
                 startActivity(intent);
 
             }
-        }); */
+        });*/
 
 
     }

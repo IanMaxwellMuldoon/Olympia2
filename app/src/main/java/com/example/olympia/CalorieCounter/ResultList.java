@@ -102,6 +102,7 @@ public class ResultList extends Fragment {
         });
 
 
+
         return view;
     }
 }

@@ -20,9 +20,10 @@ import java.util.ArrayList;
 
 public class PlanListFragment extends Fragment {
 
-    ListView listView;
+    private ListView listView;
 
-    ArrayList<Plan> plans;
+    private ArrayList<Plan> plans;
+    private Plan selectedPlan;
 
     public PlanListFragment() {
         // Required empty public constructor
@@ -61,11 +62,11 @@ public class PlanListFragment extends Fragment {
         PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, plans);
         listView.setAdapter(planAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(getActivity(), CurrentPlan.class);
-                intent.putExtra("Example", plans.get(position));
+                selectedPlan = (Plan)parent.getAdapter().getItem(position);
+                Intent intent = new Intent(getContext(), CurrentPlan.class);
                 startActivity(intent);
             }
         });

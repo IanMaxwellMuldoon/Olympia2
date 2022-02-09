@@ -6,16 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Exercises.CurrentPlan">
 
-    <TextView
-        android:id = "@+id/text1_currentPlan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"/>
 
     <TextView
-        android:id = "@+id/text2_currentPlan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"/>
+        android:id="@+id/idCurrentPlan"
+        android:layout_width="202dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="102dp"
+        android:text="Current Plan"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

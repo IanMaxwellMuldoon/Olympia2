@@ -14,18 +14,12 @@ public class Plan implements Parcelable {
 
     public Plan (String title) {
        this.title = title;
-       numReps = 0;
-       numSets = 0;
-       weight = 0;
        exerciseArrayList = null;
     }
 
-    public Plan(String title, int numSets, int numReps, double weight, ArrayList<Exercise> arrayList){
+    public Plan(String title, ArrayList<Exercise> arrayList){
         this.title = title;
-        this.numSets = numSets;
-        this.numReps = numReps;
-        this.weight = weight;
-        this.exerciseArrayList = null;
+        this.exerciseArrayList = arrayList;
     }
 
     protected Plan(Parcel in) {

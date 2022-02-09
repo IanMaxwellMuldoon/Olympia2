@@ -5,8 +5,13 @@
       <map>
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_calorie_counter.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_calorie_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_current_plan.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_plan_menu.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_exercise_list.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_plan_list.xml" value="0.16576086956521738" />
+        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/plan_item.xml" value="0.16576086956521738" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_ab_workout.xml" value="0.335" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_back_workout.xml" value="0.10176236498010233" />
         <entry key="..\:/Users/arago/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_bicep_seclected_plan.xml" value="0.16712962962962963" />
@@ -40,9 +45,7 @@
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_food_list.xml" value="0.32608695652173914" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
-
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main3.xml" value="0.35190217391304346" />
-
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_plan_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_item.xml" value="0.35190217391304346" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_item_list.xml" value="0.32608695652173914" />
@@ -62,19 +65,16 @@
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_plan_menu.xml" value="0.1425925925925926" />
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_pull_exercises.xml" value="0.5546875" />
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/content_exercise.xml" value="0.5484375" />
-
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/exercise_item.xml" value="0.26773049645390073" />
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_item.xml" value="0.26773049645390073" />
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_plan_list.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/plan_item.xml" value="0.26773049645390073" />
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/result_list.xml" value="0.26773049645390073" />
         <entry key="..\:/Users/pawlo/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/resultlist_item.xml" value="0.26773049645390073" />
-
         <entry key="app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.2984375" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main3.xml" value="0.25" />
-
       </map>
     </option>
   </component>

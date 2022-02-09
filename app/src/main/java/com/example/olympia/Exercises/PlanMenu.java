@@ -23,6 +23,8 @@ public class PlanMenu extends AppCompatActivity {
         setContentView(R.layout.activity_plan_menu);
 
         Button newPlanBtn = (Button)findViewById(R.id.idNewPlanBtn);
+
+
         newPlanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,5 +32,19 @@ public class PlanMenu extends AppCompatActivity {
             startActivity(intent);
             }
         });
+
+        Button planButton = (Button)findViewById(R.id.idPlanButton);
+
+      /*
+        planButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlanMenu.this, CurrentPlan.class);
+                startActivity(intent);
+
+            }
+        }); */
+
+
     }
 }

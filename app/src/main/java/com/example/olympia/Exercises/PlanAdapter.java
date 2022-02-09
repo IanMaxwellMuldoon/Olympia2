@@ -29,7 +29,7 @@ public class PlanAdapter extends ArrayAdapter {
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.plan_item, parent, false);
         }
-        TextView titleTextView = convertView.findViewById(R.id.Planbuttonid);
+        TextView titleTextView = convertView.findViewById(R.id.idPlanButton);
         titleTextView.setText(plans.get(position).getTitle());
 
         return convertView;

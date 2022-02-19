@@ -5,10 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Exercises.NewPlan">
-
+    <include
+        android:id = "@+id/toolbar"
+        layout="@layout/toolbar"
+        />
     <fragment
         android:id="@+id/idExerciseFragment"
         android:name="com.example.olympia.Exercises.ExerciseListFragment"
+        android:layout_marginTop="90dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

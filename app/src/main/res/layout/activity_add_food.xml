@@ -6,12 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".CalorieCounter.AddFood">
 
+
+    <include
+        android:id = "@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
     <TextView
         android:id="@+id/addFoodTitle"
         android:layout_width="wrap_content"
         android:layout_height="53dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="100dp"
         android:text="Add Food"
         android:textColor="@color/black"
         android:textSize="40sp"
@@ -68,7 +74,7 @@
         android:id="@+id/idDoneButton"
         android:layout_width="62dp"
         android:layout_height="57dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="38dp"
         android:src="@drawable/baseline_done_black_24"
         app:layout_constraintEnd_toEndOf="parent"

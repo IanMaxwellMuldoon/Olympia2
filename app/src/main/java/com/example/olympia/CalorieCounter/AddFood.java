@@ -1,6 +1,7 @@
 package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,11 @@ public class AddFood extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
+
+        //for toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView FoodLabel = (TextView) findViewById(R.id.FoodLabel);
         TextView Calories = (TextView) findViewById(R.id.CalorieNumID);

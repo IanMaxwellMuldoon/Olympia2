@@ -1,6 +1,7 @@
 package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -46,7 +47,9 @@ public class CalorieCounterSearch extends AppCompatActivity{
         setContentView(R.layout.activity_calorie_counter);
 
 
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Meal Type Text
         TextView mealType = (TextView) findViewById(R.id.mealType);
         mealType.setText("<Food Type>");

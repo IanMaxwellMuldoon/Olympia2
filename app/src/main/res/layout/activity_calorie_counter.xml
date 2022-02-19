@@ -8,13 +8,17 @@
     android:orientation="vertical"
     tools:context=".CalorieCounter.CalorieCounterSearch">
 
+    <include
+        android:id = "@+id/toolbar"
+        layout="@layout/toolbar"
+        />
 
     <TextView
         android:id="@+id/mealType"
         android:layout_width="197dp"
         android:layout_height="71dp"
         android:layout_marginStart="107dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="107dp"
         android:layout_marginBottom="13dp"
         android:text="Meal Type"

@@ -7,7 +7,10 @@
     android:layout_height="match_parent"
     tools:context="com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect">
 
-
+    <include
+        android:id = "@+id/toolbar"
+        layout="@layout/toolbar"
+        />
     <Button
         android:id="@+id/button10"
         android:layout_width="218dp"

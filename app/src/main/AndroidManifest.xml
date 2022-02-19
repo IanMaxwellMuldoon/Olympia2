@@ -13,65 +13,82 @@
         android:theme="@style/Theme.Olympia">
         <activity
             android:name=".Exercises.CurrentPlan"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Exercises.PlanMenu"/>
         <activity
             android:name=".Exercises.NewPlan"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Exercises.PlanMenu"/>
         <activity
             android:name=".Exercises.PlanMenu"
-
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Menus.MainMenu"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderPress_tutorial"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.Select_tutorial"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.Deadlift_tutorial"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.Select_tutorial"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.Squat_tutorial"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.Select_tutorial"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.Select_tutorial"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"
             android:exported="false" />
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.YouTubeLinks"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.Select_tutorial"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.BicepSelectedPlan"
             android:exported="false" />
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.AbWorkout"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.TricepWorkout"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.BicepWorkout"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.BackWorkout"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderWorkout"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.LegWorkout"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.ChestWorkout"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Menus.MainMenu"/>
         <activity
             android:name=".Menus.MainMenu"
             android:exported="true" />
         <activity
             android:name=".CalorieCounter.CalorieMenu"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Menus.MainMenu"/>
         <activity
             android:name=".CalorieCounter.AddFood"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CalorieCounter.CalorieCounterSearch"/>
         <activity
             android:name=".Exercises.AddExercises"
             android:exported="false" />
@@ -80,7 +97,8 @@
             android:exported="false" />
         <activity
             android:name=".CalorieCounter.CalorieCounterSearch"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".CalorieCounter.CalorieMenu"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -1,6 +1,7 @@
 package com.example.olympia.WorkoutRoutines.WorkoutRoutines;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,9 @@ public class Select_tutorial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_tutorial);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         chestButton = (Button) findViewById(R.id.button10);
         squatButton = (Button) findViewById(R.id.button12);
         deadliftButton = (Button) findViewById(R.id.button13);

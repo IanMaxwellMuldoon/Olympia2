@@ -41,13 +41,21 @@
 
     <Button
         android:id="@+id/tutorialWorkouts"
-        android:layout_below="@id/logFood"
         android:layout_width="218dp"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:layout_below="@id/logFood"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:text="Tutorial Workouts"
-        />
+        android:text="Tutorial Workouts" />
+
+    <Button
+        android:id="@+id/idViewHistoryButton"
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tutorialWorkouts"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:text="View History" />
 
 
 </RelativeLayout>

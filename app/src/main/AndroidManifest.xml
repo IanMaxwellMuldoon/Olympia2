@@ -16,8 +16,11 @@
             android:exported="false" />
         <activity
             android:name=".Exercises.PlanMenu"
-
             android:exported="true" />
+        <provider
+            android:authorities="com.example.olympia.CalorieCounter.MySuggestionProvider"
+            android:name=".CalorieCounter.MySuggestionProvider"
+            />
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderPress_tutorial"
             android:exported="false" />

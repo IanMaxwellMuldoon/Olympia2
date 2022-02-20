@@ -1,6 +1,7 @@
 package com.example.olympia.CalorieCounter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +38,10 @@ public class CalorieMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calorie_menu);
 
+        //for toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         dateTimeDisplay = (TextView)findViewById(R.id.textDateDisplay);
         calendar = Calendar.getInstance();

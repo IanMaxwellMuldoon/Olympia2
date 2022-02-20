@@ -1,6 +1,7 @@
 package com.example.olympia.WorkoutRoutines.WorkoutRoutines;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
@@ -24,6 +25,9 @@ public class MainActivityWorkoutsSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_workouts_select);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         button = (Button) findViewById(R.id.button10);
         button2 = (Button) findViewById(R.id.button15);

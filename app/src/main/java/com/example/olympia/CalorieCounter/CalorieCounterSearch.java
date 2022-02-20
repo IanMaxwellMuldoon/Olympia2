@@ -88,8 +88,6 @@ public class CalorieCounterSearch extends AppCompatActivity{
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId == EditorInfo.IME_ACTION_DONE) {
                     nameSearch = searchBar.getText().toString();
-                    SearchRecentSuggestions suggestions = new SearchRecentSuggestions(CalorieCounterSearch.this, MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
-                    suggestions.saveRecentQuery(nameSearch, null);
                     new foodSearchNetworkCall().execute();
                 }
                 return false;

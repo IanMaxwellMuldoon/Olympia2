@@ -6,11 +6,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.SearchRecentSuggestions;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
@@ -85,16 +88,22 @@ public class CalorieCounterSearch extends AppCompatActivity{
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId == EditorInfo.IME_ACTION_DONE) {
                     nameSearch = searchBar.getText().toString();
+                    SearchRecentSuggestions suggestions = new SearchRecentSuggestions(CalorieCounterSearch.this, MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
+                    suggestions.saveRecentQuery(nameSearch, null);
                     new foodSearchNetworkCall().execute();
-                    Log.d("message","food network call");
-
-
                 }
                 return false;
             }
         });
 
-        //searchBar.getOnItemClickListener(new AdapterView.OnItemClickListener())
+        searchBar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                nameSearch = searchBar.getText().toString();
+                new foodSearchNetworkCall().execute();
+                Log.d("message","food network call");
+            }
+        });
 
 
     }
@@ -268,8 +277,6 @@ public class CalorieCounterSearch extends AppCompatActivity{
                 if(foodobject.has("brand")) {
                     brand = foodobject.getString("brand");
                 }
-
-
                 FoodItems.add(new FoodItem(label, brand, calories, protein, fat, fiber, cholesterol));
             }
         } catch (JSONException e) {

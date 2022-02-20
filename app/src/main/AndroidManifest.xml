@@ -21,8 +21,8 @@
             android:parentActivityName=".Exercises.PlanMenu"/>
         <activity
             android:name=".Exercises.PlanMenu"
-            android:exported="true"
-            android:parentActivityName=".Menus.MainMenu"/>
+            android:exported="true" />
+
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderPress_tutorial"
             android:exported="false"

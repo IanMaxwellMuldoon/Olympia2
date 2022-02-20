@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
+
         android:id="@+id/idPlanButton"
         android:layout_width="218dp"
         android:layout_centerHorizontal="true"

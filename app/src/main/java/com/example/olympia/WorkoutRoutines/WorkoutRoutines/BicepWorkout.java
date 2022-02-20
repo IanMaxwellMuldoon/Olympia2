@@ -1,6 +1,7 @@
 package com.example.olympia.WorkoutRoutines.WorkoutRoutines;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,10 @@ public class BicepWorkout extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bicep_workout);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         checkbox1 = (CheckedTextView) findViewById(R.id.checkedTextView1);
         checkbox2 = (CheckedTextView) findViewById(R.id.checkedTextView2);

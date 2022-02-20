@@ -2,6 +2,7 @@ package com.example.olympia.WorkoutRoutines.WorkoutRoutines;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import com.example.olympia.R;
@@ -19,6 +20,10 @@ public class YouTubeLinks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_tube_links);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         youTubePlayerView = findViewById(R.id.youtube_player_view);
         getLifecycle().addObserver(youTubePlayerView);
 
@@ -31,7 +36,7 @@ public class YouTubeLinks extends AppCompatActivity {
                // youTubePlayerView.enterFullScreen();
                 //youTubePlayerView.exitFullScreen();
                // youTubePlayerView.isFullScreen();
-                //youTubePlayerView.toggleFullScreen();
+                youTubePlayerView.toggleFullScreen();
             }
         });
     }

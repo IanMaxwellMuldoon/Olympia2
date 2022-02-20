@@ -2,6 +2,7 @@ package com.example.olympia.WorkoutRoutines.WorkoutRoutines;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import com.example.olympia.R;
@@ -16,6 +17,11 @@ public class Squat_tutorial extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_squat_tutorial);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         youTubePlayerView = findViewById(R.id.youtube_player_view);
         getLifecycle().addObserver(youTubePlayerView);
 
@@ -28,7 +34,7 @@ public class Squat_tutorial extends AppCompatActivity {
                 // youTubePlayerView.enterFullScreen();
                 //youTubePlayerView.exitFullScreen();
                 // youTubePlayerView.isFullScreen();
-                //youTubePlayerView.toggleFullScreen();
+                youTubePlayerView.toggleFullScreen();
             }
         });
     }

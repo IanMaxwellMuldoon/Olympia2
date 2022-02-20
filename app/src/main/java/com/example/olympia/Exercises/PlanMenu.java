@@ -1,6 +1,7 @@
 package com.example.olympia.Exercises;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +23,14 @@ public class PlanMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_menu);
 
+        //for toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Button newPlanBtn = (Button)findViewById(R.id.idNewPlanBtn);
+
+
         newPlanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,5 +38,19 @@ public class PlanMenu extends AppCompatActivity {
             startActivity(intent);
             }
         });
+
+        Button planButton = (Button)findViewById(R.id.idPlanButton);
+
+
+       /* planButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlanMenu.this, CurrentPlan.class);
+                startActivity(intent);
+
+            }
+        });*/
+
+
     }
 }

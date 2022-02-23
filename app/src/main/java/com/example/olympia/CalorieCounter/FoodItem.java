@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import java.io.Serializable;
 
 public class FoodItem {
+    private String foodID;
     private  String label = null;
     private int calories;
     private int protein;
@@ -15,6 +16,7 @@ public class FoodItem {
     private String brand;
 
     public FoodItem(){
+        this.foodID = "";
         this.label = "";
         this.brand = "";
         calories = 0;
@@ -23,7 +25,8 @@ public class FoodItem {
         fiber = 0;
         cholesterol = 0;
     }
-    public FoodItem(String label, String brand, int cal, int ptn, int fat, double fib, int cho){
+    public FoodItem(String FoodID, String label, String brand, int cal, int ptn, int fat, double fib, int cho){
+        this.foodID = foodID;
         this.label = label;
         this.brand = brand;
         calories = cal;

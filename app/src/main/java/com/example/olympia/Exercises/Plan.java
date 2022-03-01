@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Plan implements Parcelable {
+public class Plan implements Parcelable  {
     private String title;
     private int numSets;
     private int numReps;
@@ -70,9 +70,9 @@ public class Plan implements Parcelable {
         return exerciseArrayList;
     }
 
-    public void setExerciseArrayList(ArrayList<Exercise> exerciseArrayList) {
+    /* public void setExerciseArrayList(ArrayList<Exercise> exerciseArrayList) {
         this.exerciseArrayList = exerciseArrayList;
-    }
+    } */
 
     @Override
     public int describeContents() {

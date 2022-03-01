@@ -54,6 +54,7 @@ public class PlanListFragment extends Fragment {
         exercises.add(new Exercise("Bench", 3, 8, 135));
         exercises.add(new Exercise("Incline Bench", 3, 8, 135));
 
+
         plans = new ArrayList<Plan>();
         plans.add(new Plan("Push", exercises));
         plans.add(new Plan("Pull"));

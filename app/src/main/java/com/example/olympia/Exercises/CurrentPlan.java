@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
 import android.widget.TextView;
 
 import com.example.olympia.R;
@@ -44,9 +45,18 @@ public class CurrentPlan extends AppCompatActivity {
 
 
 
+
+        ArrayList exercise = plan.getExerciseArrayList();
+        String exercises= arrayListToString(exercise);
+
+
+
+        TextView exerciseList = findViewById(R.id.idExerciseList);
+
+        exerciseList.setText(exercises);
+
         String title = plan.getTitle();
         currentPlan.setText(title);
-        Log.d("title", title);
     }
 
     private void createExampleList() {
@@ -55,6 +65,17 @@ public class CurrentPlan extends AppCompatActivity {
         //something goes here not sure what//
         //------------------------------------
     }
+
+    private String arrayListToString (ArrayList arrayList) {
+        String s = "";
+        for(Object str : arrayList) {
+            s+= str+" ";
+
+        }
+       return s;
+
+    }
+
 
     private void buildRecyclerView() {
        /* mRecyclerView = findViewById(R.id.recyclerView);
@@ -76,5 +97,6 @@ public class CurrentPlan extends AppCompatActivity {
         });
 
     }*/
+
     }
 }

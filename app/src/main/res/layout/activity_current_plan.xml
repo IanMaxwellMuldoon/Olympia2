@@ -24,5 +24,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idExerciseList"
+        android:layout_width="194dp"
+        android:layout_height="455dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="107dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idCurrentPlan" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

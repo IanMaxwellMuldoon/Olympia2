@@ -33,6 +33,27 @@
             android:layout_marginRight="10dp"
             android:text="TextView" />
 
+        <fragment
+            android:id="@+id/idExerciseLogButtonFragment"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                >
+
+            <ListView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                hori
+
+                />
+        </LinearLayout>
+        </fragment>
+
 
     </androidx.cardview.widget.CardView>
 

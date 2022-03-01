@@ -9,9 +9,6 @@
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_plan_menu.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/exercise_item.xml" value="0.2726449275362319" />
-        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/exercise_log_button.xml" value="0.2726449275362319" />
-        <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/exercise_log_item.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_exercise_list.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_plan_list.xml" value="0.16576086956521738" />
         <entry key="..\:/Users/Colin/Documents/GitHub/Olympia2/app/src/main/res/layout/plan_item.xml" value="0.16576086956521738" />
@@ -64,6 +61,7 @@
         <entry key="..\:/Users/arago/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/toolbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia/app/src/main/res/layout/activity_calorie_counter.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_add_exercises.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_add_food.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_back_workout.xml" value="0.35190217391304346" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_calorie_counter.xml" value="0.36666666666666664" />
@@ -77,8 +75,12 @@
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_new_plan.xml" value="0.20425724637681159" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_plan_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_pull_exercises.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_shoulder_press_tutorial.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/activity_view_history.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/exercise_log_button.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/exercise_log_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_exercise_list.xml" value="0.20425724637681159" />
+        <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_exercise_log_button_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_food_graph.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_item.xml" value="0.35190217391304346" />
         <entry key="..\:/Users/ianmu/OneDrive/Documents/GitHub/Olympia2/app/src/main/res/layout/fragment_item_list.xml" value="0.32608695652173914" />

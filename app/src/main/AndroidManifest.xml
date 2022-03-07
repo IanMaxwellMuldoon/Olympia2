@@ -13,7 +13,8 @@
         android:theme="@style/Theme.Olympia">
         <activity
             android:name=".ViewHistory.ViewHistoryActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Menus.MainMenu"/>
         <activity
             android:name=".Exercises.CurrentPlan"
             android:exported="false"
@@ -24,7 +25,8 @@
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity
             android:name=".Exercises.PlanMenu"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Menus.MainMenu"/>
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderPress_tutorial"
             android:exported="false"

@@ -53,6 +53,8 @@ public class CalorieCounterSearch extends AppCompatActivity{
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Search Food");
+
         //Meal Type Text
         TextView mealType = (TextView) findViewById(R.id.mealType);
         mealType.setText("<Food Type>");

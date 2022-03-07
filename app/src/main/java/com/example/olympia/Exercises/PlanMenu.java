@@ -27,6 +27,7 @@ public class PlanMenu extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Create Plan");
 
         Button newPlanBtn = (Button)findViewById(R.id.idNewPlanBtn);
 

@@ -42,6 +42,7 @@ public class CalorieMenu extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Food Logger");
 
         dateTimeDisplay = (TextView)findViewById(R.id.textDateDisplay);
         calendar = Calendar.getInstance();

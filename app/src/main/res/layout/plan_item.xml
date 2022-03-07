@@ -16,5 +16,6 @@
         android:text="Button"
         android:focusable="false"
         android:clickable="false"
+        android:textColor="#FFFFFF"
        />
 </RelativeLayout>

@@ -33,6 +33,7 @@ public class BicepWorkout extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Biceps");
 
         checkbox1 = (CheckedTextView) findViewById(R.id.checkedTextView1);
         checkbox2 = (CheckedTextView) findViewById(R.id.checkedTextView2);

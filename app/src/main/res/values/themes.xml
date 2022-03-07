@@ -12,6 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <!-- To lowercase button text   -->
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="Theme.Olympia.NoActionBar">

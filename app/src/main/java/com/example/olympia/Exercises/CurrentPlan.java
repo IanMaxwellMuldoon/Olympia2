@@ -30,6 +30,7 @@ public class CurrentPlan extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Exercise");
 
         TextView currentPlan = (TextView) findViewById(R.id.idCurrentPlan);
 

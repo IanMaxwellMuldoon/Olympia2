@@ -33,6 +33,7 @@ public class AddFood extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Add Food");
 
         TextView FoodLabel = (TextView) findViewById(R.id.FoodLabel);
         TextView Calories = (TextView) findViewById(R.id.CalorieNumID);

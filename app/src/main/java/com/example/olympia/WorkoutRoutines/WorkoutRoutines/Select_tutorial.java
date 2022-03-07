@@ -24,6 +24,8 @@ public class Select_tutorial extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("YouTube Tutorials");
+
         chestButton = (Button) findViewById(R.id.button10);
         squatButton = (Button) findViewById(R.id.button12);
         deadliftButton = (Button) findViewById(R.id.button13);

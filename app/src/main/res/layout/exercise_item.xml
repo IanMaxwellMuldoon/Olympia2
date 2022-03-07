@@ -11,6 +11,7 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/design_default_color_primary"
         android:text="Button"
+        android:textColor="#FFFFFF"
        />
 
 </RelativeLayout>

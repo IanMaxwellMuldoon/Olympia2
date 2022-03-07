@@ -28,6 +28,7 @@ public class MainActivityWorkoutsSelect extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Tutorial Workouts");
 
         button = (Button) findViewById(R.id.button10);
         button2 = (Button) findViewById(R.id.button15);

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/useme"
+    tools:context=".Login.LoginPage">
+
+    <!--edit text for user name-->
+
+    <!--edit text for user password-->
+
+    <TextView
+        android:id="@+id/Remail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text=" \n Register Form"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/idEdtUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Remail"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/Rpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtUserName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <!--button to register our new user-->
+    <EditText
+        android:id="@+id/Rage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtUserName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Age"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/Rheight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtUserName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="1dp"
+        android:hint="Height"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/Rweight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtUserName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="1dp"
+        android:hint="Weight"
+        android:inputType="textPassword" />
+
+
+    <EditText
+        android:id="@+id/Rgoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtUserName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="295dp"
+        android:layout_marginEnd="1dp"
+        android:hint="Goal"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/idBtnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Rweight"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="103dp"
+        android:layout_marginEnd="10dp"
+        android:text="Register User"
+        android:textAllCaps="false" />
+
+</RelativeLayout>
+

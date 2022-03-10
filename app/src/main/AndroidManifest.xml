@@ -36,6 +36,12 @@
             android:exported="false"
             android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.Select_tutorial" />
         <activity
+            android:name=".Login.RegistrationTest"
+            android:exported="true"/>
+        <activity
+            android:name=".Login.RegistrationPage"
+            android:exported="false"/>
+        <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.Squat_tutorial"
             android:exported="false"
             android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.Select_tutorial" />
@@ -104,7 +110,7 @@
             android:exported="true"
             android:parentActivityName=".CalorieCounter.CalorieMenu" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Login.LoginPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

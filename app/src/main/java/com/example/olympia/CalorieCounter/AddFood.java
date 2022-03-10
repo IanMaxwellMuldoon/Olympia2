@@ -4,29 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.olympia.MainActivity;
 import com.example.olympia.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class AddFood extends AppCompatActivity {
     private int num = 1;
     private FoodItem selectedFood;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
         String[] data = {"1","2","3","4","5","6"};
+
+        mAuth = FirebaseAuth.getInstance();
 
         TextView dropdownNum = (TextView)findViewById(R.id.iddropNum);
         //for toolbar
@@ -75,6 +77,8 @@ public class AddFood extends AppCompatActivity {
             public void onClick(View v) {
                 //This is where we add selectedFood to the Database
                 Toast.makeText(AddFood.this, "FOOD ADDED", Toast.LENGTH_SHORT).show();
+                FirebaseUser user = mAuth.getCurrentUser();
+
             }
         });
 

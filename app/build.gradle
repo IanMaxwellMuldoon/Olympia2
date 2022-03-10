@@ -50,4 +50,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1'
 
+    implementation 'com.google.firebase:firebase-firestore:24.0.1'
+
 }
+apply plugin: 'com.google.gms.google-services'

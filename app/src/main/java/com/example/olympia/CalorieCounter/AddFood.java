@@ -16,6 +16,10 @@ import android.widget.Toast;
 import com.example.olympia.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddFood extends AppCompatActivity {
     private int num = 1;
@@ -78,6 +82,10 @@ public class AddFood extends AppCompatActivity {
                 //This is where we add selectedFood to the Database
                 Toast.makeText(AddFood.this, "FOOD ADDED", Toast.LENGTH_SHORT).show();
                 FirebaseUser user = mAuth.getCurrentUser();
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                Map<String, Object> userProfile = new HashMap<>();
+                userProfile.put("food",selectedFood);
+
 
             }
         });

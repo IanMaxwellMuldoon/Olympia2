@@ -84,6 +84,7 @@ public class RegistrationPage extends AppCompatActivity {
 
 
 
+
                                     db.collection("users")
                                             .add(userProfile)
                                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -110,6 +111,7 @@ public class RegistrationPage extends AppCompatActivity {
                                 }
                             }
                         });
+
             }
         });
     }

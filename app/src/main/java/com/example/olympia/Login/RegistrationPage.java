@@ -3,6 +3,8 @@ package com.example.olympia.Login;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.olympia.CalorieCounter.FoodItem;
+import com.example.olympia.Menus.MainMenu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.olympia.R;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +27,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -43,12 +47,15 @@ public class RegistrationPage extends AppCompatActivity {
     private EditText weight;
     private EditText goal;
     private Button BtnRegister;
+    public static String newDocumentID;
+    private FirebaseFirestore db;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         setContentView(R.layout.activity_registration_page);
 
@@ -73,7 +80,8 @@ public class RegistrationPage extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // User registered
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                    db = FirebaseFirestore.getInstance();
+
 
                                     Map<String, Object> userProfile = new HashMap<>();
                                     userProfile.put("uid", user.getUid());
@@ -84,16 +92,16 @@ public class RegistrationPage extends AppCompatActivity {
 
 
 
-
-                                    db.collection("users")
-                                            .add(userProfile)
-                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    db.collection("users").document(user.getUid())
+                                            .set(userProfile)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
-                                                public void onSuccess(DocumentReference documentReference) {
+                                                public void onSuccess(Void avoid) {
                                                     // User profile created and saved
-                                                    // TODO: Go to main screen
                                                     Toast.makeText(RegistrationPage.this, "User has been created", Toast.LENGTH_SHORT ).show();
-                                                    Intent intent = new Intent(RegistrationPage.this, LoginPage.class);
+
+                                                    //Bring to MainMenu
+                                                    Intent intent = new Intent(RegistrationPage.this, MainMenu.class);
                                                     startActivity(intent);
                                                 }
                                             })
@@ -105,10 +113,18 @@ public class RegistrationPage extends AppCompatActivity {
                                                     Toast.makeText(RegistrationPage.this, "ERROR", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
+                                    //Make Food Collection
+                                    FoodItem foodItem = new FoodItem("234dfg44", "Chicken");
+                                    db.collection("users").document(user.getUid()).collection("foodlist").document("foodList").set(foodItem);
+
+
+
                                 } else {
                                     // User did not register
                                     Toast.makeText(RegistrationPage.this, "Could not register user", Toast.LENGTH_SHORT);
                                 }
+
+
                             }
                         });
 

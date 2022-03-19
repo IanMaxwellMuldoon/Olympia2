@@ -3,6 +3,8 @@ package com.example.olympia.CalorieCounter;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.Timestamp;
+
 import java.io.Serializable;
 
 public class FoodItem {
@@ -22,6 +24,8 @@ public class FoodItem {
     private double fiber;
     private int cholesterol;
     private String brand;
+    private String time;
+
 
     //empty constructor
     public FoodItem(){
@@ -101,6 +105,14 @@ public class FoodItem {
 
     public void setCholesterol(int cholesterol) {
         this.cholesterol = cholesterol;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     @Override

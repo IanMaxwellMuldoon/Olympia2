@@ -19,6 +19,7 @@ import com.example.olympia.Login.RegistrationPage;
 import com.example.olympia.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -26,7 +27,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
-
+import android.text.format.Time;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +36,7 @@ public class AddFood extends AppCompatActivity {
     private FoodItem selectedFood;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+    private String time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,14 +95,18 @@ public class AddFood extends AppCompatActivity {
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //add timestamp to foodItem
+                String time = getTimeStamp();
+                selectedFood.setTime(time);
                 //This is where we add selectedFood to the Database
                 db.collection("users").document(user.getUid()).collection("foodlist").add(selectedFood);
 
-                Toast.makeText(AddFood.this, "FOOD ADDED", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddFood.this, time, Toast.LENGTH_SHORT).show();
 
 
             }
         });
+
 
         String label = selectedFood.getLabel();
         FoodLabel.setText("" + label);
@@ -114,5 +120,11 @@ public class AddFood extends AppCompatActivity {
         Fiber.setText("" + fib);
 
 
+    }
+    public static String getTimeStamp() {
+        Time now = new Time();
+        now.setToNow();
+        String sTime = now.format("%Y_%m_%d_%H_%M_%S");
+        return sTime;
     }
 }

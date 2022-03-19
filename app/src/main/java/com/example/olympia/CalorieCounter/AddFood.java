@@ -98,10 +98,10 @@ public class AddFood extends AppCompatActivity {
                 //add timestamp to foodItem
                 String time = getTimeStamp();
                 selectedFood.setTime(time);
-                //This is where we add selectedFood to the Database
+                //add selectedFood to the Database
                 db.collection("users").document(user.getUid()).collection("foodlist").add(selectedFood);
 
-                Toast.makeText(AddFood.this, time, Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddFood.this, "FOOD ADDED", Toast.LENGTH_SHORT).show();
 
 
             }

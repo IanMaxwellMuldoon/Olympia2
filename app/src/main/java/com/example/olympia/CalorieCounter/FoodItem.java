@@ -6,6 +6,14 @@ import android.os.Parcelable;
 import java.io.Serializable;
 
 public class FoodItem {
+    public String getFoodID() {
+        return foodID;
+    }
+
+    public void setFoodID(String foodID) {
+        this.foodID = foodID;
+    }
+
     private String foodID;
     private  String label = null;
     private int calories;

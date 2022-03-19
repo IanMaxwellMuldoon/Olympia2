@@ -21,9 +21,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +40,7 @@ public class AddFood extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
-        String[] data = {"1","2","3","4","5","6"};
+        String[] data = {"1", "2", "3", "4", "5", "6"};
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -46,18 +48,18 @@ public class AddFood extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
-        TextView dropdownNum = (TextView)findViewById(R.id.iddropNum);
+        TextView dropdownNum = findViewById(R.id.iddropNum);
         //for toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Add Food");
 
-        TextView FoodLabel = (TextView) findViewById(R.id.FoodLabel);
-        TextView Calories = (TextView) findViewById(R.id.CalorieNumID);
-        TextView Protein = (TextView) findViewById(R.id.ProteinNumID);
-        TextView Cholesterol = (TextView) findViewById(R.id.ChoNumID);
-        TextView Fiber = (TextView) findViewById(R.id.FibNumID);
+        TextView FoodLabel = findViewById(R.id.FoodLabel);
+        TextView Calories = findViewById(R.id.CalorieNumID);
+        TextView Protein = findViewById(R.id.ProteinNumID);
+        TextView Cholesterol = findViewById(R.id.ChoNumID);
+        TextView Fiber = findViewById(R.id.FibNumID);
         Spinner dropdown = findViewById(R.id.idSpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, data);
         dropdown.setAdapter(adapter);
@@ -73,12 +75,12 @@ public class AddFood extends AppCompatActivity {
                 selectedFood = ResultList.selectedFood;
                 String servingNum = dropdown.getSelectedItem().toString();
                 num = Integer.parseInt(servingNum);
-                selectedFood = new FoodItem(selectedFood,num);
-                Calories.setText(""+selectedFood.getCalories() + " kcal");
-                Protein.setText(""+selectedFood.getProtein() + " g");
-                Cholesterol.setText(""+selectedFood.getCholesterol()+" g");
-                Fiber.setText(""+selectedFood.getFiber()+" g");
-                dropdownNum.setText(""+num);
+                selectedFood = new FoodItem(selectedFood, num);
+                Calories.setText("" + selectedFood.getCalories() + " kcal");
+                Protein.setText("" + selectedFood.getProtein() + " g");
+                Cholesterol.setText("" + selectedFood.getCholesterol() + " g");
+                Fiber.setText("" + selectedFood.getFiber() + " g");
+                dropdownNum.setText("" + num);
             }
 
             @Override
@@ -92,79 +94,25 @@ public class AddFood extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //This is where we add selectedFood to the Database
-               // Toast.makeText(AddFood.this, "FOOD ADDED", Toast.LENGTH_SHORT).show();
-                Toast.makeText(AddFood.this, "user is " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                db.collection("users").document(user.getUid()).collection("foodlist").add(selectedFood);
 
-                //db.collection("users").document(RegistrationPage.newDocumentID).collection("foodlist").add(selectedFood);
-                DocumentReference documentReference = db.collection("users").document(user.getUid()).collection("foodlist").document("foodList");
-                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                Log.d("work", "DocumentSnapshot data: " + document.getData());
-                            } else {
-                                Log.d("work", "No such document");
-                            }
-                        } else {
-                            Log.d("work", "get failed with ", task.getException());
-                        }
-                    }
-                });
+                Toast.makeText(AddFood.this, "FOOD ADDED", Toast.LENGTH_SHORT).show();
+
 
             }
         });
-        /*FirebaseUser user = mAuth.getCurrentUser();
-                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-                                    Map<String, Object> userProfile = new HashMap<>();
-                                    userProfile.put("uid", user.getUid());
-                                    userProfile.put("height", height.getText().toString());
-                                    userProfile.put("weight", weight.getText().toString());
-                                    userProfile.put("age", age.getText().toString());
-                                    userProfile.put("goal", goal.getText().toString());
-
-
-
-
-                                    db.collection("users")
-                                            .add(userProfile)
-                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                                @Override
-                                                public void onSuccess(DocumentReference documentReference) {
-                                                    // User profile created and saved
-                                                    // TODO: Go to main screen
-                                                    Toast.makeText(RegistrationPage.this, "User has been created", Toast.LENGTH_SHORT ).show();
-                                                    Intent intent = new Intent(RegistrationPage.this, LoginPage.class);
-                                                    startActivity(intent);
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    // Failed to create user profile
-                                                    // TODO: show
-                                                    Toast.makeText(RegistrationPage.this, "ERROR", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
-                                } else {
-                                    // User did not register
-                                    Toast.makeText(RegistrationPage.this, "Could not register user", Toast.LENGTH_SHORT);
-                                }
-                            }
-                        });*/
-
 
         String label = selectedFood.getLabel();
-        FoodLabel.setText(""+label);
+        FoodLabel.setText("" + label);
         int cal = selectedFood.getCalories();
-        Calories.setText(""+cal);
+        Calories.setText("" + cal);
         int pro = selectedFood.getProtein();
-        Protein.setText(""+pro);
+        Protein.setText("" + pro);
         int cho = selectedFood.getCholesterol();
-        Cholesterol.setText(""+cho);
-        int fib = (int)selectedFood.getFiber();
-        Fiber.setText(""+fib);
+        Cholesterol.setText("" + cho);
+        int fib = (int) selectedFood.getFiber();
+        Fiber.setText("" + fib);
+
+
     }
 }

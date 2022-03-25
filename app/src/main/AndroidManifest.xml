@@ -15,7 +15,7 @@
             android:name=".ViewHistory.ViewHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".Exercises.CurrentPlan"
+            android:name=".Exercises.LogExercise.LogExercises"
             android:exported="false"
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity

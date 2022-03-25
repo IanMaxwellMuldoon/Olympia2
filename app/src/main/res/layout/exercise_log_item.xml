@@ -6,23 +6,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="350dp"
+        android:layout_height="102dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="150dp"
         android:layout_marginTop="20dp"
         app:cardBackgroundColor="#12d4e6"
-        app:cardCornerRadius="20dp"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="87dp">
+        app:cardCornerRadius="20dp">
 
         <TextView
             android:id="@+id/idLogExerciseName"
-            android:textSize="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/idSetsnReps"
@@ -33,26 +32,21 @@
             android:layout_marginRight="10dp"
             android:text="TextView" />
 
-        <fragment
-            android:id="@+id/idExerciseLogButtonFragment"
-            android:layout_width="280dp"
+        <FrameLayout
+            android:id="@+id/idExerciseLogFrame"
+            android:name="com.example.olympia.Exercises.LogExercise.FragmentLogButtonList"
+            android:layout_width="244dp"
             android:layout_height="45dp"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                >
-
-            <ListView
-                android:layout_height="match_parent"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/idCircleList"
                 android:layout_width="match_parent"
-                hori
+                android:layout_height="match_parent" />
 
-                />
-        </LinearLayout>
-        </fragment>
+        </FrameLayout>
 
 
     </androidx.cardview.widget.CardView>

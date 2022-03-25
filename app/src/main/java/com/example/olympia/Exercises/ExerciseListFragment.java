@@ -30,7 +30,6 @@ import java.util.ArrayList;
         exerciseList.add(new Exercise("push ups"));
         exerciseList.add(new Exercise("Bench"));
         exerciseList.add(new Exercise("Legs"));
-        exerciseList.add(new Exercise("Dick ups"));
         exerciseList.add(new Exercise("push ups"));
 
 

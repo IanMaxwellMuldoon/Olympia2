@@ -1,63 +1,63 @@
-package com.example.olympia.Exercises;
+package com.example.olympia.Exercises.LogExercise;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.olympia.Exercises.Exercise;
+import com.example.olympia.Exercises.ExerciseAdapter;
+import com.example.olympia.Exercises.Plan;
 import com.example.olympia.R;
 
 import java.util.ArrayList;
 
-public class CurrentPlan extends AppCompatActivity {
+public class LogExercises extends AppCompatActivity {
     private ArrayList<Exercise> exerciseList;
 
     private ExerciseAdapter mAdapter;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
+    private ListView listView;
+
+    public LogExercises() {
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_current_plan);
+        setContentView(R.layout.activity_log_exercises);
 
         //for toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView currentPlan = (TextView) findViewById(R.id.idCurrentPlan);
-
-
+        //get Plan object
         Intent intent = getIntent();
         Plan plan = intent.getParcelableExtra("Example");
 
-
-
-
-
-
-
-
-
         ArrayList exercise = plan.getExerciseArrayList();
-        String exercises= arrayListToString(exercise);
 
-
-
-        TextView exerciseList = findViewById(R.id.idExerciseList);
-
-        exerciseList.setText(exercises);
-
+        //set the title
+        TextView currentPlan = (TextView) findViewById(R.id.idCurrentPlan);
         String title = plan.getTitle();
         currentPlan.setText(title);
+
     }
+
+
 
     private void createExampleList() {
         exerciseList = new ArrayList<>();
@@ -77,26 +77,4 @@ public class CurrentPlan extends AppCompatActivity {
     }
 
 
-    private void buildRecyclerView() {
-       /* mRecyclerView = findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new ExampleAdapter(mExampleList);
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-
-        mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Intent intent = new Intent(MainActivity.this, Activity2.class);
-                intent.putExtra("Example Item", mExampleList.get(position));
-
-                startActivity(intent);
-            }
-        });
-
-    }*/
-
     }
-}

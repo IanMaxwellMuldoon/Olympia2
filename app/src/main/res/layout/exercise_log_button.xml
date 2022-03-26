@@ -11,6 +11,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/design_default_color_primary" />
+        android:backgroundTint="@color/button_background_color" />
 
 </RelativeLayout>

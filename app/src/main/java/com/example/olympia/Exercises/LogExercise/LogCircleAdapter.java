@@ -1,6 +1,8 @@
 package com.example.olympia.Exercises.LogExercise;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.olympia.Exercises.Exercise;
@@ -40,13 +44,13 @@ private ArrayList<Button> buttons;
             // Define click listener for the ViewHolder's View
             button = view.findViewById(R.id.idCircleButton);
             button.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.M)
                 @Override
                 public void onClick(View v) {
                 Log.d("message","you Clicked Me!!!");
-
+                button.setSelected(!button.isSelected());
                 }
             });
-
         }
 
         public Button getLogButton() {

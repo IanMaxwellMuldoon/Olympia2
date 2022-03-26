@@ -22,6 +22,7 @@ public class Plan implements Parcelable {
         this.exerciseArrayList = arrayList;
     }
 
+
     protected Plan(Parcel in) {
         title = in.readString();
         numSets = in.readInt();
@@ -70,10 +71,6 @@ public class Plan implements Parcelable {
         return exerciseArrayList;
     }
 
-    public void setExerciseArrayList(ArrayList<Exercise> exerciseArrayList) {
-        this.exerciseArrayList = exerciseArrayList;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -87,4 +84,10 @@ public class Plan implements Parcelable {
         dest.writeDouble(weight);
         dest.writeTypedList(exerciseArrayList);
     }
+
+    /* public void setExerciseArrayList(ArrayList<Exercise> exerciseArrayList) {
+        this.exerciseArrayList = exerciseArrayList;
+    } */
+
+
 }

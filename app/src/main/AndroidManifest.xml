@@ -16,7 +16,7 @@
             android:exported="false"
             android:parentActivityName=".Menus.MainMenu"/>
         <activity
-            android:name=".Exercises.CurrentPlan"
+            android:name=".Exercises.LogExercise.LogExercises"
             android:exported="false"
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity

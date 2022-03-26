@@ -83,8 +83,8 @@ private ArrayList<Button> buttons;
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        //viewHolder.getTextView().setText(buttons.get(position).toString());
-        viewHolder.getLogButton().setText(buttons.get(position).getText());
+
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

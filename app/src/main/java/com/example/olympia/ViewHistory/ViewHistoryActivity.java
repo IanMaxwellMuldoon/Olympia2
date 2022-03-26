@@ -30,6 +30,8 @@ public class ViewHistoryActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("History");
 
         Button foodButton = findViewById(R.id.idFoodButton);
+        //Button workButton = findViewById(R.id.)
+
         foodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -3,9 +3,19 @@ package com.example.olympia.CalorieCounter;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.Timestamp;
+
 import java.io.Serializable;
 
 public class FoodItem {
+    public String getFoodID() {
+        return foodID;
+    }
+
+    public void setFoodID(String foodID) {
+        this.foodID = foodID;
+    }
+
     private String foodID;
     private  String label = null;
     private int calories;
@@ -14,17 +24,18 @@ public class FoodItem {
     private double fiber;
     private int cholesterol;
     private String brand;
+    private String time;
 
+
+    //empty constructor
     public FoodItem(){
-        this.foodID = "";
-        this.label = "";
-        this.brand = "";
-        calories = 0;
-        protein = 0;
-        this.fat = 0;
-        fiber = 0;
-        cholesterol = 0;
     }
+
+    public FoodItem(String FoodID, String label){
+        this.foodID = foodID;
+        this.label = label;
+    }
+
     public FoodItem(String FoodID, String label, String brand, int cal, int ptn, int fat, double fib, int cho){
         this.foodID = foodID;
         this.label = label;
@@ -96,40 +107,48 @@ public class FoodItem {
         this.cholesterol = cholesterol;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     @Override
     public String toString(){
         return label;
     }
 
-    public String getSubTitle(){
+    public String SubTitle(){
         if(brand != null) {
             return "Brand: " + getBrand() + ", Calories: " + getCalories();
         }else{
             return "Calories: " + getCalories();
         }
     }
-    public String getCalString(){
+    public String CalString(){
         return "Calories " + getCalories();
     }
-    public String getProString(){
+    public String ProString(){
         return "Protein " + getProtein();
     }
-    public String getFatString(){
+    public String FatString(){
         return "Fat " + getFat();
     }
-    public String getFibString(){
+    public String FibString(){
         return "Fiber " + getFiber();
     }
-    public String getChoString(){
+    public String ChoString(){
         return "Cholesterol " + getCholesterol();
     }
-    public String[] getStringArray(){
+    public String[] StringArray(){
         String[] nutrients = new String[5];
-        nutrients[0] = getCalString();
-        nutrients[1] = getProString();
-        nutrients[2] = getFatString();
-        nutrients[3] = getFibString();
-        nutrients[4] = getChoString();
+        nutrients[0] = CalString();
+        nutrients[1] = ProString();
+        nutrients[2] = FatString();
+        nutrients[3] = FibString();
+        nutrients[4] = ChoString();
         return nutrients;
     }
 

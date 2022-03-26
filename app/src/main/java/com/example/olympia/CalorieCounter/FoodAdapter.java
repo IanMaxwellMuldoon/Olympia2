@@ -35,7 +35,7 @@ public class FoodAdapter extends ArrayAdapter<FoodItem> {
 
         titleTextView.setText(foodList.get(position).getLabel());
 
-        subTitleTextView.setText((foodList.get(position).getSubTitle()));
+        subTitleTextView.setText((foodList.get(position).SubTitle()));
         return convertView;
     }
 

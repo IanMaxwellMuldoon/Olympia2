@@ -90,7 +90,6 @@ public class ResultList extends Fragment {
         listView = (ListView) view.findViewById(R.id.idListView);
         FoodAdapter foodAdapter = new FoodAdapter(getActivity().getApplicationContext(), R.layout.resultlist_item, foodList);
         listView.setAdapter(foodAdapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

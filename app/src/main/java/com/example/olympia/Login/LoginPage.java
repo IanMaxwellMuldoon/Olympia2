@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.olympia.Menus.MainMenu;
 import com.example.olympia.R;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,6 +65,8 @@ public class LoginPage extends AppCompatActivity {
                                     Toast.makeText(LoginPage.this, "LOGIN SUCCESSFULL", Toast.LENGTH_SHORT).show();
 
                                     // Go to second page
+                                    Intent intent = new Intent(LoginPage.this, MainMenu.class);
+                                    startActivity(intent);
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(LoginPage.this, "LOGIN Failed, Try Again", Toast.LENGTH_SHORT).show();

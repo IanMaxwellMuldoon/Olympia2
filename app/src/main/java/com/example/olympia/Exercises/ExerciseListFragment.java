@@ -26,6 +26,21 @@ import java.util.ArrayList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        //Bundle data = getArguments();
+        //String name = data.getString("name");
+
+
+        Log.d("Msg", "I am before try catch ");
+        try{
+            Exercise exercise = this.getArguments().getParcelable("exerciseData");
+            Log.d("Message", "I am in here spooky");
+            exerciseList.add(exercise);
+        }
+        catch(NullPointerException e){
+            Log.d("Msg", "NullPointerException" + e);
+
+        }
+
 
         View view = inflater.inflate(R.layout.fragment_exercise_list, container, false);
         exerciseList = new ArrayList<Exercise>();
@@ -36,16 +51,7 @@ import java.util.ArrayList;
         Log.d("Msg", "I am before bundle. Did I get here?");
 
 
-        Bundle data = getActivity().getIntent().getExtras();
-        try{
-            Exercise exercise = (Exercise)data.getParcelable("AddExercises");
-            Log.d("Message", "I am in here spooky");
-            exerciseList.add(exercise);
-        }
-        catch(NullPointerException e){
-            Log.d("Msg", "NullPointerException");
 
-        }
 
 
         listView = view.findViewById(R.id.idExerciseList);

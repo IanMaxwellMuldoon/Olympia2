@@ -1,5 +1,5 @@
 # Olympia
-Senior Project Fall 2021 Comp 490
+Senior Project Fall/Spring 2021-2022 Comp 490/491
 
 
 We propose to develop an app that will not only provide users with an elegant solution to tracking their workout metrics with an easy-to-use user interface but also provide users the option to limit time spent at the gym waiting for equipment and an ever-growing community of members to connect with and draw inspiration from.

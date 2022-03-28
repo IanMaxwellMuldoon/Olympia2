@@ -94,12 +94,10 @@
 
     <Button
         android:id="@+id/idBtnRegister"
-        android:layout_width="match_parent"
+        android:layout_width="218dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Rweight"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="103dp"
-        android:layout_marginEnd="10dp"
+        android:layout_below="@id/Rgoal"
+        android:layout_centerHorizontal="true"
         android:text="Register User"
         android:textAllCaps="false" />
 

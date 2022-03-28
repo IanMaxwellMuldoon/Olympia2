@@ -110,8 +110,11 @@
             android:name=".CalorieCounter.CalorieCounterSearch"
             android:exported="true"
             android:parentActivityName=".CalorieCounter.CalorieMenu" />
+        <activity android:name=".Login.LoginPage"
+            android:exported="true"/>
         <activity
-            android:name=".Login.LoginPage"
+            android:name=".Menus.SplashScreen"
+            android:theme="@style/SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

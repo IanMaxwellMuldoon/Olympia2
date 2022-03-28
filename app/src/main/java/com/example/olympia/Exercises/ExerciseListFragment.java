@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,19 +24,35 @@ import java.util.ArrayList;
      }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
         View view = inflater.inflate(R.layout.fragment_exercise_list, container, false);
         exerciseList = new ArrayList<Exercise>();
         exerciseList.add(new Exercise("push ups"));
         exerciseList.add(new Exercise("Bench"));
         exerciseList.add(new Exercise("Legs"));
         exerciseList.add(new Exercise("push ups"));
+        Log.d("Msg", "I am before bundle. Did I get here?");
+
+
+        Bundle data = getActivity().getIntent().getExtras();
+        try{
+            Exercise exercise = (Exercise)data.getParcelable("AddExercises");
+            Log.d("Message", "I am in here spooky");
+            exerciseList.add(exercise);
+        }
+        catch(NullPointerException e){
+            Log.d("Msg", "NullPointerException");
+
+        }
 
 
         listView = view.findViewById(R.id.idExerciseList);
         ExerciseAdapter exerciseAdapter= new ExerciseAdapter(getActivity().getApplicationContext(), R.layout.plan_item, exerciseList);
         listView.setAdapter(exerciseAdapter);
+
+
 
         return view;
     }

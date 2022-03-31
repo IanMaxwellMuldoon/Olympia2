@@ -28,6 +28,7 @@ import java.util.ArrayList;
 public class LogCircleAdapter extends RecyclerView.Adapter<LogCircleAdapter.ViewHolder> {
 
 private ArrayList<Button> buttons;
+private Exercise exercise;
 
 
 
@@ -38,8 +39,9 @@ private ArrayList<Button> buttons;
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
         private Button button;
+        private Exercise exercise;
 
-        public ViewHolder(View view) {
+        public ViewHolder(View view, Exercise exercise) {
             super(view);
             // Define click listener for the ViewHolder's View
             button = view.findViewById(R.id.idCircleButton);
@@ -47,7 +49,13 @@ private ArrayList<Button> buttons;
                 @RequiresApi(api = Build.VERSION_CODES.M)
                 @Override
                 public void onClick(View v) {
+
                 Log.d("message","you Clicked Me!!!");
+                if(!button.isSelected()){
+                    exercise.incrementProgressCount();
+                }else {
+                    exercise.decrementProgressCount();
+                }
                 button.setSelected(!button.isSelected());
                 }
             });
@@ -67,7 +75,8 @@ private ArrayList<Button> buttons;
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public LogCircleAdapter(ArrayList<Button> dataSet) {
+    public LogCircleAdapter(ArrayList<Button> dataSet, Exercise exercise) {
+        this.exercise = exercise;
         buttons = dataSet;
     }
 
@@ -78,7 +87,7 @@ private ArrayList<Button> buttons;
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.exercise_log_button, viewGroup, false);
 
-        return new ViewHolder(view);
+        return new ViewHolder(view, exercise);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -89,6 +98,10 @@ private ArrayList<Button> buttons;
         // contents of the view with that element
 
 
+    }
+
+    public Exercise getExercise() {
+        return exercise;
     }
 
     // Return the size of your dataset (invoked by the layout manager)

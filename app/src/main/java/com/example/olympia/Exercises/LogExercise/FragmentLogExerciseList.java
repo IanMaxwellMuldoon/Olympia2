@@ -47,6 +47,8 @@ public class FragmentLogExerciseList extends Fragment {
            listView.setAdapter(logAdapter);
 
 
+
+
            return view;
        }catch (Exception e){
            Log.e("OnCreateView", String.valueOf(e));

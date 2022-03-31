@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.FragmentManager;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.olympia.CalorieCounter.ResultList;
 import com.example.olympia.Exercises.Exercise;
 import com.example.olympia.Exercises.ExerciseAdapter;
 import com.example.olympia.Exercises.Plan;
@@ -55,8 +57,12 @@ public class LogExercises extends AppCompatActivity {
         Plan plan = intent.getParcelableExtra("Example");
 
         exercises = plan.getExerciseArrayList();
+        getIntent().putExtra("Plan",plan);
 
-        FragmentManager fragmentManager = getFragmentManager();
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.idLogExerciseFragmentListPH, new FragmentLogExerciseList());
+        ft.commit();
 
 
         //set the title
@@ -64,13 +70,6 @@ public class LogExercises extends AppCompatActivity {
         String title = plan.getTitle();
         currentPlan.setText(title);
 
-        doneButton = findViewById(R.id.idLogDoneButton);
-        doneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            Log.d("message", ""+ exercises.get(0).getProgressCount());
-            }
-        });
 
     }
 

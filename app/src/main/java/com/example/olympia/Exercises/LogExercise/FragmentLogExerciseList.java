@@ -1,5 +1,6 @@
 package com.example.olympia.Exercises.LogExercise;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.olympia.Exercises.Exercise;
+import com.example.olympia.Exercises.Plan;
 import com.example.olympia.R;
 
 import java.util.ArrayList;
@@ -35,11 +37,11 @@ public class FragmentLogExerciseList extends Fragment {
        try {
            View view = inflater.inflate(R.layout.fragment_log_exercise_list, container, false);
 
-           exerciseList = new ArrayList<Exercise>();
-           exerciseList.add(new Exercise("arms", 3, 2, 234));
-           exerciseList.add(new Exercise("legs", 3, 4, 432));
-           exerciseList.add(new Exercise("back", 5, 3, 132));
-           exerciseList.add(new Exercise("core", 2, 7, 42));
+           Intent i = getActivity().getIntent();
+
+           Plan plan = (Plan)i.getParcelableExtra("Plan");
+           exerciseList = plan.getExerciseArrayList();
+
 
            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
            listView = view.findViewById(R.id.idLogExerciseList);

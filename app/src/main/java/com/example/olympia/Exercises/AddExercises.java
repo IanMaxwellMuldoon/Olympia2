@@ -3,6 +3,7 @@ package com.example.olympia.Exercises;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -111,27 +112,16 @@ public class AddExercises extends AppCompatActivity {
                 lbs = Integer.parseInt(weight.getText().toString());
 
                 exercise = new Exercise(name, numSets, numReps, lbs);
-                Bundle data = new Bundle();
+                getIntent().putExtra("exerciseData", exercise);
 
-                data.putParcelable("exerciseData", exercise);
-
-                ExerciseListFragment exerciseData = new ExerciseListFragment();
-                exerciseData.setArguments(data);
-
-
+                ExerciseListFragment exerciseListFragment = new ExerciseListFragment();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.idExerciseFragmentPH, exerciseListFragment);
+                ft.commit();
 
 
 
-
-
-
-                //Intent data = new Intent(AddExercises.this, ExerciseListFragment.class);
-
-                //data.putExtra("AddExercises", exercise);
-                Log.d("Msg", "I got here");
                 Intent intent = new Intent(AddExercises.this, NewPlan.class);
-
-                Log.d("Msg", "I know I got here");
 
                 startActivity(intent);
 
@@ -147,6 +137,8 @@ public class AddExercises extends AppCompatActivity {
 
 
     }
+
+
 
 
 }

@@ -1,5 +1,6 @@
  package com.example.olympia.Exercises;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,35 +21,34 @@ import java.util.ArrayList;
     ArrayList<Exercise> exerciseList;
 
 
+
      public ExerciseListFragment() {
      }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        //Bundle data = getArguments();
-        //String name = data.getString("name");
-
-
-        Log.d("Msg", "I am before try catch ");
-        try{
-            Exercise exercise = this.getArguments().getParcelable("exerciseData");
-            Log.d("Message", "I am in here spooky");
-            exerciseList.add(exercise);
-        }
-        catch(NullPointerException e){
-            Log.d("Msg", "NullPointerException" + e);
-
-        }
-
 
         View view = inflater.inflate(R.layout.fragment_exercise_list, container, false);
+
+        //import data from AddExercise
+        Intent data = getActivity().getIntent();
+
+
         exerciseList = new ArrayList<Exercise>();
+        Exercise exercise = (Exercise)data.getParcelableExtra("exerciseData");
+        if(exercise == null) {
+            Log.d("Message", "Null exercise");
+
+        } else {
+            System.out.println("Exercise isnt null");
+        }
+        exerciseList.add(exercise);
         exerciseList.add(new Exercise("push ups"));
         exerciseList.add(new Exercise("Bench"));
         exerciseList.add(new Exercise("Legs"));
         exerciseList.add(new Exercise("push ups"));
-        Log.d("Msg", "I am before bundle. Did I get here?");
+
 
 
 

@@ -9,32 +9,35 @@
         android:id = "@+id/toolbar"
         layout="@layout/toolbar"
         />
-    <fragment
-        android:id="@+id/idExerciseFragment"
+
+    <FrameLayout
+        android:id="@+id/idExerciseFragmentPH"
         android:name="com.example.olympia.Exercises.ExerciseListFragment"
-        android:layout_marginTop="90dp"
         android:layout_width="match_parent"
         android:layout_height="500dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/toolbar"
+
 
         />
     <Button
         android:layout_width="209dp"
         android:layout_height="wrap_content"
         android:id="@+id/idAddExerciseButton"
-        android:layout_below="@id/idExerciseFragment"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Add Exercise"
+        android:layout_above="@+id/idDoneButton"
 
         />
     <Button
         android:layout_width="209dp"
         android:layout_height="wrap_content"
         android:id="@+id/idDoneButton"
-        android:layout_below="@id/idAddExerciseButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Done"
+        android:layout_alignParentBottom="true"
 
         />
 

@@ -5,13 +5,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.olympia.R;
 
-public class NewPlan extends AppCompatActivity {
+public class NewPlan extends AppCompatActivity  {
     Button addExerciseButton;
     Button doneButton;
 
@@ -26,16 +27,7 @@ public class NewPlan extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /*Bundle data = getIntent().getExtras();
 
-
-        try{
-            Exercise exercise = (Exercise)data.getParcelable("AddExercises");
-            Log.d("Message", exercise.getTitle());
-        }
-        catch(NullPointerException e){
-
-        } */
 
 
         addExerciseButton = findViewById(R.id.idAddExerciseButton);

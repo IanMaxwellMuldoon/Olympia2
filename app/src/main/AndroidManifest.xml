@@ -13,9 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
+            android:name=".ViewHistory.ViewHistoryWorkout"
+            android:exported="false" />
+        <activity
             android:name=".ViewHistory.ViewHistoryActivity"
             android:exported="false"
-            android:parentActivityName=".Menus.MainMenu"/>
+            android:parentActivityName=".Menus.MainMenu" />
         <activity
             android:name=".Exercises.LogExercise.LogExercises"
             android:exported="false"
@@ -27,7 +30,7 @@
         <activity
             android:name=".Exercises.PlanMenu"
             android:exported="true"
-            android:parentActivityName=".Menus.MainMenu"/>
+            android:parentActivityName=".Menus.MainMenu" />
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.ShoulderPress_tutorial"
             android:exported="false"
@@ -38,10 +41,10 @@
             android:parentActivityName=".WorkoutRoutines.WorkoutRoutines.Select_tutorial" />
         <activity
             android:name=".Login.RegistrationTest"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Login.RegistrationPage"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".WorkoutRoutines.WorkoutRoutines.Squat_tutorial"
             android:exported="false"
@@ -110,12 +113,13 @@
             android:name=".CalorieCounter.CalorieCounterSearch"
             android:exported="true"
             android:parentActivityName=".CalorieCounter.CalorieMenu" />
-        <activity android:name=".Login.LoginPage"
-            android:exported="true"/>
+        <activity
+            android:name=".Login.LoginPage"
+            android:exported="true" />
         <activity
             android:name=".Menus.SplashScreen"
-            android:theme="@style/SplashScreen"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

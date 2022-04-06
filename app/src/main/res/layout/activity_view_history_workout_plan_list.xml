@@ -19,17 +19,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="Workout Plans"
-        android:textSize="32dp"
-        />
+        android:textSize="32dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/planRecyclerView"
+    <ListView
+        android:id="@+id/idworkoutPlanListView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="match_parent"
         android:layout_above="@+id/planMenuBtn"
-        android:layout_below="@id/workoutPlanTitle"
-        android:layout_marginTop="138dp"
-        android:layout_marginBottom="195dp" />
+        android:layout_below="@id/workoutPlanTitle" />
 
     <Button
         android:id="@+id/planMenuBtn"
@@ -38,7 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="100dp"
-        android:text="Plan Menu" />
+        android:layout_marginBottom="50dp"
+        android:text="Workout Plans Menu" />
 
 </RelativeLayout>

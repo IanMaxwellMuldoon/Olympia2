@@ -57,23 +57,13 @@ public class LogExerciseAdapter extends ArrayAdapter {
 
 
 
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView = convertView.findViewById(R.id.idCircleList);
         recyclerView.setLayoutManager(layoutManager);
-        LogCircleAdapter circleAdapter = new LogCircleAdapter(buttons);
+        LogCircleAdapter circleAdapter = new LogCircleAdapter(buttons, exercises.get(position));
         recyclerView.setAdapter(circleAdapter);
 
-
-
-
-        /*
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerView = convertView.findViewById(R.id.idCircleList);
-        recyclerView.setLayoutManager(mLayoutManager);
-        CustomAdapter mAdapter = new CustomAdapter(mDataset);
-        // Set CustomAdapter as the adapter for RecyclerView.
-        recyclerView.setAdapter(mAdapter);
-        */
 
 
 

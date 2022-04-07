@@ -113,12 +113,6 @@ public class RegistrationPage extends AppCompatActivity {
                                                     Toast.makeText(RegistrationPage.this, "ERROR", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
-                                    //Make Food Collection
-                                    FoodItem foodItem = new FoodItem("234dfg44", "Chicken");
-                                    db.collection("users").document(user.getUid()).collection("foodlist").document("foodList").set(foodItem);
-
-
-
                                 } else {
                                     // User did not register
                                     Toast.makeText(RegistrationPage.this, "Could not register user", Toast.LENGTH_SHORT);

@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -25,8 +26,10 @@ import java.util.List;
 public class WorkoutPlanList extends AppCompatActivity {
     // Variables
     ListView planListView;
+    ListView exercisesListView;
     ArrayList<WorkoutPlanDataModal> planDataModalArrayList;
     FirebaseFirestore db;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class WorkoutPlanList extends AppCompatActivity {
 
         // Initialize the variables
         planListView = findViewById(R.id.idworkoutPlanListView);
+        exercisesListView = findViewById(R.id.idExercisesListView);
         planDataModalArrayList = new ArrayList<>();
 
         // Get the instance of our Firestore database
@@ -81,11 +85,24 @@ public class WorkoutPlanList extends AppCompatActivity {
                                 // Store the data received from the database into our array list
                                 planDataModalArrayList.add(dataModal);
                             }
+
                             // Pass the array list to the workout plan adapter class
                             WorkoutPlanAdapter adapter = new WorkoutPlanAdapter(WorkoutPlanList.this, planDataModalArrayList);
+                            // Pass exercise info to its adapter class
 
-                            // Set the adapter to our list view
+                            WorkoutPlanExercisesAdapter adapterExercises = new WorkoutPlanExercisesAdapter(WorkoutPlanList.this, planDataModalArrayList);
+
+                            // TESTING STUFF
+
+                            Log.d("TEST", "-->-->--> : planListView" + planListView);
+                            Log.d("TEST", "-->-->--> : exercisesListView" + exercisesListView);
+
+
+                            // END OF TESTING STUFF
+                            // Set the workout plan adapter to our list view for displaying the CardViews
                             planListView.setAdapter(adapter);
+                            // Set the exercise adapter to the sub-list view inside of the CardView elements
+//                            exercisesListView.setAdapter(adapterExercises);
                         } else {
                             // Testing message
                             Toast.makeText(WorkoutPlanList.this, "No data found in Database", Toast.LENGTH_SHORT).show();
@@ -95,7 +112,7 @@ public class WorkoutPlanList extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 // Display an error message if we fail to establish a connection to the database
-                Toast.makeText(WorkoutPlanList.this, "Fail to load data..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WorkoutPlanList.this, "Failed to load data..", Toast.LENGTH_SHORT).show();
             }
         });
     } // End of loadDataInListView()

@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.olympia.CalorieCounter.ResultList;
+import com.example.olympia.Menus.MainMenu;
 import com.example.olympia.R;
+import com.example.olympia.ViewHistory.WorkoutPlanHistory.WorkoutPlanList;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -30,7 +33,7 @@ public class ViewHistoryActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("History");
 
         Button foodButton = findViewById(R.id.idFoodButton);
-        //Button workButton = findViewById(R.id.)
+        Button workoutBtn = findViewById(R.id.idWorkoutButton);
 
         foodButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +42,15 @@ public class ViewHistoryActivity extends AppCompatActivity {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.idPlaceHolder, new FoodGraphFragment());
                 ft.commit();
+            }
+        });
+
+        // Setup the workoutBtn
+        workoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewHistoryActivity.this, WorkoutPlanList.class);
+                startActivity(intent);
             }
         });
     }

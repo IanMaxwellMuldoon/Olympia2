@@ -6,16 +6,7 @@
     tools:context=".ViewHistory.FoodHistory">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/idDayFoodHistory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Today"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        />
+
         <TextView
             android:id="@+id/idEquationText"
             android:layout_width="wrap_content"
@@ -23,9 +14,20 @@
             android:text="EQUATION"
             android:textSize="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/idDayFoodHistory"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
+            android:textColor="@color/black"
             />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="goal     food     remaining"
+        android:layout_marginTop="65dp"
+        android:textColor="@color/black"
+
+        />
 
     <ListView
         android:id="@+id/idDayFoodHistoryList"

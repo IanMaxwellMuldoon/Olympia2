@@ -22,6 +22,7 @@
         android:layout_marginBottom="20dp"
         android:text="Plans"
         android:textSize="40dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/PlanListid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

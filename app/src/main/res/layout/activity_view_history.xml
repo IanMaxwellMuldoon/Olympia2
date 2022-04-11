@@ -9,15 +9,16 @@
         android:id = "@+id/toolbar"
         layout="@layout/toolbar"
         />
+
     <TextView
         android:id="@+id/idTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Monthly"
-        android:textSize="32dp"
         android:layout_below="@id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:text="Today"
+        android:textSize="32dp"
 
         />
 

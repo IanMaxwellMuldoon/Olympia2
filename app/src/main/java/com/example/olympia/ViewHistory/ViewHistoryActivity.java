@@ -37,7 +37,7 @@ public class ViewHistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //fragmentTransaction - Start Result List
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.idPlaceHolder, new FoodGraphFragment());
+                ft.replace(R.id.idPlaceHolder, new FoodHistory());
                 ft.commit();
             }
         });

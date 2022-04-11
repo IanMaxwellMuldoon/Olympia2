@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewHistory.FoodHistory">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/idDayFoodHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        />
+        <TextView
+            android:id="@+id/idEquationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EQUATION"
+            android:textSize="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/idDayFoodHistory"
+            android:layout_marginBottom="20dp"
+            />
+
+    <ListView
+        android:id="@+id/idDayFoodHistoryList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idEquationText"
+        />
+
+</RelativeLayout>

@@ -2,6 +2,7 @@ package com.example.olympia.ViewHistory.WorkoutPlanHistory;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,9 @@ public class WorkoutPlanAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
         // setting data to our view.
         // below line is use to set data to our text view.
         planName.setText(dataModal.getPlanName());
-        date.setText(dataModal.getDate());
+//        date.setText(dataModal.getDate());
+//        planName.setText(this.planName);
+        date.setText(dataModal.getTime());
 
         // Click listener for each workout plan in the list view.
         listitemView.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +60,9 @@ public class WorkoutPlanAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
             public void onClick(View v) {
                 // TODO: This seems to work properly but need clarification to be sure
                 Intent intent = new Intent(getContext(), WorkoutPlanHistoryExerciseList.class);
+                intent.putExtra("planName", dataModal.getPlanName());
+//                Log.d("TEST", "ADAPTER: document name: " + docName);
+
                 context.startActivity(intent);
             }
         });

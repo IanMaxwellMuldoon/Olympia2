@@ -42,7 +42,8 @@ public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanDataMod
 
         // initializing our UI components of list view item.
         TextView exerciseName = listitemView.findViewById(R.id.exerciseHistoryExerciseName);
-        TextView sets = listitemView.findViewById(R.id.exerciseHistoryListSets);
+        TextView exerciseWeight = listitemView.findViewById(R.id.exerciseHistoryListWeight);
+        TextView exerciseSets = listitemView.findViewById(R.id.exerciseHistoryListSets);
 
         // after initializing our items we are
         // setting data to our view.
@@ -51,7 +52,8 @@ public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanDataMod
 //        String name = exercises[0];
 //        exerciseName.setText(dataModal.getExercise1());
         exerciseName.setText(dataModal.getExerciseName());
-        sets.setText(dataModal.getSets());
+        exerciseWeight.setText(dataModal.getWeight());
+        exerciseSets.setText(dataModal.getSets());
 
         // below line is use to add item click listener
         // for our item of list view.

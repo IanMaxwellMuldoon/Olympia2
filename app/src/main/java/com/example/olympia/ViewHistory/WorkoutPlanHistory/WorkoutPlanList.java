@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.olympia.Exercises.Exercise;
 import com.example.olympia.Exercises.PlanMenu;
 import com.example.olympia.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -32,6 +34,8 @@ public class WorkoutPlanList extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String str_user;
+    ArrayList<String> docName;
+    String planName;
     View view;
 
     @Override
@@ -55,9 +59,9 @@ public class WorkoutPlanList extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
         //TODO: Remove the hardcoded user path that's used for testing purposes
-        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
-//        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
-        Log.d("TEST", "--> mAuth: " + mAuth);
+//        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
+        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
+//        Log.d("TEST", "--> mAuth: " + mAuth);
 
         // Method call to load the data from our database into the list view
         loadDataInListView();
@@ -77,8 +81,8 @@ public class WorkoutPlanList extends AppCompatActivity {
     private void loadDataInListView() {
         db.collection("users")
                 .document(str_user)
-//                .collection("LoggedWorkouts")
-                .collection("workoutData")
+                .collection("LoggedWorkouts")
+//                .collection("workoutData")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -91,7 +95,27 @@ public class WorkoutPlanList extends AppCompatActivity {
                                 // Take the data received from the database and pass it to the workout
                                 // plan helper class to parse the data
                                 WorkoutPlanDataModal dataModal = d.toObject(WorkoutPlanDataModal.class);
+//                                docName.add(d.getId().toString());
+//                                docName = d.getId();
+                                Log.d("TEST", "document name: " + docName);
 
+                                // Test query for getting exercises
+                                db.collection("users")
+                                        .document(str_user)
+                                        .collection("LoggedWorkouts")
+                                        .document(d.getId())
+                                        .collection("exercises")
+                                        .get()
+                                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                                if (!queryDocumentSnapshots.isEmpty()) {
+                                                    Log.d("TEST", "query passed");
+
+                                                }
+                                            }
+                                        });
+                                planName = d.getId();
                                 // Store the data received from the database into our array list
                                 planDataModalArrayList.add(dataModal);
                             }

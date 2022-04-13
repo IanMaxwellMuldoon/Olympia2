@@ -14,13 +14,17 @@ import android.widget.Toast;
 
 import com.example.olympia.Exercises.PlanMenu;
 import com.example.olympia.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +40,15 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_plan_history_exercises_list);
+        // Get data from WorkoutPlanList
+        Intent intent = getIntent();
+        String planName = intent.getStringExtra("planName");
+
         // For toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Workout History");
+        getSupportActionBar().setTitle(planName);
 
         // Initialize the variables
         exercisesListView = findViewById(R.id.workoutHistoryPlanExerciseListView);
@@ -51,8 +59,8 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
         //TODO: Remove the hardcoded user path that's used for testing purposes
-        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
-//        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
+//        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
+        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
 
         // Method call to load the data from our database into the list view
         loadDataInListView();
@@ -61,8 +69,8 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
     private void loadDataInListView() {
         db.collection("users")
                 .document(str_user)
-//                .collection("LoggedWorkouts")
-                .collection("workoutData")
+                .collection("LoggedWorkouts")
+//                .collection("workoutData")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override

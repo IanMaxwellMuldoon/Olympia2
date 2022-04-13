@@ -1,28 +1,40 @@
 package com.example.olympia.ViewHistory.WorkoutPlanHistory;
 
-import android.util.Log;
-
 public class WorkoutPlanDataModal {
     private String date;
     private String planName;
-//    private List<String> exercises;
     private String exerciseName;
     private String sets;
+    private String weight;
+    private String time;
 
     // Empty Constructor
     public WorkoutPlanDataModal() {
     }
 
-//    public WorkoutPlanDataModal(String date, String planName) {
-//        this.date = date;
-//        this.planName = planName;
-//    }
-
-    public WorkoutPlanDataModal(String date, String planName, String exerciseName, String sets) {
+    public WorkoutPlanDataModal(String date, String planName, String exerciseName, String sets, String weight, String time) {
         this.date = date;
         this.planName = planName;
         this.exerciseName = exerciseName;
         this.sets = sets;
+        this.weight = weight;
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
     public String getExerciseName() {
@@ -40,20 +52,6 @@ public class WorkoutPlanDataModal {
     public void setSets(String sets) {
         this.sets = sets;
     }
-// Test Constructor to test getting exercises from database
-//    public WorkoutPlanDataModal(String date, String planName, List<String> exercises) {
-//        this.date = date;
-//        this.planName = planName;
-//        this.exercises = exercises;
-//    }
-//
-//    public List<String> getExercises() {
-//        return exercises;
-//    }
-//
-//    public void setExercises(List<String> exercises) {
-//        this.exercises = exercises;
-//    }
 
     public String getDate() {
         return date;

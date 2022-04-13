@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
+            android:name=".ViewHistory.WorkoutPlanHistory.WorkoutPlanHistoryExerciseList"
+            android:exported="false" />
+        <activity
             android:name=".ViewHistory.WorkoutPlanHistory.WorkoutPlanList"
             android:exported="false" />
         <activity

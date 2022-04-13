@@ -25,20 +25,17 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WorkoutPlanList extends AppCompatActivity {
-    // Variables
-    ListView planListView;
+public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
+    ListView exercisesListView;
     ArrayList<WorkoutPlanDataModal> planDataModalArrayList;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String str_user;
-    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.workout_plan_history);
-
+        setContentView(R.layout.workout_plan_history_exercises_list);
         // For toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -46,8 +43,7 @@ public class WorkoutPlanList extends AppCompatActivity {
         getSupportActionBar().setTitle("Workout History");
 
         // Initialize the variables
-        planListView = findViewById(R.id.idworkoutPlanListView);
-//        exercisesListView = findViewById(R.id.idExercisesListView);
+        exercisesListView = findViewById(R.id.workoutHistoryPlanExerciseListView);
         planDataModalArrayList = new ArrayList<>();
 
         // Get the instance of our Firestore database
@@ -57,21 +53,9 @@ public class WorkoutPlanList extends AppCompatActivity {
         //TODO: Remove the hardcoded user path that's used for testing purposes
         str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
 //        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
-        Log.d("TEST", "--> mAuth: " + mAuth);
 
         // Method call to load the data from our database into the list view
         loadDataInListView();
-
-        // Provide an option to go to the new workout plan menu if there is no stored workout plans
-        // in the user's database
-        Button planMenuBtn = (Button) findViewById(R.id.planMenuBtn);
-        planMenuBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(WorkoutPlanList.this, PlanMenu.class);
-                startActivity(intent);
-            }
-        });
     } // End of onCreate()
 
     private void loadDataInListView() {
@@ -96,24 +80,20 @@ public class WorkoutPlanList extends AppCompatActivity {
                                 planDataModalArrayList.add(dataModal);
                             }
 
-                            // Pass the array list to the workout plan adapter class
-                            WorkoutPlanAdapter adapter = new WorkoutPlanAdapter(WorkoutPlanList.this, planDataModalArrayList);
                             // Pass exercise info to its adapter class
-                            WorkoutPlanExercisesAdapter adapterExercises = new WorkoutPlanExercisesAdapter(WorkoutPlanList.this, planDataModalArrayList);
-                            // Set the workout plan adapter to our list view for displaying the CardViews
-                            planListView.setAdapter(adapter);
+                            WorkoutPlanExercisesAdapter adapter = new WorkoutPlanExercisesAdapter(WorkoutPlanHistoryExerciseList.this, planDataModalArrayList);
                             // Set the exercise adapter to the sub-list view inside of the CardView elements
-//                            exercisesListView.setAdapter(adapterExercises);
+                            exercisesListView.setAdapter(adapter);
                         } else {
                             // Testing message
-                            Toast.makeText(WorkoutPlanList.this, "No data found in Database", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(WorkoutPlanHistoryExerciseList.this, "No data found in Database", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 // Display an error message if we fail to establish a connection to the database
-                Toast.makeText(WorkoutPlanList.this, "Failed to load data..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WorkoutPlanHistoryExerciseList.this, "Failed to load data..", Toast.LENGTH_SHORT).show();
             }
         });
     } // End of loadDataInListView()

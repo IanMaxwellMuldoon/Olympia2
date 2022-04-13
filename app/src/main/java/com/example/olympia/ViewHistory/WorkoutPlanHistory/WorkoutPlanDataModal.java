@@ -6,7 +6,8 @@ public class WorkoutPlanDataModal {
     private String date;
     private String planName;
 //    private List<String> exercises;
-    private String exercise1;
+    private String exerciseName;
+    private String sets;
 
     // Empty Constructor
     public WorkoutPlanDataModal() {
@@ -17,13 +18,29 @@ public class WorkoutPlanDataModal {
 //        this.planName = planName;
 //    }
 
-    public WorkoutPlanDataModal(String date, String planName, String exercise1) {
+    public WorkoutPlanDataModal(String date, String planName, String exerciseName, String sets) {
         this.date = date;
         this.planName = planName;
-        this.exercise1 = exercise1;
+        this.exerciseName = exerciseName;
+        this.sets = sets;
     }
 
-    // Test Constructor to test getting exercises from database
+    public String getExerciseName() {
+        return exerciseName;
+    }
+
+    public void setExerciseName(String exerciseName) {
+        this.exerciseName = exerciseName;
+    }
+
+    public String getSets() {
+        return sets;
+    }
+
+    public void setSets(String sets) {
+        this.sets = sets;
+    }
+// Test Constructor to test getting exercises from database
 //    public WorkoutPlanDataModal(String date, String planName, List<String> exercises) {
 //        this.date = date;
 //        this.planName = planName;
@@ -37,15 +54,6 @@ public class WorkoutPlanDataModal {
 //    public void setExercises(List<String> exercises) {
 //        this.exercises = exercises;
 //    }
-
-    public String getExercise1() {
-        Log.d("Document", "-->-->-->EXERCISE NAME " + exercise1);
-        return exercise1;
-    }
-
-    public void setExercise1(String exercise1) {
-        this.exercise1 = exercise1;
-    }
 
     public String getDate() {
         return date;

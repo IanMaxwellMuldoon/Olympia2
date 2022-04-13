@@ -5,5 +5,9 @@
         <bitmap android:src="@drawable/logo"
             android:gravity="center"/>
     </item>
-
+<!--    <item-->
+<!--        android:drawable="@drawable/splash"-->
+<!--        />-->
 </layer-list>
+
+

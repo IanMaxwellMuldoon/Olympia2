@@ -25,6 +25,12 @@ import java.util.ArrayList;
      public ExerciseListFragment() {
      }
 
+     Exercise exercise;
+     public void setAddExercises(Exercise exercise) {
+         this.exercise = exercise;
+
+     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -36,7 +42,7 @@ import java.util.ArrayList;
 
 
         exerciseList = new ArrayList<Exercise>();
-        Exercise exercise = (Exercise)data.getParcelableExtra("exerciseData");
+        //Exercise exercise = (Exercise)data.getParcelableExtra("exerciseData");
         if(exercise == null) {
             Log.d("Message", "Null exercise");
 
@@ -44,10 +50,12 @@ import java.util.ArrayList;
             System.out.println("Exercise isnt null");
         }
         exerciseList.add(exercise);
-        exerciseList.add(new Exercise("push ups"));
+
+
+        /*exerciseList.add(new Exercise("push ups"));
         exerciseList.add(new Exercise("Bench"));
         exerciseList.add(new Exercise("Legs"));
-        exerciseList.add(new Exercise("push ups"));
+        exerciseList.add(new Exercise("push ups")); */
 
 
 

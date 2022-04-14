@@ -28,7 +28,7 @@ public class AddExercises extends AppCompatActivity {
     private int numSets;
     private int numReps;
     private int lbs;
-    private Exercise exercise;
+
 
 
 
@@ -64,7 +64,6 @@ public class AddExercises extends AppCompatActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if(event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
-                    Log.d("Message", "I made it here");
                     numOfSets.clearFocus();
                     numOfSets.requestFocus(numOfSets.FOCUS_DOWN);
 
@@ -106,24 +105,53 @@ public class AddExercises extends AppCompatActivity {
         saveExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("Hi i am here in side butoton");
+                System.out.println("THINGS ARE HAPPENING WHEN I CLICK THE BUTTON YAY!");
                 name = exerciseName.getText().toString();
                 numSets = Integer.parseInt(numOfSets.getText().toString());
                 numReps = Integer.parseInt(numOfReps.getText().toString());
                 lbs = Integer.parseInt(weight.getText().toString());
 
-                exercise = new Exercise(name, numSets, numReps, lbs);
-                getIntent().putExtra("exerciseData", exercise);
+
+                Exercise exercise = new Exercise(name, numSets, numReps, lbs);
+                if (exercise == null) {
+                    System.out.println("Null Object");
+
+                } else {
+                    System.out.println("Progress!");
+                }
+                /*getIntent().putExtra("exerciseData", exercise);
 
                 ExerciseListFragment exerciseListFragment = new ExerciseListFragment();
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.idExerciseFragmentPH, exerciseListFragment);
-                ft.commit();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.idExerciseFragmentPH, exerciseListFragment);
+                fragmentTransaction.commit(); */
 
 
 
-                Intent intent = new Intent(AddExercises.this, NewPlan.class);
+                ExerciseListFragment exerciseListFragment = new ExerciseListFragment();
 
-                startActivity(intent);
+                exerciseListFragment.setAddExercises(exercise);
+
+
+
+               /* FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.idExerciseFragmentPH, exerciseListFragment);
+                fragmentTransaction.setReorderingAllowed(true);
+                fragmentTransaction.commit(); */
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                .replace(R.id.idExerciseFragmentPH, exerciseListFragment)
+                .setReorderingAllowed(true)
+                .commit();
+
+
+
+
+               /*Intent intent = new Intent(AddExercises.this, NewPlan.class);
+
+                startActivity(intent); */
 
 
 

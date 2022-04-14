@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="20dp"
@@ -16,22 +16,95 @@
         >
 
         <TextView
-
+            android:id="@+id/idfoodname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  foodname"
+            android:text=" foodname"
             android:textSize="20sp"
             android:textColor="@color/black"
 
             />
 
         <TextView
+            android:id="@+id/idcalories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="  calorie:   protein:   fat:   carbs:  "
-            android:textSize="15sp"
+            android:text="  Calorie:  "
+            android:textSize="13sp"
             android:textColor="@color/black"
+
+            />
+        <TextView
+            android:id="@+id/idprotein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="                        Protein:  "
+            android:textSize="13sp"
+            android:textColor="@color/black"
+
+            />
+        <TextView
+            android:id="@+id/idfats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="                                                                       Fat:  "
+            android:textSize="13sp"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:id="@+id/idcarbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="                                                Carbs:  "
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            />
+
+        <TextView
+            android:id="@+id/idcalorienum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="                 x"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+
+            />
+
+        <TextView
+            android:id="@+id/idproteinnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="                                        x "
+            android:textColor="@color/black"
+            android:textSize="13sp"
+
+            />
+        <TextView
+            android:id="@+id/idcarbsnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="                                                             x"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+
+            />
+        <TextView
+            android:id="@+id/idfatnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="                                                                               x"
+            android:textColor="@color/black"
+            android:textSize="13sp"
 
             />
 

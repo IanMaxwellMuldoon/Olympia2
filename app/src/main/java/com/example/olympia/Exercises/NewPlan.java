@@ -2,6 +2,7 @@ package com.example.olympia.Exercises;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.example.olympia.R;
 public class NewPlan extends AppCompatActivity  {
     Button addExerciseButton;
     Button doneButton;
+    Exercise exercise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,12 @@ public class NewPlan extends AppCompatActivity  {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        try {
+            exercise = getIntent().getParcelableExtra("exerciseData");
+        } catch (Exception e) {
+            Log.d("error", "There was an issue getting exercise data");
+            e.printStackTrace();
+        }
 
 
         addExerciseButton = findViewById(R.id.idAddExerciseButton);
@@ -49,5 +56,17 @@ public class NewPlan extends AppCompatActivity  {
                 startActivity(intent);
             }
         });
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.idExerciseFragmentPH, ExerciseListFragment.class, null)
+                    .commit();
+        }
     }
+    public Exercise getExercise() {
+        return exercise;
+    }
+
+
 }

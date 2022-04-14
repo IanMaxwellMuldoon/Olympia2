@@ -111,17 +111,9 @@ public class AddExercises extends AppCompatActivity {
                 numReps = Integer.parseInt(numOfReps.getText().toString());
                 lbs = Integer.parseInt(weight.getText().toString());
 
-                exercise = new Exercise(name, numSets, numReps, lbs);
-                getIntent().putExtra("exerciseData", exercise);
-
-                ExerciseListFragment exerciseListFragment = new ExerciseListFragment();
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.idExerciseFragmentPH, exerciseListFragment);
-                ft.commit();
-
-
-
                 Intent intent = new Intent(AddExercises.this, NewPlan.class);
+                exercise = new Exercise(name, numSets, numReps, lbs);
+                intent.putExtra("exerciseData", exercise);
 
                 startActivity(intent);
 

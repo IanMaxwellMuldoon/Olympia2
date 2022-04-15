@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
  public class ExerciseListFragment extends Fragment {
     ListView listView;
-    ArrayList<Exercise> exerciseList;
-    Exercise exercise;
+    ArrayList<Exercise> exerciseList =  new ArrayList<Exercise>();
+
 
 
 
@@ -37,14 +37,10 @@ import java.util.ArrayList;
 
 
 
-        exerciseList = new ArrayList<Exercise>();
         exerciseList.add(new Exercise("A"));
         exerciseList.add(new Exercise("B"));
         exerciseList.add(new Exercise("C"));
 
-
-        Log.d("message","IM HERE");
-        System.out.println("I AM HERE");
 
         try{
             NewPlan newPlan = (NewPlan) getActivity();
@@ -54,12 +50,6 @@ import java.util.ArrayList;
         }catch (NullPointerException e){
             Log.d("error","Null exercise");
         }
-
-
-
-
-
-
         listView = view.findViewById(R.id.idExerciseList);
         ExerciseAdapter exerciseAdapter= new ExerciseAdapter(getActivity().getApplicationContext(), R.layout.plan_item, exerciseList);
         listView.setAdapter(exerciseAdapter);

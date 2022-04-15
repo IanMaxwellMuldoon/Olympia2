@@ -113,7 +113,7 @@ public class AddExercises extends AppCompatActivity {
                 lbs = Integer.parseInt(weight.getText().toString());
 
                 Intent intent = new Intent(AddExercises.this, NewPlan.class);
-                exercise = new Exercise(name, numSets, numReps, lbs);
+                Exercise exercise = new Exercise(name, numSets, numReps, lbs);
                 intent.putExtra("exerciseData", exercise);
 
                 startActivity(intent); 

@@ -12,16 +12,29 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.olympia.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 public class NewPlan extends AppCompatActivity  {
     Button addExerciseButton;
     Button doneButton;
     Exercise exercise;
+    FirebaseAuth firebaseAuth;
+    FirebaseFirestore firebaseFirestore;
+    ArrayList<Exercise> exerciseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_plan);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        firebaseFirestore = firebaseFirestore.getInstance();
 
         //for toolbar
 
@@ -29,8 +42,11 @@ public class NewPlan extends AppCompatActivity  {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         try {
             exercise = getIntent().getParcelableExtra("exerciseData");
+
+
         } catch (Exception e) {
             Log.d("error", "There was an issue getting exercise data");
             e.printStackTrace();
@@ -52,6 +68,9 @@ public class NewPlan extends AppCompatActivity  {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Plan plan = new Plan("Temp Title");
+
+                firebaseFirestore.collection("users").document(user.getUid()).collection("plans").add(getExercise());
                 Intent intent = new Intent(NewPlan.this, PlanMenu.class);
                 startActivity(intent);
             }
@@ -63,6 +82,7 @@ public class NewPlan extends AppCompatActivity  {
                     .add(R.id.idExerciseFragmentPH, ExerciseListFragment.class, null)
                     .commit();
         }
+
     }
     public Exercise getExercise() {
         return exercise;

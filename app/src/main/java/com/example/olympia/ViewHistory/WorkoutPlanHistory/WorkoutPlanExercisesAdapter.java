@@ -30,14 +30,12 @@ public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanHistory
         // below line is use to inflate the
         // layout for our item of list view.
         View listitemView = convertView;
+
         if (listitemView == null) {
             listitemView = LayoutInflater.from(getContext()).inflate(R.layout.workout_plan_history_exercise_list_item, parent, false);
         }
 
-
-        // after inflating an item of listview item
-        // we are getting data from array list inside
-        // our modal class.
+        // Store data taken from the array list
         WorkoutPlanHistoryExerciseDataModal dataModal = getItem(position);
 
         // initializing our UI components of list view item.
@@ -47,9 +45,7 @@ public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanHistory
         TextView exerciseSets = listitemView.findViewById(R.id.exerciseHistoryListSets);
         TextView exerciseReps = listitemView.findViewById(R.id.exerciseHistoryListNumReps);
 
-        // after initializing our items we are
-        // setting data to our view.
-        // below line is use to set data to our text view.
+        // Set the TextViews with the data grabbed from Firestore
         exerciseName.setText(dataModal.getTitle());
         exerciseWeight.setText(dataModal.getWeight().toString());
         exerciseGoal.setText(dataModal.getRepSetWeight());

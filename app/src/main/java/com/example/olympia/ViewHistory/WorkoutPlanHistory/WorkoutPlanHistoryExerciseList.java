@@ -59,8 +59,8 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
         //TODO: Remove the hardcoded user path that's used for testing purposes
-//        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
-        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
+        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
+//        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
 
         // Method call to load the data from our database into the list view
         loadDataInListView();
@@ -69,8 +69,8 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
     private void loadDataInListView() {
         db.collection("users")
                 .document(str_user)
-                .collection("LoggedWorkouts")
-//                .collection("workoutData")
+//                .collection("LoggedWorkouts")
+                .collection("workoutData")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override

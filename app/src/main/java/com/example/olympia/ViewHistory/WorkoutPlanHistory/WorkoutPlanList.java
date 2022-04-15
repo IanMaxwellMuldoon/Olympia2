@@ -3,6 +3,7 @@ package com.example.olympia.ViewHistory.WorkoutPlanHistory;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import java.util.List;
 public class WorkoutPlanList extends AppCompatActivity {
     // Variables
     ListView planListView;
+    CardView exerciseListCardView;
     ArrayList<WorkoutPlanDataModal> planDataModalArrayList;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -51,6 +53,7 @@ public class WorkoutPlanList extends AppCompatActivity {
 
         // Initialize the variables
         planListView = findViewById(R.id.idworkoutPlanListView);
+        exerciseListCardView = findViewById(R.id.exerciseHistoryCardView);
 //        exercisesListView = findViewById(R.id.idExercisesListView);
         planDataModalArrayList = new ArrayList<>();
 
@@ -110,7 +113,12 @@ public class WorkoutPlanList extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                                                 if (!queryDocumentSnapshots.isEmpty()) {
-                                                    Log.d("TEST", "query passed");
+                                                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                                    for (DocumentSnapshot doc : list) {
+                                                        WorkoutPlanHistoryExerciseDataModal exerciseModal = doc.toObject(WorkoutPlanHistoryExerciseDataModal.class);
+                                                        Log.d("TEST", "exercise name: " + exerciseModal.getTitle());
+
+                                                    }
 
                                                 }
                                             }

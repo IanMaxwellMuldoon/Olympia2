@@ -19,43 +19,41 @@ import java.util.ArrayList;
  public class ExerciseListFragment extends Fragment {
     ListView listView;
     ArrayList<Exercise> exerciseList;
+    Exercise exercise;
 
 
 
      public ExerciseListFragment() {
      }
 
-     Exercise exercise;
-     public void setAddExercises(Exercise exercise) {
-         this.exercise = exercise;
 
-     }
 
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
         View view = inflater.inflate(R.layout.fragment_exercise_list, container, false);
 
         //import data from AddExercise
-        Intent data = getActivity().getIntent();
+
 
 
         exerciseList = new ArrayList<Exercise>();
-        //Exercise exercise = (Exercise)data.getParcelableExtra("exerciseData");
-        if(exercise == null) {
-            Log.d("Message", "Null exercise");
+        exerciseList.add(new Exercise("A"));
+        exerciseList.add(new Exercise("B"));
+        exerciseList.add(new Exercise("C"));
 
-        } else {
-            System.out.println("Exercise isnt null");
+
+        Log.d("message","IM HERE");
+        System.out.println("I AM HERE");
+
+        try{
+            NewPlan newPlan = (NewPlan) getActivity();
+            Exercise exercise = newPlan.getExercise();
+            Log.d("message","Exercise title: " + exercise.getTitle());
+            exerciseList.add(exercise);
+        }catch (NullPointerException e){
+            Log.d("error","Null exercise");
         }
-        exerciseList.add(exercise);
-
-
-        /*exerciseList.add(new Exercise("push ups"));
-        exerciseList.add(new Exercise("Bench"));
-        exerciseList.add(new Exercise("Legs"));
-        exerciseList.add(new Exercise("push ups")); */
 
 
 
@@ -70,4 +68,6 @@ import java.util.ArrayList;
 
         return view;
     }
-}
+
+
+ }

@@ -112,46 +112,11 @@ public class AddExercises extends AppCompatActivity {
                 numReps = Integer.parseInt(numOfReps.getText().toString());
                 lbs = Integer.parseInt(weight.getText().toString());
 
+                Intent intent = new Intent(AddExercises.this, NewPlan.class);
+                exercise = new Exercise(name, numSets, numReps, lbs);
+                intent.putExtra("exerciseData", exercise);
 
-                Exercise exercise = new Exercise(name, numSets, numReps, lbs);
-                if (exercise == null) {
-                    System.out.println("Null Object");
-
-                } else {
-                    System.out.println("Progress!");
-                }
-                /*getIntent().putExtra("exerciseData", exercise);
-
-                ExerciseListFragment exerciseListFragment = new ExerciseListFragment();
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.idExerciseFragmentPH, exerciseListFragment);
-                fragmentTransaction.commit(); */
-
-
-
-                ExerciseListFragment exerciseListFragment = new ExerciseListFragment();
-
-                exerciseListFragment.setAddExercises(exercise);
-
-
-
-               /* FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.idExerciseFragmentPH, exerciseListFragment);
-                fragmentTransaction.setReorderingAllowed(true);
-                fragmentTransaction.commit(); */
-
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                .replace(R.id.idExerciseFragmentPH, exerciseListFragment)
-                .setReorderingAllowed(true)
-                .commit();
-
-
-
-
-               /*Intent intent = new Intent(AddExercises.this, NewPlan.class);
-
-                startActivity(intent); */
+                startActivity(intent); 
 
 
 

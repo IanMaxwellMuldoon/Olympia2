@@ -32,6 +32,7 @@ import java.util.List;
 public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
     ListView exercisesListView;
     ArrayList<WorkoutPlanDataModal> planDataModalArrayList;
+    ArrayList<WorkoutPlanHistoryExerciseDataModal> exerciseDataModalArrayList;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String str_user;
@@ -53,14 +54,15 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
         // Initialize the variables
         exercisesListView = findViewById(R.id.workoutHistoryPlanExerciseListView);
         planDataModalArrayList = new ArrayList<>();
+        exerciseDataModalArrayList = new ArrayList<>();
 
         // Get the instance of our Firestore database
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
         //TODO: Remove the hardcoded user path that's used for testing purposes
-        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
-//        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
+//        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
+        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
 
         // Method call to load the data from our database into the list view
         loadDataInListView();
@@ -69,8 +71,8 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
     private void loadDataInListView() {
         db.collection("users")
                 .document(str_user)
-//                .collection("LoggedWorkouts")
-                .collection("workoutData")
+                .collection("LoggedWorkouts")
+//                .collection("workoutData")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -80,18 +82,30 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
                             // Add all the possible workout plans stored in the user's database to a list
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                             for (DocumentSnapshot d : list) {
-                                // Take the data received from the database and pass it to the workout
-                                // plan helper class to parse the data
-                                WorkoutPlanDataModal dataModal = d.toObject(WorkoutPlanDataModal.class);
-
-                                // Store the data received from the database into our array list
-                                planDataModalArrayList.add(dataModal);
+                                // Test query for getting exercises
+                                db.collection("users")
+                                        .document(str_user)
+                                        .collection("LoggedWorkouts")
+                                        .document(d.getId())
+                                        .collection("exercises")
+                                        .get()
+                                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                                if (!queryDocumentSnapshots.isEmpty()) {
+                                                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                                    for (DocumentSnapshot doc : list) {
+                                                        WorkoutPlanHistoryExerciseDataModal exerciseModal = doc.toObject(WorkoutPlanHistoryExerciseDataModal.class);
+                                                        exerciseDataModalArrayList.add(exerciseModal);
+                                                    } // End of for loop
+                                                    // Pass the array list to the workout plan exercise adapter class
+                                                    WorkoutPlanExercisesAdapter adapterExercises = new WorkoutPlanExercisesAdapter(WorkoutPlanHistoryExerciseList.this, exerciseDataModalArrayList);
+                                                    // Set the exercise adapter to the sub-list view inside of the CardView elements
+                                                    exercisesListView.setAdapter(adapterExercises);
+                                                }
+                                            } // End of onSuccess()
+                                        });
                             }
-
-                            // Pass exercise info to its adapter class
-                            WorkoutPlanExercisesAdapter adapter = new WorkoutPlanExercisesAdapter(WorkoutPlanHistoryExerciseList.this, planDataModalArrayList);
-                            // Set the exercise adapter to the sub-list view inside of the CardView elements
-                            exercisesListView.setAdapter(adapter);
                         } else {
                             // Testing message
                             Toast.makeText(WorkoutPlanHistoryExerciseList.this, "No data found in Database", Toast.LENGTH_SHORT).show();

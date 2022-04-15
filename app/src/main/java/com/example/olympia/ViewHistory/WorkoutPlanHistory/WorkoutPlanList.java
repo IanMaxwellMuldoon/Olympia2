@@ -102,45 +102,21 @@ public class WorkoutPlanList extends AppCompatActivity {
 //                                docName = d.getId();
                                 Log.d("TEST", "document name: " + docName);
 
-                                // Test query for getting exercises
-                                db.collection("users")
-                                        .document(str_user)
-                                        .collection("LoggedWorkouts")
-                                        .document(d.getId())
-                                        .collection("exercises")
-                                        .get()
-                                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                                            @Override
-                                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                                                if (!queryDocumentSnapshots.isEmpty()) {
-                                                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                                                    for (DocumentSnapshot doc : list) {
-                                                        WorkoutPlanHistoryExerciseDataModal exerciseModal = doc.toObject(WorkoutPlanHistoryExerciseDataModal.class);
-                                                        Log.d("TEST", "exercise name: " + exerciseModal.getTitle());
 
-                                                    }
-
-                                                }
-                                            }
-                                        });
                                 planName = d.getId();
                                 // Store the data received from the database into our array list
                                 planDataModalArrayList.add(dataModal);
-                            }
+                            } // End of for loop
 
                             // Pass the array list to the workout plan adapter class
                             WorkoutPlanAdapter adapter = new WorkoutPlanAdapter(WorkoutPlanList.this, planDataModalArrayList);
-                            // Pass exercise info to its adapter class
-                            WorkoutPlanExercisesAdapter adapterExercises = new WorkoutPlanExercisesAdapter(WorkoutPlanList.this, planDataModalArrayList);
                             // Set the workout plan adapter to our list view for displaying the CardViews
                             planListView.setAdapter(adapter);
-                            // Set the exercise adapter to the sub-list view inside of the CardView elements
-//                            exercisesListView.setAdapter(adapterExercises);
                         } else {
                             // Testing message
                             Toast.makeText(WorkoutPlanList.this, "No data found in Database", Toast.LENGTH_SHORT).show();
                         }
-                    }
+                    } // End of onSuccess()
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {

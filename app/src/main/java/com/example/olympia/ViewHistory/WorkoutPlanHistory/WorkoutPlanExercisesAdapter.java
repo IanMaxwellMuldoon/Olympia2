@@ -17,10 +17,10 @@ import com.example.olympia.R;
 
 import java.util.ArrayList;
 
-public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
+public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanHistoryExerciseDataModal> {
     Context context;
     // constructor for our list view adapter.
-    public WorkoutPlanExercisesAdapter(@NonNull Context context, ArrayList<WorkoutPlanDataModal> dataModalArrayList) {
+    public WorkoutPlanExercisesAdapter(@NonNull Context context, ArrayList<WorkoutPlanHistoryExerciseDataModal> dataModalArrayList) {
         super(context, 0, dataModalArrayList);
     }
 
@@ -38,29 +38,30 @@ public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanDataMod
         // after inflating an item of listview item
         // we are getting data from array list inside
         // our modal class.
-        WorkoutPlanDataModal dataModal = getItem(position);
+        WorkoutPlanHistoryExerciseDataModal dataModal = getItem(position);
 
         // initializing our UI components of list view item.
         TextView exerciseName = listitemView.findViewById(R.id.exerciseHistoryExerciseName);
         TextView exerciseWeight = listitemView.findViewById(R.id.exerciseHistoryListWeight);
+        TextView exerciseGoal = listitemView.findViewById(R.id.exerciseHistoryListGoalAmt);
         TextView exerciseSets = listitemView.findViewById(R.id.exerciseHistoryListSets);
+        TextView exerciseReps = listitemView.findViewById(R.id.exerciseHistoryListNumReps);
 
         // after initializing our items we are
         // setting data to our view.
         // below line is use to set data to our text view.
-//        List<String> exercises = dataModal.getExercises();
-//        String name = exercises[0];
-//        exerciseName.setText(dataModal.getExercise1());
-        exerciseName.setText(dataModal.getExerciseName());
-        exerciseWeight.setText(dataModal.getWeight());
-        exerciseSets.setText(dataModal.getSets());
+        exerciseName.setText(dataModal.getTitle());
+        exerciseWeight.setText(dataModal.getWeight().toString());
+        exerciseGoal.setText(dataModal.getRepSetWeight());
+        exerciseSets.setText(dataModal.getNumSets().toString());
+        exerciseReps.setText(dataModal.getNumReps().toString());
 
         // below line is use to add item click listener
         // for our item of list view.
         listitemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Exercise: " + dataModal.getExerciseName(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Exercise: " + dataModal.getExerciseName(), Toast.LENGTH_SHORT).show();
             }
         });
 

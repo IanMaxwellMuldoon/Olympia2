@@ -7,20 +7,17 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.olympia.Exercises.Exercise;
 import com.example.olympia.Exercises.PlanMenu;
 import com.example.olympia.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -35,8 +32,8 @@ public class WorkoutPlanList extends AppCompatActivity {
     ArrayList<WorkoutPlanDataModal> planDataModalArrayList;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private String str_user;
-    ArrayList<String> docName;
+    private String currentUser;
+    String docName;
     String planName;
     View view;
 
@@ -54,7 +51,6 @@ public class WorkoutPlanList extends AppCompatActivity {
         // Initialize the variables
         planListView = findViewById(R.id.idworkoutPlanListView);
         exerciseListCardView = findViewById(R.id.exerciseHistoryCardView);
-//        exercisesListView = findViewById(R.id.idExercisesListView);
         planDataModalArrayList = new ArrayList<>();
 
         // Get the instance of our Firestore database
@@ -62,8 +58,7 @@ public class WorkoutPlanList extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
         //TODO: Remove the hardcoded user path that's used for testing purposes
-//        str_user = "1IiJknuI0cW3GnRI2sCII9i6KSR2";
-        str_user = "1HwFXjkjOpSvBad3lT07svHmaMi1";
+        currentUser = "1HwFXjkjOpSvBad3lT07svHmaMi1";
 //        Log.d("TEST", "--> mAuth: " + mAuth);
 
         // Method call to load the data from our database into the list view
@@ -83,7 +78,7 @@ public class WorkoutPlanList extends AppCompatActivity {
 
     private void loadDataInListView() {
         db.collection("users")
-                .document(str_user)
+                .document(currentUser)
                 .collection("LoggedWorkouts")
 //                .collection("workoutData")
                 .get()
@@ -98,18 +93,16 @@ public class WorkoutPlanList extends AppCompatActivity {
                                 // Take the data received from the database and pass it to the workout
                                 // plan helper class to parse the data
                                 WorkoutPlanDataModal dataModal = d.toObject(WorkoutPlanDataModal.class);
-//                                docName.add(d.getId().toString());
-//                                docName = d.getId();
-                                Log.d("TEST", "document name: " + docName);
-
-
+                                // Get name of firestore doc and workout plan name to be sent
+                                // to WorkoutPlanHistoryExerciseList activity
+                                docName = d.getId();
                                 planName = d.getId();
                                 // Store the data received from the database into our array list
                                 planDataModalArrayList.add(dataModal);
                             } // End of for loop
 
                             // Pass the array list to the workout plan adapter class
-                            WorkoutPlanAdapter adapter = new WorkoutPlanAdapter(WorkoutPlanList.this, planDataModalArrayList);
+                            WorkoutPlanAdapter adapter = new WorkoutPlanAdapter(WorkoutPlanList.this, planDataModalArrayList, docName);
                             // Set the workout plan adapter to our list view for displaying the CardViews
                             planListView.setAdapter(adapter);
                         } else {

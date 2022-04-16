@@ -20,10 +20,12 @@ import java.util.ArrayList;
 
 public class WorkoutPlanAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
     Context context;
+    String docName;
     // constructor for our list view adapter.
-    public WorkoutPlanAdapter(@NonNull Context context, ArrayList<WorkoutPlanDataModal> dataModalArrayList) {
+    public WorkoutPlanAdapter(@NonNull Context context, ArrayList<WorkoutPlanDataModal> dataModalArrayList, String docName) {
         super(context, 0, dataModalArrayList);
         this.context = context;
+        this.docName = docName;
     }
 
     @NonNull
@@ -58,10 +60,11 @@ public class WorkoutPlanAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
         listitemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getContext(), "Workout plan docName: " + docName, Toast.LENGTH_SHORT).show();
                 // TODO: This seems to work properly but need clarification to be sure
                 Intent intent = new Intent(getContext(), WorkoutPlanHistoryExerciseList.class);
                 intent.putExtra("planName", dataModal.getPlanName());
-//                Log.d("TEST", "ADAPTER: document name: " + docName);
+                intent.putExtra("docName", docName);
 
                 context.startActivity(intent);
             }

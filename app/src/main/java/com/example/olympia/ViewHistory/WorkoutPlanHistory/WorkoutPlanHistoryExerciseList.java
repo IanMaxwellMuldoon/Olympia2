@@ -36,6 +36,7 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String str_user;
+    private String docName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
         // Get data from WorkoutPlanList
         Intent intent = getIntent();
         String planName = intent.getStringExtra("planName");
+        String docName = intent.getStringExtra("docName");
 
         // For toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);

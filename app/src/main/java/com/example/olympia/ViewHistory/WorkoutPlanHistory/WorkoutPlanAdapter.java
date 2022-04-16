@@ -8,12 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.olympia.Exercises.PlanMenu;
 import com.example.olympia.R;
 
 import java.util.ArrayList;
@@ -21,6 +19,7 @@ import java.util.ArrayList;
 public class WorkoutPlanAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
     Context context;
     private String docName;
+
     // constructor for our list view adapter.
     public WorkoutPlanAdapter(@NonNull Context context, ArrayList<WorkoutPlanDataModal> dataModalArrayList, String docName) {
         super(context, 0, dataModalArrayList);

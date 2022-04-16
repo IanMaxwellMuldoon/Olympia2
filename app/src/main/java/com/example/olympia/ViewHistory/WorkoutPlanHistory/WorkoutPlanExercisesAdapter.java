@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanHistoryExerciseDataModal> {
     Context context;
+
     // Constructor for our list view adapter.
     public WorkoutPlanExercisesAdapter(@NonNull Context context, ArrayList<WorkoutPlanHistoryExerciseDataModal> dataModalArrayList) {
         super(context, 0, dataModalArrayList);

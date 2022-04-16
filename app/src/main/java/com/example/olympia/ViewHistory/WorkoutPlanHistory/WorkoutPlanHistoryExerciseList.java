@@ -55,8 +55,8 @@ public class WorkoutPlanHistoryExerciseList extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
-        //TODO: Remove the hardcoded user path that's used for testing purposes
-        currentUser = "1HwFXjkjOpSvBad3lT07svHmaMi1";
+        // Get the user id of whomever is logged into the app currently
+        currentUser = user.getUid();
 
         // Method call to load the data from our database into the list view
         loadDataInListView();

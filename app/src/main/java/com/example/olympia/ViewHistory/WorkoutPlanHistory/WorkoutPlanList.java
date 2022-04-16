@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -33,9 +34,7 @@ public class WorkoutPlanList extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String currentUser;
-    String docName;
-    String planName;
-    View view;
+    private String docName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +56,8 @@ public class WorkoutPlanList extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
-        //TODO: Remove the hardcoded user path that's used for testing purposes
-        currentUser = "1HwFXjkjOpSvBad3lT07svHmaMi1";
-//        Log.d("TEST", "--> mAuth: " + mAuth);
+        // Get the user id of whomever is logged into the app currently
+        currentUser = user.getUid();
 
         // Method call to load the data from our database into the list view
         loadDataInListView();
@@ -80,7 +78,6 @@ public class WorkoutPlanList extends AppCompatActivity {
         db.collection("users")
                 .document(currentUser)
                 .collection("LoggedWorkouts")
-//                .collection("workoutData")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -93,10 +90,8 @@ public class WorkoutPlanList extends AppCompatActivity {
                                 // Take the data received from the database and pass it to the workout
                                 // plan helper class to parse the data
                                 WorkoutPlanDataModal dataModal = d.toObject(WorkoutPlanDataModal.class);
-                                // Get name of firestore doc and workout plan name to be sent
-                                // to WorkoutPlanHistoryExerciseList activity
+                                // Get name of firestore doc to be sent to WorkoutPlanHistoryExerciseList activity
                                 docName = d.getId();
-                                planName = d.getId();
                                 // Store the data received from the database into our array list
                                 planDataModalArrayList.add(dataModal);
                             } // End of for loop

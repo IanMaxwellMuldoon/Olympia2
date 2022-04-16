@@ -1,12 +1,11 @@
 package com.example.olympia.ViewHistory.WorkoutPlanHistory;
 
 public class WorkoutPlanHistoryExerciseDataModal {
-    Long numReps;
-    Long numSets;
-//    String progressCount;
-    String repSetWeight;
-    String title;
-    Long weight;
+    private Long numReps;
+    private Long numSets;
+    private Long weight;
+    private String repSetWeight;
+    private String title;
 
     // Empty constructor
     public WorkoutPlanHistoryExerciseDataModal() {

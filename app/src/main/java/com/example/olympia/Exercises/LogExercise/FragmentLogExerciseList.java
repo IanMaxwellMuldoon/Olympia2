@@ -76,6 +76,7 @@ public class FragmentLogExerciseList extends Fragment {
                    }
                    Map<String,String> data = new HashMap<>();
                    data.put("time",time);
+                   data.put("planName", plan.getTitle());
                    db.collection("users").document(user.getUid()).collection("LoggedWorkouts").document(plan.getTitle()+time).set(data);
                }
            });

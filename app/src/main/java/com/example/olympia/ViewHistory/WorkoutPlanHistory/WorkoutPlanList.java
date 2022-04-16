@@ -110,12 +110,13 @@ public class WorkoutPlanList extends AppCompatActivity {
                             Toast.makeText(WorkoutPlanList.this, "No data found in Database", Toast.LENGTH_SHORT).show();
                         }
                     } // End of onSuccess()
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                // Display an error message if we fail to establish a connection to the database
-                Toast.makeText(WorkoutPlanList.this, "Failed to load data..", Toast.LENGTH_SHORT).show();
-            }
-        });
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Display an error message if we fail to establish a connection to the database
+                        Toast.makeText(WorkoutPlanList.this, "Failed to load data..", Toast.LENGTH_SHORT).show();
+                    }
+                });
     } // End of loadDataInListView()
 }

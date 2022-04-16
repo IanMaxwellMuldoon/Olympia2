@@ -1,23 +1,18 @@
 package com.example.olympia.ViewHistory;
 
 import android.os.Bundle;
+import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.olympia.ViewHistory.ui.main.SectionsPagerAdapter;
 import com.example.olympia.databinding.ActivityFoodWorkoutHiistoryBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
-import com.example.olympia.ViewHistory.ui.main.SectionsPagerAdapter;
-import com.example.olympia.ViewHistory.databinding.ActivityFoodWorkoutHiistoryBinding;
-
-public class FoodWorkoutHiistory extends AppCompatActivity {
+public class FoodWorkoutHistory extends AppCompatActivity {
 
     private ActivityFoodWorkoutHiistoryBinding binding;
 

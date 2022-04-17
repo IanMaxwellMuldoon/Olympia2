@@ -3,6 +3,7 @@ package com.example.olympia.Exercises;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +28,9 @@ public class AddExercises extends AppCompatActivity {
     private int numSets;
     private int numReps;
     private int lbs;
-    private Exercise exercise;
+    private NewPlan newPlan;
+
+
 
 
 
@@ -63,7 +66,6 @@ public class AddExercises extends AppCompatActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if(event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
-                    Log.d("Message", "I made it here");
                     numOfSets.clearFocus();
                     numOfSets.requestFocus(numOfSets.FOCUS_DOWN);
 
@@ -105,35 +107,19 @@ public class AddExercises extends AppCompatActivity {
         saveExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("Save Exercise button clicked");
                 name = exerciseName.getText().toString();
                 numSets = Integer.parseInt(numOfSets.getText().toString());
                 numReps = Integer.parseInt(numOfReps.getText().toString());
                 lbs = Integer.parseInt(weight.getText().toString());
 
-                exercise = new Exercise(name, numSets, numReps, lbs);
-                Bundle data = new Bundle();
-
-                data.putParcelable("exerciseData", exercise);
-
-                ExerciseListFragment exerciseData = new ExerciseListFragment();
-                exerciseData.setArguments(data);
-
-
-
-
-
-
-
-
-                //Intent data = new Intent(AddExercises.this, ExerciseListFragment.class);
-
-                //data.putExtra("AddExercises", exercise);
-                Log.d("Msg", "I got here");
                 Intent intent = new Intent(AddExercises.this, NewPlan.class);
+                Exercise exercise = new Exercise(name, numSets, numReps, lbs);
+                System.out.println("Exercise object is being loaded in AddExercises.java");
 
-                Log.d("Msg", "I know I got here");
+                intent.putExtra("exerciseData", exercise);
 
-                startActivity(intent);
+                startActivity(intent); 
 
 
 
@@ -147,6 +133,8 @@ public class AddExercises extends AppCompatActivity {
 
 
     }
+
+
 
 
 }

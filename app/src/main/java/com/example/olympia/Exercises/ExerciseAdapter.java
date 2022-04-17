@@ -32,7 +32,14 @@ public class ExerciseAdapter extends ArrayAdapter {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.exercise_item, parent, false);
         }
         TextView titleTextView = (TextView) convertView.findViewById(R.id.idExerciseButton);
-        titleTextView.setText(exerciseList.get(position).getTitle());
+        try {
+            titleTextView.setText(exerciseList.get(position).getTitle());
+
+        } catch(Exception e) {
+            System.out.println("Error: " + e);
+
+        }
+        //titleTextView.setText(exerciseList.get(position).getTitle());
         return convertView;
     }
 }

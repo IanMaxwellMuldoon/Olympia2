@@ -12,12 +12,15 @@ public class Exercise implements Parcelable {
     private int weight;
     private int progressSetCount;
 
+
     public Exercise(){
     title = null;
     numSets = 0;
     numReps = 0;
     weight = 0;
-        progressSetCount = 0;
+
+       progressSetCount = 0;
+
     }
 
     public Exercise(String title, int numSets, int numReps, int weight){

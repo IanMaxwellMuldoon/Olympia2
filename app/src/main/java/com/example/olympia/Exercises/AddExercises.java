@@ -28,6 +28,8 @@ public class AddExercises extends AppCompatActivity {
     private int numSets;
     private int numReps;
     private int lbs;
+    private NewPlan newPlan;
+
 
 
 
@@ -105,8 +107,7 @@ public class AddExercises extends AppCompatActivity {
         saveExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Hi i am here in side butoton");
-                System.out.println("THINGS ARE HAPPENING WHEN I CLICK THE BUTTON YAY!");
+                System.out.println("Save Exercise button clicked");
                 name = exerciseName.getText().toString();
                 numSets = Integer.parseInt(numOfSets.getText().toString());
                 numReps = Integer.parseInt(numOfReps.getText().toString());
@@ -114,6 +115,8 @@ public class AddExercises extends AppCompatActivity {
 
                 Intent intent = new Intent(AddExercises.this, NewPlan.class);
                 Exercise exercise = new Exercise(name, numSets, numReps, lbs);
+                System.out.println("Exercise object is being loaded in AddExercises.java");
+
                 intent.putExtra("exerciseData", exercise);
 
                 startActivity(intent); 

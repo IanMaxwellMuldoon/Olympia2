@@ -22,6 +22,7 @@
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity
             android:name=".Exercises.NewPlan"
+
             android:exported="false"
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity

@@ -24,12 +24,15 @@ public class NewPlan extends AppCompatActivity  {
     Exercise exercise;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
-    ArrayList<Exercise> exerciseList;
+    private ArrayList<Exercise> exerciseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("Creating new plan");
+        exerciseList = DataHolder.getInstance().arrayList;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_plan);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -43,8 +46,23 @@ public class NewPlan extends AppCompatActivity  {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
+
         try {
             exercise = getIntent().getParcelableExtra("exerciseData");
+
+
+            if(exercise != null) {
+                System.out.println("Exercise is loaded");
+                System.out.println(exercise.getTitle());
+                exerciseList.add(exercise);
+                System.out.println("Exercise has been put on the list");
+
+
+            } else {
+                System.out.println("Exercise is a null object");
+            }
+
 
 
         } catch (Exception e) {
@@ -68,9 +86,9 @@ public class NewPlan extends AppCompatActivity  {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Plan plan = new Plan("Temp Title");
+                Plan plan = new Plan("Temp Title", exerciseList);
 
-                firebaseFirestore.collection("users").document(user.getUid()).collection("plans").add(getExercise());
+                firebaseFirestore.collection("users").document(user.getUid()).collection("plans").add(plan);
                 Intent intent = new Intent(NewPlan.this, PlanMenu.class);
                 startActivity(intent);
             }
@@ -88,5 +106,12 @@ public class NewPlan extends AppCompatActivity  {
         return exercise;
     }
 
+    public void setArrayList(ArrayList<Exercise> arrayList) {
+        this.exerciseList = arrayList;
 
+    }
+
+    public ArrayList<Exercise> getExerciseList() {
+        return exerciseList;
+    }
 }

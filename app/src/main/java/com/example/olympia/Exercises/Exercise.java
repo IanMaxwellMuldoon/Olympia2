@@ -11,11 +11,13 @@ public class Exercise implements Parcelable {
     private int numReps;
     private int weight;
 
+
     public Exercise(){
     title = null;
     numSets = 0;
     numReps = 0;
     weight = 0;
+
     }
 
     public Exercise(String title, int numSets, int numReps, int weight){

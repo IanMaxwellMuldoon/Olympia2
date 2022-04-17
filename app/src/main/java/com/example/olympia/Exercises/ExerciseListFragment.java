@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
  public class ExerciseListFragment extends Fragment {
     ListView listView;
-    ArrayList<Exercise> exerciseList =  new ArrayList<Exercise>();
+
 
 
 
@@ -33,26 +33,35 @@ import java.util.ArrayList;
 
         View view = inflater.inflate(R.layout.fragment_exercise_list, container, false);
 
+        ArrayList<Exercise> exerciseList;
+
         //import data from AddExercise
 
 
 
-        exerciseList.add(new Exercise("A"));
+        /*exerciseList.add(new Exercise("A"));
         exerciseList.add(new Exercise("B"));
-        exerciseList.add(new Exercise("C"));
+        exerciseList.add(new Exercise("C")); */
 
 
         try{
             NewPlan newPlan = (NewPlan) getActivity();
-            Exercise exercise = newPlan.getExercise();
-            Log.d("message","Exercise title: " + exercise.getTitle());
-            exerciseList.add(exercise);
+            exerciseList = newPlan.getExerciseList();
+            //Log.d("message","Exercise title: " + exercise.getTitle());
+            //exerciseList.add(exercise);
+            if(exerciseList != null) {
+                listView = view.findViewById(R.id.idExerciseList);
+                ExerciseAdapter exerciseAdapter= new ExerciseAdapter(getActivity().getApplicationContext(), R.layout.plan_item, exerciseList);
+                listView.setAdapter(exerciseAdapter);
+
+            } else {
+                System.out.println("Null exercise list");
+            }
+
         }catch (NullPointerException e){
             Log.d("error","Null exercise");
         }
-        listView = view.findViewById(R.id.idExerciseList);
-        ExerciseAdapter exerciseAdapter= new ExerciseAdapter(getActivity().getApplicationContext(), R.layout.plan_item, exerciseList);
-        listView.setAdapter(exerciseAdapter);
+
 
 
 

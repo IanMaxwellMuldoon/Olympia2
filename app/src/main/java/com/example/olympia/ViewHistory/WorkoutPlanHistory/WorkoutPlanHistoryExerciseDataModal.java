@@ -4,6 +4,7 @@ public class WorkoutPlanHistoryExerciseDataModal {
     private Long numReps;
     private Long numSets;
     private Long weight;
+    private Long progressCount;
     private String repSetWeight;
     private String title;
 
@@ -11,12 +12,13 @@ public class WorkoutPlanHistoryExerciseDataModal {
     public WorkoutPlanHistoryExerciseDataModal() {
     }
 
-    public WorkoutPlanHistoryExerciseDataModal(Long numReps, Long numSets, String repSetWeight, String title, Long weight) {
+    public WorkoutPlanHistoryExerciseDataModal(Long numReps, Long numSets, Long weight, Long progressCount, String repSetWeight, String title) {
         this.numReps = numReps;
         this.numSets = numSets;
+        this.weight = weight;
+        this.progressCount = progressCount;
         this.repSetWeight = repSetWeight;
         this.title = title;
-        this.weight = weight;
     }
 
     public Long getNumReps() {
@@ -57,5 +59,13 @@ public class WorkoutPlanHistoryExerciseDataModal {
 
     public void setWeight(Long weight) {
         this.weight = weight;
+    }
+
+    public Long getProgressCount() {
+        return progressCount;
+    }
+
+    public void setProgressCount(Long progressCount) {
+        this.progressCount = progressCount;
     }
 }

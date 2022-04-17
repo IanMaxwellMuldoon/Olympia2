@@ -11,6 +11,7 @@ import com.example.olympia.CalorieCounter.CalorieMenu;
 import com.example.olympia.Exercises.PlanMenu;
 import com.example.olympia.R;
 import com.example.olympia.ViewHistory.ViewHistoryActivity;
+import com.example.olympia.ViewHistory.WorkoutPlanHistory.WorkoutPlanList;
 import com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect;
 
 public class MainMenu extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        Button startWorkout = (Button)findViewById(R.id.startWorkout);
+        Button startWorkout = (Button) findViewById(R.id.startWorkout);
         startWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,7 +30,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        Button logFood = (Button)findViewById(R.id.logFood);
+        Button logFood = (Button) findViewById(R.id.logFood);
         logFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,7 +39,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        Button tutorialWorkouts = (Button)findViewById(R.id.tutorialWorkouts);
+        Button tutorialWorkouts = (Button) findViewById(R.id.tutorialWorkouts);
         tutorialWorkouts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,11 +48,21 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        Button viewHistoryButton = (Button)findViewById(R.id.idViewHistoryButton);
+        Button viewHistoryButton = (Button) findViewById(R.id.idViewHistoryButton);
         viewHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenu.this, ViewHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Workout History Button
+        Button workoutHistoryButton = (Button) findViewById(R.id.idWorkoutHistoryButton);
+        workoutHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenu.this, WorkoutPlanList.class);
                 startActivity(intent);
             }
         });

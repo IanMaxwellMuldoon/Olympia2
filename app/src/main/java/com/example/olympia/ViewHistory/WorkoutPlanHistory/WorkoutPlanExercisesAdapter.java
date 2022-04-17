@@ -43,14 +43,15 @@ public class WorkoutPlanExercisesAdapter extends ArrayAdapter<WorkoutPlanHistory
         TextView exerciseWeight = listitemView.findViewById(R.id.exerciseHistoryListWeight);
         TextView exerciseGoal = listitemView.findViewById(R.id.exerciseHistoryListGoalAmt);
         TextView exerciseSets = listitemView.findViewById(R.id.exerciseHistoryListSets);
-        TextView exerciseReps = listitemView.findViewById(R.id.exerciseHistoryListNumReps);
+//        TextView exerciseReps = listitemView.findViewById(R.id.exerciseHistoryListNumReps);
 
         // Set the TextViews with the data grabbed from Firestore
         exerciseName.setText(dataModal.getTitle());
         exerciseWeight.setText(dataModal.getWeight().toString());
         exerciseGoal.setText(dataModal.getRepSetWeight());
-        exerciseSets.setText(dataModal.getNumSets().toString());
-        exerciseReps.setText(dataModal.getNumReps().toString());
+        exerciseSets.setText(dataModal.getProgressCount().toString() + "/" + dataModal.getNumSets().toString());
+//        exerciseSets.setText(dataModal.getNumSets().toString());
+//        exerciseReps.setText(dataModal.getNumReps().toString());
 
         // Added a onclick event if needed in the future
         listitemView.setOnClickListener(new View.OnClickListener() {

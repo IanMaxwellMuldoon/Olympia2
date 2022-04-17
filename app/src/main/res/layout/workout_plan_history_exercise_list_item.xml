@@ -100,27 +100,27 @@
             </RelativeLayout>
 
             <!-- Number of Reps -->
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+<!--            <RelativeLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
 
-                <TextView
-                    android:id="@+id/exerciseHistoryListReps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Reps:"
-                    android:textSize="16dp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/exerciseHistoryListReps"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:text="Reps:"-->
+<!--                    android:textSize="16dp" />-->
 
-                <TextView
-                    android:id="@+id/exerciseHistoryListNumReps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@+id/exerciseHistoryListReps"
-                    android:text="0"
-                    android:textSize="16dp" />
-            </RelativeLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/exerciseHistoryListNumReps"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_toRightOf="@+id/exerciseHistoryListReps"-->
+<!--                    android:text="0"-->
+<!--                    android:textSize="16dp" />-->
+<!--            </RelativeLayout>-->
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

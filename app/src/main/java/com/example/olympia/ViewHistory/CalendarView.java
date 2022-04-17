@@ -7,6 +7,10 @@ import android.widget.TextView;
 
 import com.example.olympia.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class CalendarView extends AppCompatActivity {
 
     CalendarView calendarView;
@@ -17,10 +21,15 @@ public class CalendarView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_view);
 
-//        calendarView = (CalendarView) findViewById(R.id.CalendarView);
-//        myDate= (TextView) findViewById(R.id.idDate);
-
-
+        myDate = (TextView) findViewById(R.id.idDate);
+        setDate(myDate);
         
+    }
+
+    private void setDate(TextView myDate) {
+        Date today = Calendar.getInstance().getTime();//getting date
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");//formating according to my need
+        String date = formatter.format(today);
+        myDate.setText(date);
     }
 }

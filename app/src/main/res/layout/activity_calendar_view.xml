@@ -47,4 +47,13 @@
         android:layout_height="wrap_content"
         />
 
+    <android.widget.TextClock
+        android:id="@+id/datumprikaz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:format12Hour="dd.MM.yyyy"
+        android:format24Hour="@null"
+        android:layout_marginLeft="150dp"
+        />
+
 </LinearLayout>

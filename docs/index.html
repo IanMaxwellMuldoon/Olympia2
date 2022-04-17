@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Olympia</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/dumbbell-solid.svg" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <!-- Light Mode -->
+  <!-- <link rel="stylesheet" href="css/mdb.min.css" /> -->
+  <!-- Dark Mode -->
+  <link rel="stylesheet" href="css/mdb.dark.min.css" />
+</head>
+
+<body>
+  <main class="autohide-padding" id="coreContent">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- CSUN Logo -->
+        <a class="navbar-brand" href="https://www.sandbox.csun.edu/~xjiang/SeniorDesign">
+          <img src="img/CSUN-logo.png" class="me-2" height="20" alt="CSUN logo" />
+          <small>Senior Design Project</small>
+        </a>
+        <!-- Toggle Button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto mb-2 mb-sm-0">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="about.html">About Us</a>
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid" id="main-container">
+      <!-- Logo Section -->
+      <div class="bg-image" style="
+      background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+      height: 350px;
+      ">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <img src="img/olympia-logo.png" class="d-flex m-4" style="width: 250px; height: auto" alt="logo img">
+            <h1 class="d-flex display-1 mb-3 h2">Olympia</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Introduction Row -->
+      <div class="card m-5">
+        <h2 class="card-header display-4">Introduction to Olympia</h2>
+        <div class="card-body">
+          <p class="card-text">
+            Olympia is a native Android app we have developed to provide users with an elegant solution to tracking
+            their workout metrics with an easy-to-use user interface and also provide users the option to limit time
+            spent at the gym waiting for equipment and an ever-growing community of members to connect with and draw
+            inspiration from. Our application allows users to both record their workout metrics like weight lifted, sets
+            completed, reps per set, etc., and to monitor their calorie and macronutrient intake from their meals in
+            order to hit both their exercise and diet goals.
+          </p>
+          <a href="https://github.com/IanMaxwellMuldoon/Olympia2" class="btn btn-primary">
+            <i class="fa-brands fa-github"></i>
+            OLYMPIA GITHUB
+          </a>
+        </div>
+      </div>
+
+      <!-- Technologies Row -->
+      <!-- <div class="p-2 m-4 bg-primary rounded-3">
+        <div class="container-fluid py-4">
+          <h1 class="display-5 fw-bold">Technologies</h1>
+        </div>
+      </div> -->
+
+      <div class="card m-5">
+        <h1 class="card-header display-4">Technologies</h1>
+        <!-- Android -->
+        <div class="card bg-dark mx-4 mt-4 mb-4" style="max-width: auto;">
+          <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center">
+              <img src=" img/android-studio-logo.png" class="img-fluid rounded-start" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Android Studio</h5>
+                <p class="card-text">
+                  Android Studio is a purpose built IDE designed to make it easier and more efficient
+                  for developers to create native Android applications. It is built from the extremely popular
+                  IntelliJ IDE built by JetBrains and has support for multiple languages like Kotlin and Java,
+                  both of which are commonly used to create native Android applications. Android Studio has
+                  built-in GUI designing features with drag-and-drop GUI component functionality and a
+                  built-in android device emulator so developers can test their applications straight from
+                  their computers without the need for an Android device.
+                </p>
+                <a href="https://developer.android.com/studio" class="btn btn-primary">
+                  <i class="fa-brands fa-android me-1"></i>
+                  Android Studio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Firebase -->
+        <div class="card bg-dark mx-4 mb-4" style="max-width: auto;">
+          <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center">
+              <img src="img/firebase-logo.png" class="img-fluid rounded-start" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Firebase</h5>
+                <p class="card-text">
+                  Created by Google and used by countless app developers, Firebase provides an
+                  easy-to-use and cost efficient database solution in their Realtime Database and Firestore Database
+                  platforms. It also provides our team with a safe and reliable authentication tool for the
+                  users of Olympia. Firebase also integrates seamlessly into Android Studio allowing our
+                  developers to start using it immediately and with ease.
+                </p>
+                <a href="https://firebase.google.com/" class="btn btn-primary">
+                  <i class="fa-solid fa-database me-1"></i>
+                  Firebase</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Jira -->
+        <div class="card bg-dark mx-4 mb-4 py-3" style="max-width: auto;">
+          <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center">
+              <img src="img/jira-logo.png" class="img-fluid rounded-start" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Jira Software</h5>
+                <p class="card-text">
+                  A world class suite of project management features designed to help development teams track,
+                  manage, and scale their teams and projects. By using Jira our development has been able to
+                  remain focused on our development goals and set forth product roadmaps to monitor the team’s
+                  progress and plan future development accordingly.
+                </p>
+                <a href="https://www.atlassian.com/software/jira" class="btn btn-primary">
+                  <i class="fa-brands fa-jira me-1"></i>
+                  Jira</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- GitHub -->
+        <div class="card bg-dark mx-4 mb-4 py-3" style="max-width: auto;">
+          <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center">
+              <img src="img/github-logo.png" class="img-fluid rounded-start" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">GitHub</h5>
+                <p class="card-text">
+                  GitHub is the foremost platform for both individual developers and large-scale development
+                  teams alike to store their program’s source code. Trusted by hundreds of large-name
+                  corporations, GitHub allows development teams to easily collaborate on developing code for
+                  their projects and provides them with a secure and reliable way to backup their code should
+                  anything in the development process go awry.
+                </p>
+                <a href="https://github.com/" class="btn btn-primary">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Skills Row -->
+      <div class="m-5 card">
+        <h1 class="card-header display-4">Skills</h1>
+        <div class="card-body">
+          <p class="card-text">
+            Olympia is a native android mobile application written in Java and built inside of the Android
+            Studio IDE. It takes advantage of the services provided through Google Firebase for authenticating
+            users of our app and storing their data inside of Firebase’s Realtime and Firestore Databases, and
+            leverages GitHub to create a repository for our source code. Olympia also utilizes APIs to handle
+            searching for thousands of different food options and food related metrics like calories and
+            nutrient content.
+          </p>
+        </div>
+      </div>
+      <!-- End of Skills Row -->
+
+      <!-- Team Roles Row -->
+      <!-- <div class="p-2 m-4 bg-primary rounded-3">
+        <div class="container-fluid py-4">
+          <h1 class="display-5 fw-bold">Team Member Roles</h1>
+        </div>
+      </div> -->
+
+      <div class="card m-5">
+        <h1 class="card-header display-4">Team Member Roles</h1>
+        <div class="px-4 mt-2 row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card bg-dark">
+              <div class="card-body">
+                <h5 class="display-6 card-title">Ian Muldoon</h5>
+                <hr>
+                <ul>
+                  <li>Scrum Master</li>
+                  <li>Tech Lead</li>
+                  <li>Developer</li>
+                </ul>
+                <a href="https://github.com/IanMaxwellMuldoon" class="btn btn-primary">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub Repo</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark">
+              <div class="card-body">
+                <h5 class="display-6 card-title">Colin Shepard</h5>
+                <hr>
+                <ul>
+                  <li>Git Hub Expert</li>
+                  <li>Tech Lead</li>
+                  <li>Developer</li>
+                </ul>
+                <a href="https://github.com/ColinDShepard" class="btn btn-primary">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub Repo</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark">
+              <div class="card-body">
+                <h5 class="display-6 card-title">Pawlo Essa</h5>
+                <hr>
+                <ul>
+                  <li>GUI Expert</li>
+                  <li>Developer</li>
+                  <li>Q/A Tester</li>
+                </ul>
+                <a href="https://github.com/pawblastic" class="btn btn-primary">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub Repo</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark">
+              <div class="card-body">
+                <h5 class="display-6 card-title">Eric Aragon</h5>
+                <hr>
+                <ul>
+                  <li>GUI Expert</li>
+                  <li>Developer</li>
+                  <li>Q/A Tester</li>
+                </ul>
+                <a href="https://github.com/ericlifts" class="btn btn-primary">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub Repo</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark">
+              <div class="card-body">
+                <h5 class="display-6 card-title">Erik Sarksian</h5>
+                <hr>
+                <ul>
+                  <li>GUI Expert</li>
+                  <li>Developer</li>
+                  <li>Q/A Tester</li>
+                </ul>
+                <a href="https://github.com/erikstark77" class="btn btn-primary">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub Repo</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark">
+              <div class="card-body">
+                <h5 class="display-6 card-title">Chad White</h5>
+                <hr>
+                <ul>
+                  <li>Database Expert</li>
+                  <li>Developer</li>
+                  <li>Q/A Tester</li>
+                </ul>
+                <a href="https://github.com/chad-white-428" class="btn btn-primary">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub Repo</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark mb-4">
+              <div class="card-body">
+                <h5 class="display-6 card-title">Maham Marashizadeh</h5>
+                <hr>
+                <ul>
+                  <li>Database Expert</li>
+                  <li>Developer</li>
+                  <li>Q/A Tester</li>
+                </ul>
+                <a href="https://github.com/maham912" class="btn btn-primary">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub Repo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Team Roles Row -->
+    </div>
+    <!-- End of Main container -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-dark text-muted">
+    <section>
+      <div class="pt-2 container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <!-- CSUN Logo -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto my-auto">
+            <img src="img/CSUN-logo.png" class="img-responsive" alt="logo" width="200">
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Social Media -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Social Media
+            </h6>
+            <p><i class="fab fa-facebook fa-lg me-3"></i><a href="https://www.facebook.com/calstatenorthridge/">Facebook</a></p>
+            <p><i class="fab fa-twitter fa-lg me-3"></i><a href="https://twitter.com/csunorthridge/">Twitter</a></p>
+            <p><i class="fab fa-instagram fa-lg me-3"></i><a href="https://www.instagram.com/csun_edu/">Instagram</a></p>
+            <p><i class="fab fa-linkedin fa-lg me-3"></i><a href="https://www.linkedin.com/school/california-state-university-northridge/">Linked In</a></p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fas fa-home me-3"></i>New York, NY 10012, US</p>
+            <p><i class="fas fa-phone me-3"></i>(818) 677-1200</p>
+            <p><i class="fas fa-desktop me-3"></i><a href="https://www.csun.edu">www.csun.edu</a></p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.384);">
+      <p>© Copyright 2022 California State University, Northridge</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+</body>
+
+</html>

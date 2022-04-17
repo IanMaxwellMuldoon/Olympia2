@@ -46,8 +46,10 @@ public class PlanListFragment extends Fragment {
         //
 
         exercises = new ArrayList<Exercise>();
-        exercises.add(new Exercise("Bench", 3, 8, 135));
-        exercises.add(new Exercise("Incline Bench", 3, 8, 135));
+        exercises.add(new Exercise("Tricep", 3, 8, 80));
+        exercises.add(new Exercise("Pushups", 2, 10, 180));
+        exercises.add(new Exercise("Shoulder Press", 5, 8, 135));
+
 
 
         plans = new ArrayList<Plan>();
@@ -71,8 +73,6 @@ public class PlanListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //String planName = (String) listView.getItemAtPosition(position);
-                //Log.d("msg", planName);
 
                 selectedPlan = (Plan)parent.getAdapter().getItem(position);
                 Intent intent = new Intent(getContext(), LogExercises.class);

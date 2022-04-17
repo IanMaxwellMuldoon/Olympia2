@@ -10,6 +10,7 @@ public class Exercise implements Parcelable {
     private int numSets;
     private int numReps;
     private int weight;
+    private int progressSetCount;
 
 
     public Exercise(){
@@ -18,6 +19,8 @@ public class Exercise implements Parcelable {
     numReps = 0;
     weight = 0;
 
+       progressSetCount = 0;
+
     }
 
     public Exercise(String title, int numSets, int numReps, int weight){
@@ -25,6 +28,7 @@ public class Exercise implements Parcelable {
         this.numSets = numSets;
         this.numReps = numReps;
         this.weight = weight;
+        progressSetCount = 0;
     }
     public Exercise(String title){
         this.title = title;
@@ -58,6 +62,20 @@ public class Exercise implements Parcelable {
 
         this.title = title;
     }
+    public int getProgressCount() {
+        return progressSetCount;
+    }
+
+    public void setProgressCount(int progressCount) {
+        this.progressSetCount = progressCount;
+    }
+    public void incrementProgressCount(){
+        progressSetCount++;
+    }
+    public void decrementProgressCount(){
+        progressSetCount--;
+    }
+
 
     public int getNumSets() {
 

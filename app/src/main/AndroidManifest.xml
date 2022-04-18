@@ -13,17 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
-
+            android:name=".ViewHistory.CalendarView"
+            android:exported="true" />
+        <activity
             android:name=".ViewHistory.mealHistory"
             android:exported="true"
-            android:parentActivityName=".ViewHistory.ViewHistoryActivity"/>
+            android:parentActivityName=".ViewHistory.ViewHistoryActivity" />
         <activity
             android:name=".ViewHistory.WorkoutPlanHistory.WorkoutPlanHistoryExerciseList"
             android:exported="false" />
         <activity
             android:name=".ViewHistory.WorkoutPlanHistory.WorkoutPlanList"
             android:exported="false" />
-
         <activity
             android:name=".ViewHistory.ViewHistoryActivity"
             android:exported="false"
@@ -34,7 +35,6 @@
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity
             android:name=".Exercises.NewPlan"
-
             android:exported="false"
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity

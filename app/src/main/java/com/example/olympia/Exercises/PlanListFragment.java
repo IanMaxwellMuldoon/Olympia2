@@ -44,9 +44,6 @@ public class PlanListFragment extends Fragment {
     private String currentUser;
     private ArrayList<Plan> tempList;
 
-
-
-
     public PlanListFragment() {
         // Required empty public constructor
     }
@@ -55,16 +52,9 @@ public class PlanListFragment extends Fragment {
     private ArrayList<Exercise> exercises;
 
 
-
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        System.out.println("You are in the PlanListFragment");
 
         // Get the instance of our Firestore database
         mAuth = FirebaseAuth.getInstance();
@@ -72,10 +62,6 @@ public class PlanListFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         // Get the user id of whomever is logged into the app currently
         currentUser = user.getUid();
-
-        loadPlansInFragment();
-
-
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_plan_list, container, false);
@@ -100,15 +86,10 @@ public class PlanListFragment extends Fragment {
 
 
 
-
         //setting listview and adapter for search results
         listView = (ListView) view.findViewById(R.id.PlanListView);
 
-        PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, planList);
-        planAdapter.notifyDataSetChanged();
-        listView.setAdapter(planAdapter);
-
-
+        loadPlansInFragment();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -129,6 +110,7 @@ public class PlanListFragment extends Fragment {
     }
 
     private void loadPlansInFragment() {
+        System.out.println("You are inside loadsPlanInFragment");
         db.collection("users")
                 .document(currentUser)
                 .collection("plans")
@@ -142,7 +124,13 @@ public class PlanListFragment extends Fragment {
                         } else {
                             List<Plan> types = documentSnapshots.toObjects(Plan.class);
                             planList.addAll(types);
-                            System.out.println("You are adding the plans" + planList.toString());
+                            for (int i = 0; i < planList.size(); i++) {
+                                System.out.println(planList.get(i).getTitle());
+
+                            }
+                            setPlanList(planList);
+                            PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, planList);
+                            listView.setAdapter(planAdapter);
 
                         }
                     }
@@ -157,7 +145,8 @@ public class PlanListFragment extends Fragment {
 
     }
 
-    public void setTempArrayList () {
+    public void setPlanList (ArrayList<Plan> arrayList) {
+        this.planList = arrayList;
 
     }
 

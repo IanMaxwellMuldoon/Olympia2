@@ -32,14 +32,15 @@
 
 
         />
+
     <Button
+        android:id="@+id/idAddExerciseButton"
         android:layout_width="209dp"
         android:layout_height="wrap_content"
-        android:id="@+id/idAddExerciseButton"
+        android:layout_above="@+id/idDoneButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Add Exercise"
-        android:layout_above="@+id/idDoneButton"
 
         />
     <Button

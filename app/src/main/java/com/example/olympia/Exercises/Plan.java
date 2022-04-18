@@ -9,6 +9,10 @@ public class Plan implements Parcelable {
     private String title;
     private ArrayList<Exercise> exerciseArrayList = new ArrayList<Exercise>();
 
+    public Plan () {
+
+    }
+
     public Plan (String title) {
        this.title = title;
        exerciseArrayList = null;

@@ -19,10 +19,12 @@
             android:parentActivityName=".ViewHistory.ViewHistoryActivity"/>
         <activity
             android:name=".ViewHistory.WorkoutPlanHistory.WorkoutPlanHistoryExerciseList"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ViewHistory.WorkoutPlanHistory.WorkoutPlanHistoryExerciseList"/>
         <activity
             android:name=".ViewHistory.WorkoutPlanHistory.WorkoutPlanList"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Menus.MainMenu"/>
 
         <activity
             android:name=".ViewHistory.ViewHistoryActivity"
@@ -115,7 +117,8 @@
             android:parentActivityName=".CalorieCounter.CalorieCounterSearch" />
         <activity
             android:name=".Exercises.AddExercises"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Exercises.NewPlan"/>
         <activity
             android:name=".Exercises.PullExercises"
             android:exported="false" />

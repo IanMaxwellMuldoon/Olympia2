@@ -11,14 +11,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.olympia.Exercises.AddExercises;
 import com.example.olympia.R;
 
 import java.util.ArrayList;
 
 public class ExerciseSelectionAdapter extends ArrayAdapter<ExerciseSelectionDataModel> {
+    Context context;
+
     // constructor for our list view adapter.
     public ExerciseSelectionAdapter(@NonNull Context context, ArrayList<ExerciseSelectionDataModel> dataModalArrayList) {
         super(context, 0, dataModalArrayList);
+        this.context = context;
     }
 
     @NonNull
@@ -45,11 +49,10 @@ public class ExerciseSelectionAdapter extends ArrayAdapter<ExerciseSelectionData
             @Override
             public void onClick(View v) {
                 // Get intent and send planName & docName to be used in the linked activity
-//                Intent intent = new Intent(getContext(), WorkoutPlanHistoryExerciseList.class);
-//                intent.putExtra("planName", dataModal.getPlanName());
-//                intent.putExtra("docName", docName);
-//
-//                context.startActivity(intent);
+                Intent intent = new Intent(getContext(), AddExercises.class);
+                intent.putExtra("exerciseName", dataModal.getExerciseName());
+
+                context.startActivity(intent);
             }
         });
 

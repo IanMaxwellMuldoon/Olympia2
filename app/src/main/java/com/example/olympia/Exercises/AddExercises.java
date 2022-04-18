@@ -41,12 +41,22 @@ public class AddExercises extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exercises);
 
+        // Get data from WorkoutPlanList
+        Intent intent = getIntent();
+        String exerName = intent.getStringExtra("exerciseName");
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         exerciseName = findViewById(R.id.idExerciseName);
+
+        // If intent came from adding a default exercise then set exercise name field
+        if (exerName != null) {
+            exerciseName.setText(exerName);
+        }
+
         exerciseName.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {

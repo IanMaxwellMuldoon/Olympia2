@@ -4,15 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.olympia.Exercises.AddExercises;
 import com.example.olympia.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -82,6 +84,17 @@ public class ExerciseSelectionList
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Set the array adapter info on the spinner
         bodyPartSpinner.setAdapter(arrayAdapter);
+
+        // Provide an option to go to the new workout plan menu if there is no stored workout plans
+        // in the user's database
+        Button addCustomExerciseBtn = (Button) findViewById(R.id.addCustomExerciseBtn);
+        addCustomExerciseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ExerciseSelectionList.this, AddExercises.class);
+                startActivity(intent);
+            }
+        });
     } // End of onCreate()
 
     @Override

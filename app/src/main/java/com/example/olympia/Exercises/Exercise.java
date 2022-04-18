@@ -108,6 +108,11 @@ public class Exercise implements Parcelable {
     public String getRepSetWeight(){
         return getNumSets() + "x" + getNumReps() + " " + getWeight() + "lbs";
     }
+
+    public void setRepSetWeight() {
+
+
+    }
    // public Fragment get
 
     @Override

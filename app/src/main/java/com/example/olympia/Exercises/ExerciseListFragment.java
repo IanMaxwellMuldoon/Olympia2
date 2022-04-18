@@ -37,18 +37,9 @@ import java.util.ArrayList;
 
         //import data from AddExercise
 
-
-
-        /*exerciseList.add(new Exercise("A"));
-        exerciseList.add(new Exercise("B"));
-        exerciseList.add(new Exercise("C")); */
-
-
         try{
             NewPlan newPlan = (NewPlan) getActivity();
             exerciseList = newPlan.getExerciseList();
-            //Log.d("message","Exercise title: " + exercise.getTitle());
-            //exerciseList.add(exercise);
             if(exerciseList != null) {
                 listView = view.findViewById(R.id.idExerciseList);
                 ExerciseAdapter exerciseAdapter= new ExerciseAdapter(getActivity().getApplicationContext(), R.layout.plan_item, exerciseList);

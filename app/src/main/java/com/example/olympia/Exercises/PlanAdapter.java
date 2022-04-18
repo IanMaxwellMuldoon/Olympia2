@@ -15,6 +15,10 @@ import com.example.olympia.R;
 import java.util.ArrayList;
 
 public class PlanAdapter extends ArrayAdapter {
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
 
     private ArrayList<Plan> plans;
     public PlanAdapter(@NonNull Context context, int resource, ArrayList<Plan> plans) {
@@ -25,6 +29,7 @@ public class PlanAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
         int phraseIndex = position;
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.plan_item, parent, false);

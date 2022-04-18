@@ -13,7 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Olympia">
         <activity
-
+            android:name=".Exercises.AddExercise.AddDefaultExercise"
+            android:exported="false" />
+        <activity
+            android:name=".Exercises.AddExercise.ExerciseSelectionList"
+            android:exported="false" />
+        <activity
             android:name=".ViewHistory.mealHistory"
             android:exported="true"
             android:parentActivityName=".ViewHistory.ViewHistoryActivity"/>
@@ -36,7 +41,6 @@
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity
             android:name=".Exercises.NewPlan"
-
             android:exported="false"
             android:parentActivityName=".Exercises.PlanMenu" />
         <activity

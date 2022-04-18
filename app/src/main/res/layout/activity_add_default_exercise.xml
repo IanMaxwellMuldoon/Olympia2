@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Exercises.AddExercise.AddDefaultExercise">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <!-- Exercise Name -->
+    <TextView
+        android:id="@+id/addDefaultExerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Exercise Name"
+        android:textSize="32dp" />
+
+    <EditText
+        android:id="@+id/addDefaultNumOfSets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addDefaultExerciseName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:hint="Number of sets"
+        android:inputType="numberSigned"
+        android:maxLength="20"
+        android:textSize="20dp"
+
+        />
+
+    <EditText
+        android:id="@+id/addDefaultNumOfReps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idNumOfSets"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:hint="Number of reps"
+        android:inputType="numberSigned"
+        android:maxLength="20"
+        android:textSize="20dp"
+
+        />
+
+    <EditText
+        android:id="@+id/idWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idNumOfReps"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:hint="Weight in lbs"
+        android:inputType="numberSigned"
+        android:maxLength="20"
+        android:textSize="20dp"
+
+        />
+
+    <Button
+        android:id="@+id/idSaveExercise"
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idWeight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:text="Save Exercise"
+
+
+        />
+
+</RelativeLayout>

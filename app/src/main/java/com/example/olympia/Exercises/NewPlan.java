@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.olympia.Exercises.AddExercise.ExerciseSelectionList;
 import com.example.olympia.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -92,7 +93,7 @@ public class NewPlan extends AppCompatActivity  {
         addExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NewPlan.this, AddExercises.class);
+                Intent intent = new Intent(NewPlan.this, ExerciseSelectionList.class);
                 startActivity(intent);
 
 

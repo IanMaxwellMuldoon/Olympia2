@@ -38,11 +38,9 @@ public class PlanListFragment extends Fragment {
 
     private ArrayList<Plan> planList;
     private Plan selectedPlan;
-    private DocumentReference docRef;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String currentUser;
-    private ArrayList<Plan> tempList;
 
     public PlanListFragment() {
         // Required empty public constructor
@@ -67,24 +65,7 @@ public class PlanListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_plan_list, container, false);
         //
 
-
-        exercises = new ArrayList<Exercise>();
-        exercises.add(new Exercise("Tricep", 3, 8, 80));
-        exercises.add(new Exercise("Pushups", 2, 10, 180));
-        exercises.add(new Exercise("Shoulder Press", 5, 8, 135));
-
-
-
         planList = new ArrayList<Plan>();
-        planList.add(new Plan("Push", exercises));
-        planList.add(new Plan("Pull", exercises));
-        planList.add(new Plan("Upper Body", exercises));
-
-
-
-
-
-
 
         //setting listview and adapter for search results
         listView = (ListView) view.findViewById(R.id.PlanListView);
@@ -124,10 +105,7 @@ public class PlanListFragment extends Fragment {
                         } else {
                             List<Plan> types = documentSnapshots.toObjects(Plan.class);
                             planList.addAll(types);
-                            for (int i = 0; i < planList.size(); i++) {
-                                System.out.println(planList.get(i).getTitle());
 
-                            }
                             setPlanList(planList);
                             PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, planList);
                             listView.setAdapter(planAdapter);

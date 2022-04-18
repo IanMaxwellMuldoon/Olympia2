@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.olympia.Exercises.AddExercise.ExerciseSelectionList;
 import com.example.olympia.R;
@@ -26,6 +28,8 @@ public class NewPlan extends AppCompatActivity  {
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     private ArrayList<Exercise> exerciseList;
+    private EditText planName;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,19 @@ public class NewPlan extends AppCompatActivity  {
         }
 
 
+        planName = findViewById(R.id.idPlanName);
+        planName.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+
+                    planName.clearFocus();
+                    planName.requestFocus();
+                }
+                return false;
+            }
+        });
+
         addExerciseButton = findViewById(R.id.idAddExerciseButton);
         addExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,10 +104,16 @@ public class NewPlan extends AppCompatActivity  {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Plan plan = new Plan("Temp Title", exerciseList);
+                name = planName.getText().toString();
+                Plan plan = new Plan(name, exerciseList);
+
+
+
 
                 firebaseFirestore.collection("users").document(user.getUid()).collection("plans").add(plan);
                 Intent intent = new Intent(NewPlan.this, PlanMenu.class);
+                System.out.println("New workout plan is being loaded in NewPlan.java");
+                intent.putExtra("planData", plan);
                 startActivity(intent);
             }
         });

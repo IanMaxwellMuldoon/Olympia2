@@ -28,6 +28,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import android.text.format.Time;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,6 +40,9 @@ public class AddFood extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String time;
+    private Calendar calendar;
+    private SimpleDateFormat dateFormat;
+    private String date, userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +50,14 @@ public class AddFood extends AppCompatActivity {
         setContentView(R.layout.activity_add_food);
         String[] data = {"1", "2", "3", "4", "5", "6"};
 
-
+        calendar = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        date = SimpleDateFormat.getDateInstance().format(calendar.getTime());
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
+         userid = mAuth.getCurrentUser().getUid();
 
         db = FirebaseFirestore.getInstance();
+
 
         TextView dropdownNum = findViewById(R.id.iddropNum);
         //for toolbar
@@ -98,8 +107,20 @@ public class AddFood extends AppCompatActivity {
                 //add timestamp to foodItem
                 String time = getTimeStamp();
                 selectedFood.setTime(time);
+
+                //set the date to the current date
+                selectedFood.setDate(date);
+
+                //set user id to to the current users id
+                selectedFood.setUserid(userid);
+
                 //add selectedFood to the Database
-                db.collection("users").document(user.getUid()).collection("foodlist").add(selectedFood);
+                //db.collection("users").document(user.getUid()).collection("foodlist").add(selectedFood);
+                //to make document id the current date in the form of "Month day, year" example "Apr 16, 2022"
+                //db.collection("users").document(user.getUid()).collection("foodlist").document("Apr 16, 2022").set(selectedFood);
+                //need to add userid and date to selectedFood
+                db.collection("food").add(selectedFood);
+
 
                 Toast.makeText(AddFood.this, "FOOD ADDED", Toast.LENGTH_SHORT).show();
 
@@ -120,6 +141,8 @@ public class AddFood extends AppCompatActivity {
         Fiber.setText("" + fib);
 
 
+
+
     }
     public static String getTimeStamp() {
         Time now = new Time();
@@ -127,4 +150,5 @@ public class AddFood extends AppCompatActivity {
         String sTime = now.format("%Y_%m_%d_%H_%M_%S");
         return sTime;
     }
+
 }

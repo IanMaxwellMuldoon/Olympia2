@@ -9,66 +9,74 @@
     tools:context=".CalorieCounter.CalorieCounterSearch">
 
     <include
-        android:id = "@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/mealType"
         android:layout_width="197dp"
         android:layout_height="71dp"
         android:layout_marginStart="107dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="107dp"
         android:layout_marginBottom="13dp"
         android:text="Meal Type"
         android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/autoComplete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
 
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/idSearchCard"
+        android:layout_width="195dp"
+        android:layout_height="42dp"
+        app:cardCornerRadius="4dp"
+        app:cardBackgroundColor="@color/cardview_dark_background"
 
 
-    <AutoCompleteTextView
-        android:id="@+id/autoComplete"
-        android:layout_width="192dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="109dp"
-        android:layout_marginBottom="560dp"
-        android:hint="Add a food"
-        android:maxLines="1"
-        android:imeOptions="actionDone"
-        android:inputType="text"
-        android:searchSuggestAuthority="com.example.olympia.CalorieCounter.MySuggestionProvider"
-        android:searchSuggestSelection=' ?'
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mealType"
+        app:layout_constraintTop_toBottomOf="@+id/mealType">
 
-        />
+        <AutoCompleteTextView
+            android:id="@+id/autoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="109dp"
+            android:layout_marginBottom="560dp"
+            android:hint="Add a food"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1"
+            android:searchSuggestAuthority="com.example.olympia.CalorieCounter.MySuggestionProvider"
+            android:searchSuggestSelection=' ?'
+
+
+            />
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="360dp"
         android:layout_height="520dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         app:cardBackgroundColor="@color/cardview_dark_background"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoComplete"
-        app:layout_constraintVertical_bias="0.165">
+        app:layout_constraintTop_toBottomOf="@+id/idSearchCard"
+        app:layout_constraintVertical_bias="0.166">
 
 
         <FrameLayout

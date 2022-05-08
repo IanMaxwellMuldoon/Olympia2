@@ -42,7 +42,7 @@
 
     <Button
         android:id="@+id/addCustomExerciseBtn"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

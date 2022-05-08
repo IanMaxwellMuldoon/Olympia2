@@ -25,7 +25,7 @@
 
     <Button
         android:id="@+id/startWorkout"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -34,7 +34,7 @@
 
     <Button
         android:id="@+id/logFood"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/startWorkout"
         android:layout_centerHorizontal="true"
@@ -43,7 +43,7 @@
 
     <Button
         android:id="@+id/tutorialWorkouts"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/logFood"
         android:layout_centerHorizontal="true"
@@ -52,7 +52,7 @@
 
     <Button
         android:id="@+id/idViewHistoryButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/tutorialWorkouts"
         android:layout_centerHorizontal="true"
@@ -62,7 +62,7 @@
     <!-- View Workout History Button -->
     <Button
         android:id="@+id/idWorkoutHistoryButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/idViewHistoryButton"
         android:layout_centerHorizontal="true"

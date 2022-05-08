@@ -43,7 +43,7 @@
 
     <Button
         android:id="@+id/breakfastButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
     <Button
         android:id="@+id/lunchButton"
         android:layout_below="@id/breakfastButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -62,7 +62,7 @@
     <Button
         android:id="@+id/dinnerButton"
         android:layout_below="@id/lunchButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -71,7 +71,7 @@
     <Button
         android:id="@+id/snacksButton"
         android:layout_below="@id/dinnerButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -80,7 +80,7 @@
     <Button
         android:id="@+id/drinksButton"
         android:layout_below="@id/snacksButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

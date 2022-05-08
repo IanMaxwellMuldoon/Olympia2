@@ -35,7 +35,7 @@
 
     <Button
         android:id="@+id/idAddExerciseButton"
-        android:layout_width="209dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/idDoneButton"
         android:layout_centerHorizontal="true"
@@ -44,7 +44,7 @@
 
         />
     <Button
-        android:layout_width="209dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/idDoneButton"
         android:layout_centerHorizontal="true"

@@ -57,7 +57,7 @@
         android:layout_below="@id/tutorialWorkouts"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:text="View History" />
+        android:text="Food History" />
 
     <!-- View Workout History Button -->
     <Button

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<!--    android:background="#E3E3E3">-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/exerciseHistoryCardView"
@@ -15,8 +14,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="2dp"
         app:cardBackgroundColor="#ffffff"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +31,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="Exercise Name"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold"/>
 
             <!-- Goal ?? -->
             <RelativeLayout

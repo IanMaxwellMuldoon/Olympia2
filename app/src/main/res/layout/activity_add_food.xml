@@ -57,10 +57,8 @@
             android:id="@+id/idSpinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textAlignment="textEnd"
             android:gravity="end"
-
-            />
+            android:textAlignment="textEnd" />
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -201,17 +199,6 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
-    <!-- Checkmark Btn -->
-    <!--    <ImageButton-->
-    <!--        android:id="@+id/idDoneButton"-->
-    <!--        android:layout_width="62dp"-->
-    <!--        android:layout_height="57dp"-->
-    <!--        android:layout_marginTop="100dp"-->
-    <!--        android:layout_marginEnd="38dp"-->
-    <!--        android:src="@drawable/baseline_done_black_24"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <!-- Add Food Btn -->
     <Button

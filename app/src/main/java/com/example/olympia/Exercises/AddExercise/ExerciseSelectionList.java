@@ -77,7 +77,7 @@ public class ExerciseSelectionList
 
         // Create an ArrayAdapter to hold the list of body parts
         ArrayAdapter arrayAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_spinner_item,
+                R.layout.spinner_item,
                 bodyParts);
 
         // Set a simple layout for each spinner item

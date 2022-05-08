@@ -24,11 +24,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +44,10 @@ public class PlanListFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String currentUser;
-    private String currentPlan;
+    private ArrayList<String> documentIds;
+    private boolean delete = false;
+
+
 
 
     public PlanListFragment() {
@@ -56,7 +61,10 @@ public class PlanListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         System.out.println("I am in side of fraglist on create");
+
+
 
         // Get the instance of our Firestore database
         mAuth = FirebaseAuth.getInstance();
@@ -65,15 +73,18 @@ public class PlanListFragment extends Fragment {
         // Get the user id of whomever is logged into the app currently
         currentUser = user.getUid();
 
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_plan_list, container, false);
         //
 
         planList = new ArrayList<Plan>();
+        documentIds = new ArrayList<String>();
 
         //setting listview and adapter for search results
         listView = (ListView) view.findViewById(R.id.PlanListView);
 
+        getDocumentIds();
         loadPlansInFragment();
 
 
@@ -81,32 +92,29 @@ public class PlanListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println("You are here");
-                    currentPlan = db.collection()
-
-
-                    selectedPlan = (Plan)parent.getAdapter().getItem(position);
-                    planList.remove(selectedPlan);
-                    deleteData(selectedPlan.getTitle());
 
                 PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, planList);
                 listView.setAdapter(planAdapter);
-
-
-                    selectedPlan = (Plan)parent.getAdapter().getItem(position - 1);
-                    Intent intent = new Intent(getContext(), LogExercises.class);
-                    intent.putExtra("Example", selectedPlan);
-
-                    //startActivity(intent);
-
-
-
-
-
+                selectedPlan = (Plan)parent.getAdapter().getItem(position);
+                Intent intent = new Intent(getContext(), LogExercises.class);
+                intent.putExtra("Example", selectedPlan);
+                startActivity(intent);
 
 
             }
         });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedPlan = (Plan)parent.getAdapter().getItem(position);
+                deleteDocument(position);
+                PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, planList);
+                listView.setAdapter(planAdapter);
+                return false;
+            }
+        });
+
 
 
         return view;
@@ -125,6 +133,7 @@ public class PlanListFragment extends Fragment {
                             System.out.println("List empty");
                             return;
                         } else {
+
                             List<Plan> types = documentSnapshots.toObjects(Plan.class);
                             planList.addAll(types);
 
@@ -145,30 +154,54 @@ public class PlanListFragment extends Fragment {
 
     }
 
-    private void deleteData(String title) {
-        db.collection("users")
-                .document(currentUser)
-                .collection("plans")
-                .document("(document.documentID)")
-                .delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-
-                        System.out.println("DocumentSnapshot successfully deleted!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        System.out.println("Error deleting document " + e);
-                    }
-                });
-
-    }
 
     public void setPlanList (ArrayList<Plan> arrayList) {
         this.planList = arrayList;
+
+    }
+
+
+
+    public void getDocumentIds () {
+        db.collection("users")
+                .document(currentUser)
+                .collection("plans")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot document : task.getResult()) {
+                                System.out.println(document.getId() + " => " + document.getData());
+                                documentIds.add(document.getId());
+                            }
+                        } else {
+                            System.out.println("Error getting documents: " + task.getException());
+                        }
+                    }
+                });
+    }
+
+    public void deleteDocument(int position) {
+        DocumentReference planRef = db.collection("users")
+                .document(currentUser)
+                .collection("plans")
+                .document(documentIds.get(position));
+
+        planRef.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    System.out.println("Deleted plan");
+                } else {
+                    System.out.println("Failed");
+                }
+            }
+        });
+
+        documentIds.remove(position);
+        planList.remove(selectedPlan);
+
 
     }
 

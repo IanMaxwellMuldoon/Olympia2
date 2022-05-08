@@ -20,8 +20,14 @@ import java.util.ArrayList;
 
 public class PlanMenu extends AppCompatActivity {
 
+    PlanListFragment planListFragment;
+    private boolean delete;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        planListFragment = new PlanListFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("delete", getDelete());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_menu);
@@ -43,8 +49,18 @@ public class PlanMenu extends AppCompatActivity {
 
 
 
+    }
+
+
+    public void setDelete (boolean bool) {
+        delete = bool;
+    }
+
+    public boolean getDelete() {
+        return delete;
 
     }
+
 
 
 

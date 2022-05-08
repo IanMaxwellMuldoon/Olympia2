@@ -29,17 +29,17 @@
 
     <TextView
         android:id="@+id/textDateDisplay"
-        android:layout_width="374dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="19dp"
+        android:layout_below="@id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="567dp"
-        android:text="TextView"
         android:fontFamily="sans-serif"
+        android:text="TextView"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="40sp" />
+        android:textSize="32dp" />
 
     <Button
         android:id="@+id/breakfastButton"

@@ -31,8 +31,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="Exercise Name"
                 android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <!-- Goal ?? -->
             <RelativeLayout
@@ -46,7 +46,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="Goal:"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/exerciseHistoryListGoalAmt"
@@ -56,7 +56,7 @@
                     android:layout_toRightOf="@+id/exerciseHistoryListGoal"
                     android:text="0"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="20sp" />
             </RelativeLayout>
 
             <!-- Amt of Weight -->
@@ -71,7 +71,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="Weight:"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/exerciseHistoryListWeight"
@@ -81,7 +81,7 @@
                     android:layout_toRightOf="@+id/exerciseHistoryWeight"
                     android:text="0"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="20sp" />
             </RelativeLayout>
 
             <!-- Number of Sets -->
@@ -96,7 +96,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="Sets:"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/exerciseHistoryListSets"
@@ -106,7 +106,7 @@
                     android:layout_toRightOf="@+id/sets"
                     android:text="0"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="20sp" />
             </RelativeLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

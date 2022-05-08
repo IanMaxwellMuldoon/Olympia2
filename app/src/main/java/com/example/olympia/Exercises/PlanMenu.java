@@ -19,9 +19,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 
 public class PlanMenu extends AppCompatActivity {
+    private boolean delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_menu);
@@ -41,6 +43,17 @@ public class PlanMenu extends AppCompatActivity {
             }
         });
 
+        Button deleteButton = (Button)findViewById(R.id.idDeleteButton);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDelete(true);
+                System.out.println("In plan menu class in delete button " + getDelete());
+
+
+            }
+        });
+
 
 
 
@@ -48,7 +61,13 @@ public class PlanMenu extends AppCompatActivity {
 
 
 
+    public boolean getDelete() {
+        return delete;
+    }
 
+    public void setDelete(boolean bool) {
+        delete = bool;
+    }
 
 
 

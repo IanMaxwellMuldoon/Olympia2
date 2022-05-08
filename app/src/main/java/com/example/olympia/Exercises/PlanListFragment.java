@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -41,6 +42,8 @@ public class PlanListFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String currentUser;
+    private String currentPlan;
+
 
     public PlanListFragment() {
         // Required empty public constructor
@@ -53,6 +56,7 @@ public class PlanListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        System.out.println("I am in side of fraglist on create");
 
         // Get the instance of our Firestore database
         mAuth = FirebaseAuth.getInstance();
@@ -72,15 +76,33 @@ public class PlanListFragment extends Fragment {
 
         loadPlansInFragment();
 
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println("You are here");
+                    currentPlan = db.collection()
 
-                selectedPlan = (Plan)parent.getAdapter().getItem(position);
-                Intent intent = new Intent(getContext(), LogExercises.class);
-                intent.putExtra("Example", selectedPlan);
 
-                startActivity(intent);
+                    selectedPlan = (Plan)parent.getAdapter().getItem(position);
+                    planList.remove(selectedPlan);
+                    deleteData(selectedPlan.getTitle());
+
+                PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, planList);
+                listView.setAdapter(planAdapter);
+
+
+                    selectedPlan = (Plan)parent.getAdapter().getItem(position - 1);
+                    Intent intent = new Intent(getContext(), LogExercises.class);
+                    intent.putExtra("Example", selectedPlan);
+
+                    //startActivity(intent);
+
+
+
+
+
 
 
             }
@@ -123,10 +145,34 @@ public class PlanListFragment extends Fragment {
 
     }
 
+    private void deleteData(String title) {
+        db.collection("users")
+                .document(currentUser)
+                .collection("plans")
+                .document("(document.documentID)")
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        System.out.println("DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        System.out.println("Error deleting document " + e);
+                    }
+                });
+
+    }
+
     public void setPlanList (ArrayList<Plan> arrayList) {
         this.planList = arrayList;
 
     }
+
+
 
 
 }

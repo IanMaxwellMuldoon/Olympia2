@@ -7,7 +7,6 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -34,7 +33,6 @@ public class WorkoutPlanList extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String currentUser;
-    private String docName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,13 +89,13 @@ public class WorkoutPlanList extends AppCompatActivity {
                                 // plan helper class to parse the data
                                 WorkoutPlanDataModal dataModal = d.toObject(WorkoutPlanDataModal.class);
                                 // Get name of firestore doc to be sent to WorkoutPlanHistoryExerciseList activity
-                                docName = d.getId();
+                                dataModal.setDocName(d.getId());
                                 // Store the data received from the database into our array list
                                 planDataModalArrayList.add(dataModal);
                             } // End of for loop
 
                             // Pass the array list to the workout plan adapter class
-                            WorkoutPlanAdapter adapter = new WorkoutPlanAdapter(WorkoutPlanList.this, planDataModalArrayList, docName);
+                            WorkoutPlanAdapter adapter = new WorkoutPlanAdapter(WorkoutPlanList.this, planDataModalArrayList);
                             // Set the workout plan adapter to our list view for displaying the CardViews
                             planListView.setAdapter(adapter);
                         } else {

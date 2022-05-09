@@ -2,7 +2,6 @@ package com.example.olympia.ViewHistory.WorkoutPlanHistory;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +17,11 @@ import java.util.ArrayList;
 
 public class WorkoutPlanAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
     Context context;
-    private String docName;
 
     // constructor for our list view adapter.
-    public WorkoutPlanAdapter(@NonNull Context context, ArrayList<WorkoutPlanDataModal> dataModalArrayList, String docName) {
+    public WorkoutPlanAdapter(@NonNull Context context, ArrayList<WorkoutPlanDataModal> dataModalArrayList) {
         super(context, 0, dataModalArrayList);
         this.context = context;
-        this.docName = docName;
     }
 
     @NonNull
@@ -62,7 +59,7 @@ public class WorkoutPlanAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
                 // Get intent and send planName & docName to be used in the linked activity
                 Intent intent = new Intent(getContext(), WorkoutPlanHistoryExerciseList.class);
                 intent.putExtra("planName", dataModal.getPlanName());
-                intent.putExtra("docName", docName);
+                intent.putExtra("docName", dataModal.getDocName());
 
                 context.startActivity(intent);
             }

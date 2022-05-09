@@ -129,7 +129,7 @@ public class AddExercises extends AppCompatActivity {
 
                 intent.putExtra("exerciseData", exercise);
 
-                startActivity(intent); 
+                startActivity(intent);
 
 
 

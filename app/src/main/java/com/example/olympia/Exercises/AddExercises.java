@@ -7,12 +7,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.olympia.R;
 
@@ -29,11 +31,6 @@ public class AddExercises extends AppCompatActivity {
     private int numReps;
     private int lbs;
     private NewPlan newPlan;
-
-
-
-
-
 
 
     @Override
@@ -60,7 +57,8 @@ public class AddExercises extends AppCompatActivity {
         exerciseName.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
+                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+
 
                     exerciseName.clearFocus();
                     exerciseName.requestFocus(exerciseName.FOCUS_DOWN);
@@ -75,7 +73,7 @@ public class AddExercises extends AppCompatActivity {
         numOfSets.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
+                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                     numOfSets.clearFocus();
                     numOfSets.requestFocus(numOfSets.FOCUS_DOWN);
 
@@ -89,7 +87,7 @@ public class AddExercises extends AppCompatActivity {
         numOfReps.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
+                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                     numOfReps.clearFocus();
                     numOfReps.requestFocus(numOfReps.FOCUS_DOWN);
 
@@ -103,7 +101,7 @@ public class AddExercises extends AppCompatActivity {
         weight.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
+                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                     weight.clearFocus();
                     weight.requestFocus(weight.FOCUS_DOWN);
 
@@ -117,34 +115,63 @@ public class AddExercises extends AppCompatActivity {
         saveExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Save Exercise button clicked");
-                name = exerciseName.getText().toString();
-                numSets = Integer.parseInt(numOfSets.getText().toString());
-                numReps = Integer.parseInt(numOfReps.getText().toString());
-                lbs = Integer.parseInt(weight.getText().toString());
-
-                Intent intent = new Intent(AddExercises.this, NewPlan.class);
-                Exercise exercise = new Exercise(name, numSets, numReps, lbs);
-                System.out.println("Exercise object is being loaded in AddExercises.java");
-
-                intent.putExtra("exerciseData", exercise);
-
-                startActivity(intent);
 
 
+                if (!TextUtils.isEmpty(exerciseName.getText().toString())) {
+                    name = exerciseName.getText().toString();
+
+                } else {
+                    Toast.makeText(AddExercises.this, "Please enter in a name of the exercise", Toast.LENGTH_SHORT).show();
+                }
+
+
+                if (!TextUtils.isEmpty(numOfSets.getText().toString())) {
+                    numSets = Integer.parseInt(numOfSets.getText().toString());
+
+
+                } else {
+                    Toast.makeText(AddExercises.this, "Please enter in the desired amount of sets", Toast.LENGTH_SHORT).show();
+
+                }
+
+                if (!TextUtils.isEmpty(numOfReps.getText().toString())) {
+                    numReps = Integer.parseInt(numOfReps.getText().toString());
+
+                } else {
+                    Toast.makeText(AddExercises.this, "Please enter in the desired amount of reps", Toast.LENGTH_SHORT).show();
+
+                }
+
+                if (!TextUtils.isEmpty(numOfReps.getText().toString())) {
+                    lbs = Integer.parseInt(weight.getText().toString());
+
+
+                } else {
+                    Toast.makeText(AddExercises.this, "Please enter in the desired amount of lbs", Toast.LENGTH_SHORT).show();
+                }
+
+                if(!TextUtils.isEmpty(exerciseName.getText().toString()) && !TextUtils.isEmpty(numOfSets.getText().toString())
+                        && !TextUtils.isEmpty(numOfReps.getText().toString()) &&
+                !TextUtils.isEmpty(numOfReps.getText().toString()) && !TextUtils.isEmpty(numOfReps.getText().toString())) {
+                    Exercise exercise = new Exercise(name, numSets, numReps, lbs);
+                    Intent intent = new Intent(AddExercises.this, NewPlan.class);
+                    intent.putExtra("exerciseData", exercise);
+                    startActivity(intent);
+
+                }
 
             }
         });
 
 
-
-
-
-
-
     }
 
+    private boolean isEmpty(EditText etText) {
+        if (etText.getText().toString().trim().length() > 0)
+            return false;
 
+        return true;
+    }
 
 
 }

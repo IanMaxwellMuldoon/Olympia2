@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.olympia.Exercises.AddExercise.ExerciseSelectionList;
 import com.example.olympia.R;
@@ -21,7 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class NewPlan extends AppCompatActivity  {
+public class NewPlan extends AppCompatActivity {
     Button addExerciseButton;
     Button doneButton;
     Exercise exercise;
@@ -51,13 +52,11 @@ public class NewPlan extends AppCompatActivity  {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
-
         try {
             exercise = getIntent().getParcelableExtra("exerciseData");
 
 
-            if(exercise != null) {
+            if (exercise != null) {
                 System.out.println("Exercise is loaded");
                 System.out.println(exercise.getTitle());
                 exerciseList.add(exercise);
@@ -67,7 +66,6 @@ public class NewPlan extends AppCompatActivity  {
             } else {
                 System.out.println("Exercise is a null object");
             }
-
 
 
         } catch (Exception e) {
@@ -80,7 +78,7 @@ public class NewPlan extends AppCompatActivity  {
         planName.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
 
                     planName.clearFocus();
                     planName.requestFocus();
@@ -105,16 +103,30 @@ public class NewPlan extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 name = planName.getText().toString();
-                Plan plan = new Plan(name, exerciseList);
 
 
+                if (!name.isEmpty() && !exerciseList.isEmpty()) {
+                    System.out.println(exerciseList.get(0).getTitle());
+                    Plan plan = new Plan(name, exerciseList);
+                    firebaseFirestore.collection("users").document(user.getUid()).collection("plans").add(plan);
+                    Intent intent = new Intent(NewPlan.this, PlanMenu.class);
+                    System.out.println("New workout plan is being loaded in NewPlan.java");
+                    intent.putExtra("planData", plan);
+                    startActivity(intent);
+                    exerciseList.clear();
+
+                } else {
+                    if (name.isEmpty()) {
+                        Toast.makeText(NewPlan.this, "Please enter a plan title", Toast.LENGTH_SHORT).show();
+                    }
+
+                    if (exerciseList.isEmpty()) {
+                        Toast.makeText(NewPlan.this, "Please add exercises to plan", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
 
 
-                firebaseFirestore.collection("users").document(user.getUid()).collection("plans").add(plan);
-                Intent intent = new Intent(NewPlan.this, PlanMenu.class);
-                System.out.println("New workout plan is being loaded in NewPlan.java");
-                intent.putExtra("planData", plan);
-                startActivity(intent);
             }
         });
 
@@ -126,6 +138,7 @@ public class NewPlan extends AppCompatActivity  {
         }
 
     }
+
     public Exercise getExercise() {
         return exercise;
     }

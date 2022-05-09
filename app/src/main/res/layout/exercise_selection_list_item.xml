@@ -9,6 +9,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
         android:text="Exercise Name"
-        android:textSize="20dp" />
+        android:textSize="22sp"
+        android:textColor="@color/black"/>
 
 </LinearLayout>

@@ -8,20 +8,17 @@
     >
 
     <include
-        android:id = "@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:text="Plans"
-        android:textSize="40dp"
+        android:textColor="@color/black"
+        android:textSize="32dp"
         app:layout_constraintBottom_toTopOf="@+id/PlanListid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +30,6 @@
         android:name="com.example.olympia.Exercises.PlanListFragment"
         android:layout_width="0dp"
         android:layout_height="440dp"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/idNewPlanBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,12 +39,12 @@
 
     <Button
         android:id="@+id/idNewPlanBtn"
-        android:layout_width="209dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="120dp"
+        android:layout_gravity="center"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginEnd="126dp"
         android:text="New Plan"
         app:layout_constraintBottom_toBottomOf="parent"

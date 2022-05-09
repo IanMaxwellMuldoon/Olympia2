@@ -42,11 +42,18 @@ public class WorkoutPlanAdapter extends ArrayAdapter<WorkoutPlanDataModal> {
 
         // initializing our UI components of list view item.
         TextView planName = listitemView.findViewById(R.id.planName);
-        TextView date = listitemView.findViewById(R.id.date);
+        TextView date = listitemView.findViewById(R.id.planHistoryDate);
+        TextView time = listitemView.findViewById(R.id.planHistoryTime);
+
+        // Adjust datetime object into two strings
+        String[] datetimeArr = dataModal.getTime().toString().split(" ");
+        String splitDate = datetimeArr[0];
+        String splitTime = datetimeArr[1];
 
         // Set the TextViews with the data grabbed from Firestore
         planName.setText(dataModal.getPlanName());
-        date.setText(dataModal.getTime());
+        date.setText(splitDate);
+        time.setText(splitTime);
 
         // Click listener for each workout plan in the list view.
         listitemView.setOnClickListener(new View.OnClickListener() {

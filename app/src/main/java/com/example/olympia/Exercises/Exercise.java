@@ -13,24 +13,25 @@ public class Exercise implements Parcelable {
     private int progressSetCount;
 
 
-    public Exercise(){
-    title = null;
-    numSets = 0;
-    numReps = 0;
-    weight = 0;
+    public Exercise() {
+        title = null;
+        numSets = 0;
+        numReps = 0;
+        weight = 0;
 
-       progressSetCount = 0;
+        progressSetCount = 0;
 
     }
 
-    public Exercise(String title, int numSets, int numReps, int weight){
+    public Exercise(String title, int numSets, int numReps, int weight) {
         this.title = title;
         this.numSets = numSets;
         this.numReps = numReps;
         this.weight = weight;
         progressSetCount = 0;
     }
-    public Exercise(String title){
+
+    public Exercise(String title) {
         this.title = title;
     }
 
@@ -62,6 +63,7 @@ public class Exercise implements Parcelable {
 
         this.title = title;
     }
+
     public int getProgressCount() {
         return progressSetCount;
     }
@@ -69,10 +71,12 @@ public class Exercise implements Parcelable {
     public void setProgressCount(int progressCount) {
         this.progressSetCount = progressCount;
     }
-    public void incrementProgressCount(){
+
+    public void incrementProgressCount() {
         progressSetCount++;
     }
-    public void decrementProgressCount(){
+
+    public void decrementProgressCount() {
         progressSetCount--;
     }
 
@@ -105,7 +109,8 @@ public class Exercise implements Parcelable {
 
         this.weight = weight;
     }
-    public String getRepSetWeight(){
+
+    public String getRepSetWeight() {
         return getNumSets() + "x" + getNumReps() + " " + getWeight() + "lbs";
     }
 
@@ -113,7 +118,7 @@ public class Exercise implements Parcelable {
 
 
     }
-   // public Fragment get
+    // public Fragment get
 
     @Override
     public int describeContents() {

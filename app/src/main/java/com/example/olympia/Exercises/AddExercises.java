@@ -124,6 +124,7 @@ public class AddExercises extends AppCompatActivity {
                     Toast.makeText(AddExercises.this, "Please enter in a name of the exercise", Toast.LENGTH_SHORT).show();
                 }
 
+
                 if (!TextUtils.isEmpty(numOfSets.getText().toString())) {
                     numSets = Integer.parseInt(numOfSets.getText().toString());
 

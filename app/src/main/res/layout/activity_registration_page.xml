@@ -94,7 +94,7 @@
 
     <Button
         android:id="@+id/idBtnRegister"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/Rgoal"
         android:layout_centerHorizontal="true"

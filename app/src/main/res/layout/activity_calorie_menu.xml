@@ -29,31 +29,31 @@
 
     <TextView
         android:id="@+id/textDateDisplay"
-        android:layout_width="374dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="19dp"
+        android:layout_below="@id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="567dp"
-        android:text="TextView"
         android:fontFamily="sans-serif"
+        android:text="TextView"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="40sp" />
+        android:textSize="32dp" />
 
     <Button
         android:id="@+id/breakfastButton"
-        android:layout_width="218dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
+        android:layout_marginTop="200dp"
         android:text="Breakfast" />
 
     <Button
         android:id="@+id/lunchButton"
         android:layout_below="@id/breakfastButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -62,7 +62,7 @@
     <Button
         android:id="@+id/dinnerButton"
         android:layout_below="@id/lunchButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -71,7 +71,7 @@
     <Button
         android:id="@+id/snacksButton"
         android:layout_below="@id/dinnerButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -80,7 +80,7 @@
     <Button
         android:id="@+id/drinksButton"
         android:layout_below="@id/snacksButton"
-        android:layout_width="218dp"
+        android:layout_width="200dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

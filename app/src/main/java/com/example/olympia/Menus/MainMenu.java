@@ -12,6 +12,7 @@ import com.example.olympia.Exercises.PlanMenu;
 import com.example.olympia.R;
 import com.example.olympia.ViewHistory.ViewHistoryActivity;
 import com.example.olympia.ViewHistory.WorkoutPlanHistory.WorkoutPlanList;
+import com.example.olympia.ViewHistory.mealHistory;
 import com.example.olympia.WorkoutRoutines.WorkoutRoutines.MainActivityWorkoutsSelect;
 
 public class MainMenu extends AppCompatActivity {
@@ -52,7 +53,7 @@ public class MainMenu extends AppCompatActivity {
         viewHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, ViewHistoryActivity.class);
+                Intent intent = new Intent(MainMenu.this, mealHistory.class);
                 startActivity(intent);
             }
         });

@@ -48,8 +48,6 @@ public class PlanListFragment extends Fragment {
     private boolean delete = false;
 
 
-
-
     public PlanListFragment() {
         // Required empty public constructor
     }
@@ -61,10 +59,6 @@ public class PlanListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        System.out.println("I am in side of fraglist on create");
-
-
 
         // Get the instance of our Firestore database
         mAuth = FirebaseAuth.getInstance();
@@ -88,14 +82,13 @@ public class PlanListFragment extends Fragment {
         loadPlansInFragment();
 
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, planList);
                 listView.setAdapter(planAdapter);
-                selectedPlan = (Plan)parent.getAdapter().getItem(position);
+                selectedPlan = (Plan) parent.getAdapter().getItem(position);
                 Intent intent = new Intent(getContext(), LogExercises.class);
                 intent.putExtra("Example", selectedPlan);
                 startActivity(intent);
@@ -107,7 +100,7 @@ public class PlanListFragment extends Fragment {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                selectedPlan = (Plan)parent.getAdapter().getItem(position);
+                selectedPlan = (Plan) parent.getAdapter().getItem(position);
                 deleteDocument(position);
                 PlanAdapter planAdapter = new PlanAdapter(getActivity().getApplicationContext(), R.layout.plan_item, planList);
                 listView.setAdapter(planAdapter);
@@ -116,12 +109,10 @@ public class PlanListFragment extends Fragment {
         });
 
 
-
         return view;
     }
 
     private void loadPlansInFragment() {
-        System.out.println("You are inside loadsPlanInFragment");
         db.collection("users")
                 .document(currentUser)
                 .collection("plans")
@@ -129,7 +120,7 @@ public class PlanListFragment extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot documentSnapshots) {
-                        if(documentSnapshots.isEmpty()) {
+                        if (documentSnapshots.isEmpty()) {
                             System.out.println("List empty");
                             return;
                         } else {
@@ -155,14 +146,13 @@ public class PlanListFragment extends Fragment {
     }
 
 
-    public void setPlanList (ArrayList<Plan> arrayList) {
+    public void setPlanList(ArrayList<Plan> arrayList) {
         this.planList = arrayList;
 
     }
 
 
-
-    public void getDocumentIds () {
+    public void getDocumentIds() {
         db.collection("users")
                 .document(currentUser)
                 .collection("plans")
@@ -172,7 +162,6 @@ public class PlanListFragment extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot document : task.getResult()) {
-                                System.out.println(document.getId() + " => " + document.getData());
                                 documentIds.add(document.getId());
                             }
                         } else {
@@ -191,7 +180,7 @@ public class PlanListFragment extends Fragment {
         planRef.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()) {
+                if (task.isSuccessful()) {
                     System.out.println("Deleted plan");
                 } else {
                     System.out.println("Failed");
@@ -204,8 +193,6 @@ public class PlanListFragment extends Fragment {
 
 
     }
-
-
 
 
 }

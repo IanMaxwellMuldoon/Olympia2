@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bodyPartExerciseLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Exercises.AddExercise.ExerciseSelectionList">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <!-- Body part TextView -->
+    <TextView
+        android:id="@+id/bodyPartTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Add Exercise"
+        android:textColor="@color/black"
+        android:textSize="32sp" />
+
+    <!-- Number of Servers Layout -->
+    <LinearLayout
+        android:id="@+id/selectBodyGroupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bodyPartTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal">
+
+        <!-- Num Servers TextView -->
+        <TextView
+            android:id="@+id/bodyGroupTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Body Group"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+        <!-- Num Servers Spinner -->
+        <Spinner
+            android:id="@+id/bodyPartSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:textAlignment="textEnd" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/exerciseSelectionListCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectBodyGroupLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
+
+        <ListView
+            android:id="@+id/bodyPartExerciseListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/addCustomExerciseBtn"
+            android:layout_below="@id/bodyPartSpinner"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="15dp"
+            android:divider="@null"
+            android:dividerHeight="0dp" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/addCustomExerciseBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:text="Add Custom Exercise" />
+</RelativeLayout>

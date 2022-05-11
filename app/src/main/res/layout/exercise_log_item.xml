@@ -1,41 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
         android:layout_height="102dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        app:cardBackgroundColor="#12d4e6"
-        app:cardCornerRadius="20dp">
+        android:layout_marginBottom="2dp"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
 
-        <TextView
-            android:id="@+id/idLogExerciseName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <FrameLayout
+            android:layout_width="200dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="TextView"
-            android:textSize="25dp" />
+            android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/idSetsnReps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/idLogExerciseName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:autoSizeMaxTextSize="165sp"
+                android:autoSizeTextType="uniform"
+                android:text="TextView"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="120dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:text="TextView" />
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/idSetsnReps"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autoSizeMaxTextSize="80sp"
+                android:autoSizeTextType="uniform"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/idExerciseLogFrame"
             android:name="com.example.olympia.Exercises.LogExercise.FragmentLogButtonList"
-            android:layout_width="244dp"
+            android:layout_width="325dp"
             android:layout_height="45dp"
             android:layout_gravity="bottom"
             android:layout_marginLeft="10dp"

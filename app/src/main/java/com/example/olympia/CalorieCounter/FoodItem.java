@@ -25,6 +25,7 @@ public class FoodItem {
     private int cholesterol;
     private String brand;
     private String time;
+    private String userid, date;
 
 
     //empty constructor
@@ -114,6 +115,13 @@ public class FoodItem {
     public void setTime(String time) {
         this.time = time;
     }
+    public String getDate() { return date; }
+
+    public void setDate(String date) {this.date = date; }
+
+    public String getUserid() { return userid; }
+
+    public void setUserid(String userid) {this.userid = userid; }
 
     @Override
     public String toString(){

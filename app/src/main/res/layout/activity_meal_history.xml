@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewHistory.mealHistory">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/dateLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/before"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_gravity="start"
+            android:background="@android:color/transparent"
+            android:src="@drawable/outline_arrow_back_black_24dp" />
+
+        <TextView
+            android:id="@+id/yesterday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="5dp"
+            android:fontFamily="sans-serif"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="32dp" />
+
+        <ImageButton
+            android:id="@+id/after"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_gravity="end"
+            android:background="@android:color/transparent"
+            android:scaleX="-1"
+            android:src="@drawable/outline_arrow_back_black_24dp" />
+    </LinearLayout>
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/food1"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_below="@id/before"-->
+    <!--        android:text="Test"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textColor="#000000"-->
+    <!--        android:layout_marginTop="30dp"-->
+    <!--         />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/fatvalue1"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_below="@id/food1"-->
+    <!--        android:text="Test"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textColor="#000000"-->
+    <!--        android:layout_marginTop="0dp"-->
+    <!--        />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/fatvalue2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_below="@id/fatvalue1"-->
+    <!--        android:text="Test"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textColor="#000000"-->
+    <!--        android:layout_marginTop="0dp"-->
+    <!--        />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="564dp"
+        android:layout_below="@id/dateLinearLayout"
+        android:layout_marginTop="10dp" />
+
+
+</RelativeLayout>

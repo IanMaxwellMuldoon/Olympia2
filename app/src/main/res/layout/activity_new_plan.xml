@@ -5,38 +5,106 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Exercises.NewPlan">
+
     <include
-        android:id = "@+id/toolbar"
-        layout="@layout/toolbar"
-        />
-    <fragment
-        android:id="@+id/idExerciseFragment"
-        android:name="com.example.olympia.Exercises.ExerciseListFragment"
-        android:layout_marginTop="90dp"
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <!-- New Plan Title -->
+    <TextView
+        android:id="@+id/createNewPlanTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Create New Plan"
+        android:textColor="@color/black"
+        android:textSize="32sp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/createNewPlanCardView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-
-        />
-    <Button
-        android:layout_width="209dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/createNewPlanTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp">
+
+            <!-- Plan Name Layout -->
+            <LinearLayout
+                android:id="@+id/planNameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Plan Name TextView -->
+                <TextView
+                    android:id="@+id/addExerciseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Plan Name: "
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <!-- Input Plan Name -->
+                <EditText
+                    android:id="@+id/idPlanName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <!-- Exercises TextView -->
+            <TextView
+                android:id="@+id/newPlanExerciseListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/planNameLayout"
+                android:layout_marginTop="10dp"
+                android:text="Exercises: "
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="22sp" />
+
+            <!-- Exercises currently in the plan  -->
+            <fragment
+                android:id="@+id/idExerciseFragmentPH"
+                android:name="com.example.olympia.Exercises.ExerciseListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/newPlanExerciseListTextView"
+                android:layout_marginTop="20dp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
         android:id="@+id/idAddExerciseButton"
-        android:layout_below="@id/idExerciseFragment"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Add Exercise"
-
-        />
-    <Button
-        android:layout_width="209dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/idDoneButton"
-        android:layout_below="@id/idAddExerciseButton"
+        android:layout_above="@+id/idDoneButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Done"
+        android:text="Add Exercise" />
 
-        />
-
-
+    <Button
+        android:id="@+id/idDoneButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Done" />
 </RelativeLayout>

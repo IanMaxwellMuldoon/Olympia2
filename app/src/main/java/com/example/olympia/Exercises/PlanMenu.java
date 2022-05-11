@@ -12,14 +12,23 @@ import android.widget.Button;
 import com.example.olympia.CalorieCounter.AddFood;
 import com.example.olympia.CalorieCounter.FoodItem;
 import com.example.olympia.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 public class PlanMenu extends AppCompatActivity {
-    public ArrayList<Plan> plans;
+
+    PlanListFragment planListFragment;
+    private boolean delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        planListFragment = new PlanListFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("delete", getDelete());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_menu);
 
@@ -30,8 +39,6 @@ public class PlanMenu extends AppCompatActivity {
         getSupportActionBar().setTitle("Create Plan");
 
         Button newPlanBtn = (Button)findViewById(R.id.idNewPlanBtn);
-
-
         newPlanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,18 +47,26 @@ public class PlanMenu extends AppCompatActivity {
             }
         });
 
-        Button planButton = (Button)findViewById(R.id.idPlanButton);
-
-
-       /* planButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PlanMenu.this, CurrentPlan.class);
-                startActivity(intent);
-
-            }
-        });*/
 
 
     }
+
+
+    public void setDelete (boolean bool) {
+        delete = bool;
+    }
+
+    public boolean getDelete() {
+        return delete;
+
+    }
+
+
+
+
+
+
+
+
+
 }
